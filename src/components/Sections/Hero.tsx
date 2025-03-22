@@ -30,14 +30,14 @@ const Hero: React.FC = () => {
       className="relative min-h-screen flex items-center pt-20 overflow-hidden"
     >
       {/* Background animation elements - kept small and within the container */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-40 h-40 bg-purple-light/10 rounded-full blur-3xl parallax" data-speed="-0.03"></div>
-        <div className="absolute bottom-40 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl parallax" data-speed="0.05"></div>
-        <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-accent/20 rounded-full blur-3xl parallax" data-speed="-0.08"></div>
+      <div className="absolute inset-0 overflow-hidden -z-10">
+        <div className="absolute top-20 left-10 w-40 h-40 bg-purple-light/10 rounded-full blur-3xl parallax" data-speed="-0.03" style={{ zIndex: -1 }}></div>
+        <div className="absolute bottom-40 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl parallax" data-speed="0.05" style={{ zIndex: -1 }}></div>
+        <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-accent/20 rounded-full blur-3xl parallax" data-speed="-0.08" style={{ zIndex: -1 }}></div>
       </div>
 
-      <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-6 relative z-10">
-        <div className="flex flex-col justify-center animate-fade-in">
+      <div className="container-custom grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 relative z-10">
+        <div className="flex flex-col justify-center animate-fade-in lg:pt-16">
           <h1 className="font-bold leading-tight mb-6">
             <span className="text-gradient">Масштабирование бизнеса</span> с ИИ
           </h1>
@@ -54,22 +54,23 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-center lg:justify-end relative">
-          <div className="relative w-full max-w-lg">
+        <div className="flex items-center justify-center lg:justify-end relative z-[100]">
+          <div className="relative w-full max-w-lg h-[500px] lg:h-[600px] z-[100]">
             {/* Main CRM image */}
             <AnimatedImage
-              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2070&auto=format&fit=crop"
-              alt="CRM система с ИИ"
-              className="w-full h-auto rounded-xl shadow-2xl border border-white/10"
+              src="/image.png"
+              alt="Главное изображение продукта"
+              className="w-full h-full object-cover rounded-xl shadow-2xl border border-white/10 opacity-100"
               animation="scale"
+              style={{ zIndex: 100 }}
             />
             
             {/* Decorative elements - positioned relative to parent */}
-            <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-accent rounded-lg animate-float" style={{ animationDelay: '0.5s' }}></div>
-            <div className="absolute -top-6 -right-6 w-16 h-16 bg-purple-light/30 backdrop-blur-xl rounded-lg animate-float" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-accent/50 rounded-lg animate-float z-10" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute -top-6 -right-6 w-16 h-16 bg-purple-light/20 backdrop-blur-xl rounded-lg animate-float z-10" style={{ animationDelay: '1s' }}></div>
             
             {/* Animated stats card */}
-            <div className="absolute -bottom-8 right-8 glass-card p-4 animate-float" style={{ animationDelay: '1.5s' }}>
+            <div className="absolute -bottom-8 right-8 glass-card p-4 animate-float z-20" style={{ animationDelay: '1.5s' }}>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
