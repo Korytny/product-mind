@@ -23,7 +23,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div className="glass-card overflow-hidden transition-all duration-500 hover:shadow-xl animate-on-scroll">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="overflow-hidden h-64 md:h-auto">
+        <div className="overflow-visible h-64 md:h-auto relative z-50">
           <AnimatedImage
             src={image}
             alt={title}
@@ -49,21 +49,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
 const projectsData = [
   {
-    image: "https://images.unsplash.com/photo-1581276879432-15e50529f34b?q=80&w=2070&auto=format&fit=crop",
+    image: "/images/chat.png",
     title: "Умный чат-бот для вашего бизнеса",
     subtitle: "Автоматизация поддержки клиентов и увеличение конверсии",
     description: "Чат-бот, который решает задачи клиентов 24/7, интегрируется с вашей CRM и обучается на основе данных",
     icon: <MessageSquare className="text-accent h-6 w-6" />
   },
   {
-    image: "https://images.unsplash.com/photo-1556656793-08538906a9f8?q=80&w=2070&auto=format&fit=crop",
+    image: "/images/mob.jpg",
     title: "Мобильное приложение для вашего бизнеса",
     subtitle: "Удобство для клиентов и рост продаж",
     description: "Разработка мобильных приложений под iOS и Android с использованием ИИ для персонализации контента",
     icon: <Smartphone className="text-accent h-6 w-6" />
   },
   {
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    image: "/images/admin.png",
     title: "Управление бизнесом через админку",
     subtitle: "Упростите управление данными и процессами",
     description: "Создание мощных админ-панелей для управления бизнес-процессами и аналитикой",

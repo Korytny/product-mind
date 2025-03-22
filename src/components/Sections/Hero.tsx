@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
         <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-accent/20 rounded-full blur-3xl parallax" data-speed="-0.08" style={{ zIndex: -1 }}></div>
       </div>
 
-      <div className="container-custom grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 relative z-10">
+      <div className="container-custom grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-16 relative z-10">
         <div className="flex flex-col justify-center animate-fade-in lg:pt-16">
           <h1 className="font-bold leading-tight mb-6">
             <span className="text-gradient">Масштабирование бизнеса</span> с ИИ
@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
         </div>
 
         <div className="flex items-center justify-center lg:justify-end relative z-[100]">
-          <div className="relative w-full max-w-lg h-[500px] lg:h-[600px] z-[100]">
+          <div className="relative w-full max-w-[130%] h-auto z-[100] ml-8" style={{ aspectRatio: '1.3' }}>
             {/* Main CRM image */}
             <AnimatedImage
               src="/image.png"
@@ -65,9 +65,34 @@ const Hero: React.FC = () => {
               style={{ zIndex: 100 }}
             />
             
-            {/* Decorative elements - positioned relative to parent */}
-            <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-accent/50 rounded-lg animate-float z-10" style={{ animationDelay: '0.5s' }}></div>
-            <div className="absolute -top-6 -right-6 w-16 h-16 bg-purple-light/20 backdrop-blur-xl rounded-lg animate-float z-10" style={{ animationDelay: '1s' }}></div>
+            {/* Decorative elements with stats */}
+            <div className="absolute -bottom-6 -left-6 glass-card p-4 animate-float z-10" style={{ animationDelay: '0.5s' }}>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm text-white">Скорость</p>
+                  <p className="text-lg font-semibold text-white">+300%</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="absolute -top-6 -right-6 glass-card p-4 animate-float z-10" style={{ animationDelay: '1s' }}>
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 bg-purple-light rounded-full flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm text-white">Качество</p>
+                  <p className="text-lg font-semibold text-white">+500%</p>
+                </div>
+              </div>
+            </div>
             
             {/* Animated stats card */}
             <div className="absolute -bottom-8 right-8 glass-card p-4 animate-float z-20" style={{ animationDelay: '1.5s' }}>

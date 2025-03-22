@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
     >
       <div className="container-custom mx-auto flex items-center justify-between py-4">
         <a href="#" className="flex items-center">
-          <span className="text-xl font-bold text-white">AI Business</span>
+          <span className="text-xl font-bold text-white">Product Mind</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
               {item.label}
             </a>
           ))}
-          <a href="#contact" className="btn-primary ml-4">
+          <a href="#contact" className="btn-primary ml-12">
             Начать проект
           </a>
         </nav>

@@ -77,7 +77,7 @@ const AnimatedImage: React.FC<AnimatedImageProps> = ({
       ref={imgRef}
       src={src}
       alt={alt}
-      className={`opacity-0 ${getAnimationClass()} ${className}`}
+      className={`relative z-20 opacity-100 ${getAnimationClass()} ${className}`}
       loading="lazy"
       onError={handleError}
     />
