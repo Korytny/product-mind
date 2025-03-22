@@ -147,4 +147,20 @@
   .glow {
     box-shadow: 0 0 15px theme('colors.accent.DEFAULT'), 0 0 30px rgba(125, 101, 236, 0.2);
   }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
 }

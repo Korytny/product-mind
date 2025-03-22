@@ -32,10 +32,10 @@ const Contact: React.FC = () => {
           <h2 className="section-title inline-block pb-3">Свяжитесь с нами</h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="animate-on-scroll">
-            <div className="glass-card p-8">
-              <div className="space-y-8">
+            <div className="glass-card p-6 md:p-8">
+              <div className="space-y-6 md:space-y-8">
                 {contactInfo.map((item, index) => (
                   <a 
                     key={index}
@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
                 ))}
               </div>
 
-              <div className="mt-12">
+              <div className="mt-8 md:mt-12">
                 <h4 className="text-lg font-semibold mb-4">Мы в социальных сетях</h4>
                 <div className="flex space-x-4">
                   <a 

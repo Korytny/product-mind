@@ -29,11 +29,11 @@ const Hero: React.FC = () => {
       ref={heroRef}
       className="relative min-h-screen flex items-center pt-20 overflow-hidden"
     >
-      {/* Background animation elements */}
+      {/* Background animation elements - kept small and within the container */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-purple-light/10 rounded-full blur-3xl parallax" data-speed="-0.03"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl parallax" data-speed="0.05"></div>
-        <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-accent/20 rounded-full blur-3xl parallax" data-speed="-0.08"></div>
+        <div className="absolute top-20 left-10 w-40 h-40 bg-purple-light/10 rounded-full blur-3xl parallax" data-speed="-0.03"></div>
+        <div className="absolute bottom-40 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl parallax" data-speed="0.05"></div>
+        <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-accent/20 rounded-full blur-3xl parallax" data-speed="-0.08"></div>
       </div>
 
       <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-6 relative z-10">
@@ -58,13 +58,13 @@ const Hero: React.FC = () => {
           <div className="relative w-full max-w-lg">
             {/* Main CRM image */}
             <AnimatedImage
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2070&auto=format&fit=crop"
               alt="CRM система с ИИ"
               className="w-full h-auto rounded-xl shadow-2xl border border-white/10"
               animation="scale"
             />
             
-            {/* Decorative elements */}
+            {/* Decorative elements - positioned relative to parent */}
             <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-accent rounded-lg animate-float" style={{ animationDelay: '0.5s' }}></div>
             <div className="absolute -top-6 -right-6 w-16 h-16 bg-purple-light/30 backdrop-blur-xl rounded-lg animate-float" style={{ animationDelay: '1s' }}></div>
             

@@ -23,11 +23,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div className="glass-card overflow-hidden transition-all duration-500 hover:shadow-xl animate-on-scroll">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="overflow-hidden">
+        <div className="overflow-hidden h-64 md:h-auto">
           <AnimatedImage
             src={image}
             alt={title}
-            className="w-full h-64 md:h-full object-cover transition-transform duration-700 hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
             animation={index % 2 === 0 ? 'slide-in' : 'slide-in-right'}
           />
         </div>

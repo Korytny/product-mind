@@ -31,11 +31,11 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
           <p className="text-accent mb-3 font-medium">{subtitle}</p>
           <p className="text-gray-300">{description}</p>
         </div>
-        <div className="overflow-hidden order-1 md:order-2">
+        <div className="overflow-hidden h-64 md:h-auto order-1 md:order-2">
           <AnimatedImage
             src={image}
             alt={title}
-            className="w-full h-64 md:h-full object-cover transition-transform duration-700 hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
             animation={index % 2 === 0 ? 'slide-in' : 'slide-in-right'}
           />
         </div>

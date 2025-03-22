@@ -66,6 +66,12 @@ const AnimatedImage: React.FC<AnimatedImageProps> = ({
     }
   };
 
+  // Add a fallback in case the image fails to load
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.target as HTMLImageElement;
+    target.src = 'https://via.placeholder.com/800x600?text=Изображение+не+найдено';
+  };
+
   return (
     <img
       ref={imgRef}
@@ -73,6 +79,7 @@ const AnimatedImage: React.FC<AnimatedImageProps> = ({
       alt={alt}
       className={`opacity-0 ${getAnimationClass()} ${className}`}
       loading="lazy"
+      onError={handleError}
     />
   );
 };
