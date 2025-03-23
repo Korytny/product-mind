@@ -7,7 +7,7 @@ interface ProjectCardProps {
   image: string;
   title: string;
   subtitle: string;
-  description: string;
+  description: string | React.ReactNode;
   icon: React.ReactNode;
   index: number;
 }
@@ -32,10 +32,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           />
         </div>
         <div className="p-6 flex flex-col justify-center">
-          <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mb-4">
-            {icon}
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
+              {icon}
+            </div>
+            <h3 className="text-xl md:text-2xl font-semibold">{title}</h3>
           </div>
-          <h3 className="text-xl md:text-2xl font-semibold mb-2">{title}</h3>
           <p className="text-accent mb-3 font-medium">{subtitle}</p>
           <p className="text-gray-300 mb-6">{description}</p>
           <a href="#contact" className="inline-flex items-center text-accent hover:text-accent-light transition-colors">
@@ -51,22 +53,46 @@ const projectsData = [
   {
     image: "/images/chat.png",
     title: "Умный чат-бот для вашего бизнеса",
-    subtitle: "Автоматизация поддержки клиентов и увеличение конверсии",
-    description: "Чат-бот, который решает задачи клиентов 24/7, интегрируется с вашей CRM и обучается на основе данных",
+    subtitle: "",
+    description: (
+      <ul className="list-disc list-inside space-y-2">
+        <li>Автоматизирует рутинные процессы</li>
+        <li>Решает задачи клиентов 24/7</li>
+        <li>Увеличивает конверсию</li>
+        <li>Интегрируется с вашей CRM</li>
+        <li>Помнит историю общения</li>
+      </ul>
+    ),
     icon: <MessageSquare className="text-accent h-6 w-6" />
   },
   {
     image: "/images/mob.jpg",
-    title: "Мобильное приложение для вашего бизнеса",
-    subtitle: "Удобство для клиентов и рост продаж",
-    description: "Разработка мобильных приложений под iOS и Android с использованием ИИ для персонализации контента",
+    title: "Мобильное приложение",
+    subtitle: "",
+    description: (
+      <ul className="list-disc list-inside space-y-2">
+        <li>Улучшает клиентский опыт</li>
+        <li>Бесплатное тестирование продуктов</li>
+        <li>Разнообразный функционал</li>
+        <li>Может работать в офлайне</li>
+        <li>Имеет доступ к данным телефона</li>
+      </ul>
+    ),
     icon: <Smartphone className="text-accent h-6 w-6" />
   },
   {
     image: "/images/admin.png",
     title: "Управление бизнесом через админку",
-    subtitle: "Упростите управление данными и процессами",
-    description: "Создание мощных админ-панелей для управления бизнес-процессами и аналитикой",
+    subtitle: "",
+    description: (
+      <ul className="list-disc list-inside space-y-2">
+        <li>Удобное управление данными и процессами</li>
+        <li>Ролевой доступ для сотрудников</li>
+        <li>Разнообразная аналитика - графики, таблицы</li>
+        <li>Интеграции с другими сервисами</li>
+        <li>Обучение и работа с ИИ инструментами</li>
+      </ul>
+    ),
     icon: <LayoutDashboard className="text-accent h-6 w-6" />
   }
 ];

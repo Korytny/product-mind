@@ -5,7 +5,7 @@ import { Menu, X } from 'lucide-react';
 const navItems = [
   { label: "Главная", href: "#hero" },
   { label: "Проекты", href: "#projects" },
-  { label: "Бизнес Примеры", href: "#business-cases" },
+  { label: "Примеры", href: "#business-cases" },
   { label: "Этапы проекта", href: "#project-stages" },
   { label: "Команда", href: "#team" },
   { label: "Отзывы", href: "#testimonials" },
