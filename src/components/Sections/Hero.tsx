@@ -60,13 +60,12 @@ const Hero: React.FC = () => {
             <AnimatedImage
               src="/image.png"
               alt="Главное изображение продукта"
-              className="w-full h-full object-cover rounded-xl shadow-2xl border border-white/10 opacity-100"
+              className="w-full h-full object-cover rounded-xl shadow-2xl border border-white/10 opacity-100 z-0"
               animation="scale"
-              style={{ zIndex: 100 }}
             />
             
             {/* Decorative elements with stats */}
-            <div className="absolute -bottom-6 -left-6 glass-card p-4 animate-float z-10" style={{ animationDelay: '0.5s' }}>
+            <div className="absolute -bottom-6 -left-6 glass-card p-4 animate-float z-20" style={{ animationDelay: '0.5s' }}>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -80,7 +79,7 @@ const Hero: React.FC = () => {
               </div>
             </div>
             
-            <div className="absolute -top-6 -right-6 glass-card p-4 animate-float z-10" style={{ animationDelay: '1s' }}>
+            <div className="absolute -top-6 -right-6 glass-card p-4 animate-float z-20" style={{ animationDelay: '1s' }}>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-purple-light rounded-full flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">

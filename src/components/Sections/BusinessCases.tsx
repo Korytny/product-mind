@@ -23,7 +23,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
   return (
     <div className="glass-card overflow-hidden animate-on-scroll">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="p-6 flex flex-col justify-center order-2 md:order-1">
+        <div className="p-6 flex flex-col justify-center order-2 md:order-1 min-h-[24rem]">
           <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mb-4">
             {icon}
           </div>
@@ -31,7 +31,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
           <p className="text-accent mb-3 font-medium">{subtitle}</p>
           <p className="text-gray-300">{description}</p>
         </div>
-        <div className="overflow-hidden h-64 md:h-auto order-1 md:order-2">
+        <div className="overflow-hidden h-96 order-1 md:order-2">
           <AnimatedImage
             src={image}
             alt={title}
