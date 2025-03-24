@@ -23,8 +23,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <div className="glass-card overflow-hidden transition-all duration-500 hover:shadow-xl animate-on-scroll">
-      <div className="grid grid-cols-1 md:grid-cols-8 gap-6">
-        <div className="overflow-visible h-64 md:h-auto relative z-50 md:col-span-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="overflow-visible h-64 md:h-auto relative z-50">
           <AnimatedImage
             src={image}
             alt={title}
@@ -32,7 +32,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             animation={index % 2 === 0 ? 'slide-in' : 'slide-in-right'}
           />
         </div>
-        <div className="p-6 flex flex-col justify-center md:col-span-5">
+        <div className="p-6 flex flex-col justify-center">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
               {icon}
