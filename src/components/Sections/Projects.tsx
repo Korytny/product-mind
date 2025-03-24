@@ -2,6 +2,7 @@
 import React from 'react';
 import { MessageSquare, Smartphone, LayoutDashboard, ArrowRight } from 'lucide-react';
 import AnimatedImage from '../UI/AnimatedImage';
+import { Link } from 'react-router-dom';
 
 interface ProjectCardProps {
   image: string;
@@ -143,9 +144,9 @@ const Projects: React.FC = () => {
         </div>
 
         <div className="mt-16 text-center animate-on-scroll">
-          <a href="#contact" className="btn-primary inline-flex items-center">
+          <Link to="/projects" className="btn-primary inline-flex items-center">
             Все проекты <ArrowRight size={16} className="ml-2" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
