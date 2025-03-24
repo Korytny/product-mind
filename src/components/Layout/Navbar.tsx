@@ -111,7 +111,16 @@ const Navbar: React.FC = () => {
               </Link>
             );
           })}
-          <Link to="/#contact" className="btn-primary ml-12">
+          <Link
+            to="/#contact"
+            className="btn-primary ml-12"
+            onClick={(e) => {
+              if (window.location.pathname === '/') {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
             Начать проект
           </Link>
         </nav>
@@ -177,9 +186,15 @@ const Navbar: React.FC = () => {
               );
             })}
             <Link
-              to="/#contact" 
+              to="/#contact"
               className="btn-primary inline-block text-center"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => {
+                setMobileMenuOpen(false);
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               Начать проект
             </Link>

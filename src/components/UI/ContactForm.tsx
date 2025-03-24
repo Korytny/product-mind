@@ -24,19 +24,35 @@ const ContactForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast.success('Ваша заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
-    });
+  
+    try {
+      const response = await fetch('http://127.0.0.1:8000/send-message', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+  
+      if (!response.ok) {
+        throw new Error('Ошибка отправки данных');
+      }
+  
+      toast.success('Ваша заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+      });
+    } catch (error) {
+      console.error('Ошибка:', error);
+      toast.error('Произошла ошибка. Попробуйте ещё раз.');
+    }
+  
     setLoading(false);
   };
+  
 
   return (
     <form onSubmit={handleSubmit} className="glass-card p-6 md:p-8 lg:p-10">
