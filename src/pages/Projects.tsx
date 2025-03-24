@@ -7,9 +7,10 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import AnimatedImage from '../components/UI/AnimatedImage';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 interface ProjectCardDetailsProps {
-  image: string;
+  images: string[];
   title: string;
   description: string;
   features: string[];
@@ -19,7 +20,7 @@ interface ProjectCardDetailsProps {
 }
 
 const ProjectCardDetails: React.FC<ProjectCardDetailsProps> = ({ 
-  image, 
+  images, 
   title, 
   description, 
   features,
@@ -29,16 +30,26 @@ const ProjectCardDetails: React.FC<ProjectCardDetailsProps> = ({
 }) => {
   return (
     <div className="glass-card overflow-hidden transition-all duration-500 hover:shadow-xl animate-on-scroll my-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="overflow-visible h-64 md:h-auto relative z-50">
-          <AnimatedImage
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-            animation={index % 2 === 0 ? 'slide-in' : 'slide-in-right'}
-          />
+      <div className="grid grid-cols-1 md:grid-cols-8 gap-6">
+        <div className="overflow-visible h-64 md:h-auto relative z-50 md:col-span-3">
+          <Carousel className="w-full h-full">
+            <CarouselContent>
+              {images.map((image, i) => (
+                <CarouselItem key={i}>
+                  <AnimatedImage
+                    src={image}
+                    alt={`${title} - изображение ${i+1}`}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    animation={index % 2 === 0 ? 'slide-in' : 'slide-in-right'}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2 bg-accent text-white hover:bg-accent-light border-none" />
+            <CarouselNext className="right-2 bg-accent text-white hover:bg-accent-light border-none" />
+          </Carousel>
         </div>
-        <div className="p-6 flex flex-col justify-center">
+        <div className="p-6 flex flex-col justify-center md:col-span-5">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
               {icon}
@@ -78,7 +89,11 @@ const ProjectCardDetails: React.FC<ProjectCardDetailsProps> = ({
 
 const projectsData = [
   {
-    image: "/images/chat.png",
+    images: [
+      "/images/chat.png",
+      "https://images.unsplash.com/photo-1611926653458-09294b3142bf?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
+    ],
     title: "Умный чат-бот для вашего бизнеса",
     description: "Интеллектуальный чат-бот с возможностью обучения и интеграции с вашей CRM-системой. Автоматизирует поддержку клиентов, отвечает на типовые вопросы и собирает данные для улучшения обслуживания.",
     features: [
@@ -93,7 +108,11 @@ const projectsData = [
     icon: <MessageSquare className="text-accent h-6 w-6" />,
   },
   {
-    image: "/images/mob.jpg",
+    images: [
+      "/images/mob.jpg",
+      "https://images.unsplash.com/photo-1605236453806-6ff36851218e?q=80&w=2074&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070&auto=format&fit=crop"
+    ],
     title: "Мобильное приложение",
     description: "Разработка нативных и кроссплатформенных мобильных приложений для iOS и Android. Создаем интуитивно понятные интерфейсы с аналитикой пользовательского поведения.",
     features: [
@@ -108,7 +127,11 @@ const projectsData = [
     icon: <Smartphone className="text-accent h-6 w-6" />,
   },
   {
-    image: "/images/admin.png",
+    images: [
+      "/images/admin.png",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?q=80&w=2070&auto=format&fit=crop"
+    ],
     title: "Управление бизнесом через админку",
     description: "Создание мощных и гибких административных панелей для управления всеми аспектами вашего бизнеса. Контроль и аналитика в едином интерфейсе.",
     features: [
@@ -123,7 +146,11 @@ const projectsData = [
     icon: <LayoutDashboard className="text-accent h-6 w-6" />,
   },
   {
-    image: "https://images.unsplash.com/photo-1677442135968-6b7d4b4d0cba?q=80&w=2070&auto=format&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1677442135968-6b7d4b4d0cba?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1639803938107-1485ced25921?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1654615797638-b8f90eff99e4?q=80&w=2070&auto=format&fit=crop"
+    ],
     title: "Системы прогнозирования и аналитики",
     description: "Разработка комплексных аналитических систем с использованием искусственного интеллекта для прогнозирования продаж, поведения клиентов и оптимизации бизнес-процессов.",
     features: [
@@ -138,7 +165,11 @@ const projectsData = [
     icon: <BrainCircuit className="text-accent h-6 w-6" />,
   },
   {
-    image: "https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=2070&auto=format&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1633412802994-5c058f151b66?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1633158829875-e5316a358c6f?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1480694313141-fce5e697ee25?q=80&w=2070&auto=format&fit=crop"
+    ],
     title: "Интеграционные решения",
     description: "Создание API и микросервисов для интеграции различных бизнес-систем. Объединение данных из разных источников в единую экосистему.",
     features: [
@@ -153,7 +184,11 @@ const projectsData = [
     icon: <Database className="text-accent h-6 w-6" />,
   },
   {
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?q=80&w=2074&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+    ],
     title: "BI-системы и дашборды",
     description: "Разработка интерактивных бизнес-дашбордов и систем бизнес-аналитики. Визуализация данных для принятия управленческих решений.",
     features: [
@@ -221,7 +256,7 @@ const Projects: React.FC = () => {
               {projectsData.map((project, index) => (
                 <ProjectCardDetails
                   key={index}
-                  image={project.image}
+                  images={project.images}
                   title={project.title}
                   description={project.description}
                   features={project.features}

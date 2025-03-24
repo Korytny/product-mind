@@ -1,11 +1,12 @@
 
 import React from 'react';
-import { MessageSquare, Smartphone, LayoutDashboard, ArrowRight } from 'lucide-react';
+import { MessageSquare, Smartphone, LayoutDashboard, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import AnimatedImage from '../UI/AnimatedImage';
 import { Link } from 'react-router-dom';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 interface ProjectCardProps {
-  image: string;
+  images: string[];
   title: string;
   subtitle: string;
   description: string | React.ReactNode;
@@ -14,7 +15,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ 
-  image, 
+  images, 
   title, 
   subtitle, 
   description, 
@@ -25,12 +26,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <div className="glass-card overflow-hidden transition-all duration-500 hover:shadow-xl animate-on-scroll">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="overflow-visible h-64 md:h-auto relative z-50">
-          <AnimatedImage
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-            animation={index % 2 === 0 ? 'slide-in' : 'slide-in-right'}
-          />
+          <Carousel className="w-full h-full">
+            <CarouselContent>
+              {images.map((image, i) => (
+                <CarouselItem key={i}>
+                  <AnimatedImage
+                    src={image}
+                    alt={`${title} - изображение ${i+1}`}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    animation={index % 2 === 0 ? 'slide-in' : 'slide-in-right'}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2 bg-accent text-white hover:bg-accent-light border-none" />
+            <CarouselNext className="right-2 bg-accent text-white hover:bg-accent-light border-none" />
+          </Carousel>
         </div>
         <div className="p-6 flex flex-col justify-center">
           <div className="flex items-center gap-4 mb-4">
@@ -52,7 +63,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
 const projectsData = [
   {
-    image: "/images/chat.png",
+    images: [
+      "/images/chat.png",
+      "https://images.unsplash.com/photo-1611926653458-09294b3142bf?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
+    ],
     title: "Умный чат-бот для вашего бизнеса",
     subtitle: "",
     description: (
@@ -67,7 +82,11 @@ const projectsData = [
     icon: <MessageSquare className="text-accent h-6 w-6" />
   },
   {
-    image: "/images/mob.jpg",
+    images: [
+      "/images/mob.jpg",
+      "https://images.unsplash.com/photo-1605236453806-6ff36851218e?q=80&w=2074&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070&auto=format&fit=crop"
+    ],
     title: "Мобильное приложение",
     subtitle: "",
     description: (
@@ -82,7 +101,11 @@ const projectsData = [
     icon: <Smartphone className="text-accent h-6 w-6" />
   },
   {
-    image: "/images/admin.png",
+    images: [
+      "/images/admin.png",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?q=80&w=2070&auto=format&fit=crop"
+    ],
     title: "Управление бизнесом через админку",
     subtitle: "",
     description: (
@@ -133,7 +156,7 @@ const Projects: React.FC = () => {
           {projectsData.map((project, index) => (
             <ProjectCard
               key={index}
-              image={project.image}
+              images={project.images}
               title={project.title}
               subtitle={project.subtitle}
               description={project.description}
