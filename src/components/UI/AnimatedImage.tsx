@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface AnimatedImageProps {
   src: string;
@@ -15,6 +15,8 @@ const AnimatedImage: React.FC<AnimatedImageProps> = ({
   animation = 'fade-in'
 }) => {
   const imgRef = useRef<HTMLImageElement>(null);
+  const [error, setError] = useState(false);
+  const fallbackImage = 'https://via.placeholder.com/800x600?text=Изображение+не+найдено';
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -68,14 +70,14 @@ const AnimatedImage: React.FC<AnimatedImageProps> = ({
 
   // Add a fallback in case the image fails to load
   const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    const target = e.target as HTMLImageElement;
-    target.src = 'https://via.placeholder.com/800x600?text=Изображение+не+найдено';
+    console.log(`Image error for ${src}, using fallback`);
+    setError(true);
   };
 
   return (
     <img
       ref={imgRef}
-      src={src}
+      src={error ? fallbackImage : src}
       alt={alt}
       className={`relative z-20 opacity-100 ${getAnimationClass()} ${className}`}
       loading="lazy"

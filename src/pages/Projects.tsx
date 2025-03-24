@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import AnimatedImage from '../components/UI/AnimatedImage';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface ProjectCardDetailsProps {
   images: string[];
@@ -31,17 +32,19 @@ const ProjectCardDetails: React.FC<ProjectCardDetailsProps> = ({
   return (
     <div className="glass-card overflow-hidden transition-all duration-500 hover:shadow-xl animate-on-scroll my-8">
       <div className="grid grid-cols-1 md:grid-cols-8 gap-6">
-        <div className="overflow-visible h-64 md:h-auto relative z-50 md:col-span-3">
+        <div className="md:col-span-3 h-64 md:h-auto">
           <Carousel className="w-full h-full">
-            <CarouselContent>
+            <CarouselContent className="h-full">
               {images.map((image, i) => (
-                <CarouselItem key={i}>
-                  <AnimatedImage
-                    src={image}
-                    alt={`${title} - изображение ${i+1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                    animation={index % 2 === 0 ? 'slide-in' : 'slide-in-right'}
-                  />
+                <CarouselItem key={i} className="h-full">
+                  <AspectRatio ratio={4/3} className="h-full">
+                    <AnimatedImage
+                      src={image}
+                      alt={`${title} - изображение ${i+1}`}
+                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                      animation={index % 2 === 0 ? 'slide-in' : 'slide-in-right'}
+                    />
+                  </AspectRatio>
                 </CarouselItem>
               ))}
             </CarouselContent>

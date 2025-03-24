@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MessageSquare, Smartphone, LayoutDashboard, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { MessageSquare, Smartphone, LayoutDashboard, ArrowRight } from 'lucide-react';
 import AnimatedImage from '../UI/AnimatedImage';
 import { Link } from 'react-router-dom';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
@@ -25,17 +25,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div className="glass-card overflow-hidden transition-all duration-500 hover:shadow-xl animate-on-scroll">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="overflow-visible h-64 md:h-auto relative z-50">
+        <div className="overflow-visible h-64 md:h-80 relative z-50">
           <Carousel className="w-full h-full">
-            <CarouselContent>
+            <CarouselContent className="h-full">
               {images.map((image, i) => (
-                <CarouselItem key={i}>
-                  <AnimatedImage
-                    src={image}
-                    alt={`${title} - изображение ${i+1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                    animation={index % 2 === 0 ? 'slide-in' : 'slide-in-right'}
-                  />
+                <CarouselItem key={i} className="h-full">
+                  <div className="h-full w-full">
+                    <AnimatedImage
+                      src={image}
+                      alt={`${title} - изображение ${i+1}`}
+                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                      animation={index % 2 === 0 ? 'slide-in' : 'slide-in-right'}
+                    />
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
