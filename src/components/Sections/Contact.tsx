@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
-import ContactForm from '../UI/ContactForm';
+import ContactForm from '../ui/ContactForm';
 
 const contactInfo = [
   {

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { MessageSquare, Smartphone, LayoutDashboard, ArrowRight } from 'lucide-react';
-import AnimatedImage from '../UI/AnimatedImage';
+import AnimatedImage from '../ui/AnimatedImage';
 import { Link } from 'react-router-dom';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Github, Linkedin, Twitter } from 'lucide-react';
-import AnimatedImage from '../UI/AnimatedImage';
+import AnimatedImage from '../ui/AnimatedImage';
 
 interface TeamMemberProps {
   image: string;

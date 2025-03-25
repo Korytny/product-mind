@@ -1,25 +1,17 @@
 
 import React, { useEffect } from 'react';
 import { ArrowLeft, MessageSquare, Smartphone, LayoutDashboard, BrainCircuit, Database, LineChart, Mail, Phone, MapPin } from 'lucide-react';
-import ContactForm from '@/components/UI/ContactForm';
+import { ProjectCardDetailsProps } from '@/types';
+import ContactForm from '@/components/ui/ContactForm';
 import Navbar from '../components/Layout/Navbar';
 import Footer from '../components/Layout/Footer';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import AnimatedImage from '../components/UI/AnimatedImage';
+import AnimatedImage from '../components/ui/AnimatedImage';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
-interface ProjectCardDetailsProps {
-  images: string[];
-  title: string;
-  description: string;
-  features: string[];
-  technologies: string[];
-  icon: React.ReactNode;
-  index: number;
-}
 
 const ProjectCardDetails: React.FC<ProjectCardDetailsProps> = ({ 
   images, 
@@ -202,7 +194,7 @@ const projectsData = [
   },
 ];
 
-const Projects: React.FC = () => {
+const ProjectPage: React.FC = () => {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
@@ -274,7 +266,7 @@ const Projects: React.FC = () => {
   );
 };
 
-export default Projects;
+export default ProjectPage;
 
 const ProjectsContact: React.FC = () => {
   return (

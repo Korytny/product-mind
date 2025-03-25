@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { BarChartHorizontal, ShoppingBag, PackageCheck } from 'lucide-react';
-import AnimatedImage from '../UI/AnimatedImage';
+import AnimatedImage from '../ui/AnimatedImage';
 
 interface CaseStudyProps {
   image: string;

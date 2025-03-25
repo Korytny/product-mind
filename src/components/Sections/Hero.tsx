@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { ArrowDown } from 'lucide-react';
-import AnimatedImage from '../UI/AnimatedImage';
+import AnimatedImage from '../ui/AnimatedImage';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
