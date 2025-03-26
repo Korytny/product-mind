@@ -2,8 +2,8 @@
 import React, { useEffect, useRef } from 'react';
 import { ArrowDown, Sparkles as SparklesIcon } from 'lucide-react';
 import AnimatedImage from '../ui/AnimatedImage';
-import Sparkles from '../ui/Sparkles';
 import { useIsMobile } from '@/hooks/use-mobile';
+import SparklesCore from '../ui/SparklesCore';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -44,16 +44,36 @@ const Hero: React.FC = () => {
           <h1 className="font-bold leading-tight mb-6">
             {isMobile ? (
               <>
-                <Sparkles quantity={20} speed={0.8} className="inline-flex">
-                  <span className="text-gradient relative">Масштабирование бизнеса</span>
-                </Sparkles> с ИИ
+                <span className="relative inline-block">
+                  <span className="text-gradient relative z-10">Масштабирование бизнеса</span>
+                  <div className="absolute inset-0 w-full -z-10">
+                    <SparklesCore
+                      background="transparent"
+                      minSize={0.4}
+                      maxSize={1}
+                      particleDensity={120}
+                      className="w-full h-full"
+                      particleColor="#9B87F5"
+                      speed={0.5}
+                    />
+                  </div>
+                </span> с ИИ
               </>
             ) : (
               <>
-                <div className="block">
-                  <Sparkles quantity={20} speed={0.8} className="inline-flex">
-                    <span className="text-gradient relative">Масштабирование</span>
-                  </Sparkles>
+                <div className="block relative">
+                  <span className="text-gradient relative z-10">Масштабирование</span>
+                  <div className="absolute inset-0 w-full h-full -z-10">
+                    <SparklesCore
+                      background="transparent"
+                      minSize={0.4}
+                      maxSize={1}
+                      particleDensity={120}
+                      className="w-full h-full"
+                      particleColor="#9B87F5"
+                      speed={0.5}
+                    />
+                  </div>
                 </div>
                 <div className="block">бизнеса с ИИ</div>
               </>
