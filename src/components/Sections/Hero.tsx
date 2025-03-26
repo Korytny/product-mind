@@ -3,9 +3,11 @@ import React, { useEffect, useRef } from 'react';
 import { ArrowDown, Sparkles as SparklesIcon } from 'lucide-react';
 import AnimatedImage from '../ui/AnimatedImage';
 import Sparkles from '../ui/Sparkles';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,9 +42,22 @@ const Hero: React.FC = () => {
       <div className="container-custom grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-16 relative z-10">
         <div className="flex flex-col justify-center animate-fade-in lg:pt-16">
           <h1 className="font-bold leading-tight mb-6">
-            <Sparkles quantity={20} speed={0.8} className="inline-flex">
-              <span className="text-gradient relative">Масштабирование бизнеса</span>
-            </Sparkles> с ИИ
+            {isMobile ? (
+              <>
+                <Sparkles quantity={20} speed={0.8} className="inline-flex">
+                  <span className="text-gradient relative">Масштабирование бизнеса</span>
+                </Sparkles> с ИИ
+              </>
+            ) : (
+              <>
+                <div className="block">
+                  <Sparkles quantity={20} speed={0.8} className="inline-flex">
+                    <span className="text-gradient relative">Масштабирование</span>
+                  </Sparkles>
+                </div>
+                <div className="block">бизнеса с ИИ</div>
+              </>
+            )}
           </h1>
           <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
             Автоматизируйте процессы, увеличивайте прибыль и масштабируйте бизнес с помощью современных решений на базе искусственного интеллекта
@@ -60,14 +75,12 @@ const Hero: React.FC = () => {
         <div className="flex items-center justify-center lg:justify-end relative z-[100]">
           <div className="relative w-full max-w-[130%] h-auto z-[100] ml-8" style={{ aspectRatio: '1.3' }}>
             {/* Main CRM image */}
-            <Sparkles background={true} quantity={30} maxSize={2} className="z-10">
-              <AnimatedImage
-                src="/image.png"
-                alt="Главное изображение продукта"
-                className="w-full h-full object-cover rounded-xl shadow-2xl border border-white/10 opacity-100 z-0"
-                animation="scale"
-              />
-            </Sparkles>
+            <AnimatedImage
+              src="/image.png"
+              alt="Главное изображение продукта"
+              className="w-full h-full object-cover rounded-xl shadow-2xl border border-white/10 opacity-100 z-0"
+              animation="scale"
+            />
             
             {/* Decorative elements with stats */}
             <div className="absolute -bottom-6 -left-6 glass-card p-4 animate-float z-20" style={{ animationDelay: '0.5s' }}>
