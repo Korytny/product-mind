@@ -2,6 +2,7 @@
 import React from 'react';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 import AnimatedImage from '../ui/AnimatedImage';
+import { Card, CardContent } from "@/components/ui/card";
 
 interface TeamMemberProps {
   image: string;
@@ -16,50 +17,56 @@ interface TeamMemberProps {
 
 const TeamMember: React.FC<TeamMemberProps> = ({ image, name, position, socials }) => {
   return (
-    <div className="glass-card p-6 flex flex-col items-center text-center group animate-on-scroll">
-      <div className="w-32 h-32 rounded-full overflow-hidden mb-4 relative">
-        <AnimatedImage
-          src={image}
-          alt={name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          animation="scale"
-        />
-      </div>
-      <h3 className="text-xl font-semibold">{name}</h3>
-      <p className="text-accent text-sm mb-4">{position}</p>
-      
-      <div className="flex space-x-3">
-        {socials.linkedin && (
-          <a 
-            href={socials.linkedin} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-accent"
-          >
-            <Linkedin size={16} className="text-white" />
-          </a>
-        )}
-        {socials.github && (
-          <a 
-            href={socials.github} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-accent"
-          >
-            <Github size={16} className="text-white" />
-          </a>
-        )}
-        {socials.twitter && (
-          <a 
-            href={socials.twitter} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-accent"
-          >
-            <Twitter size={16} className="text-white" />
-          </a>
-        )}
-      </div>
+    <div className="group relative">
+      {/* Glow effect */}
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-light to-accent rounded-lg blur opacity-30 group-hover:opacity-80 transition duration-500"></div>
+      <Card className="relative bg-purple/80 backdrop-blur-lg border border-white/10 rounded-2xl shadow-xl flex flex-col items-center text-center animate-on-scroll group">
+        <CardContent className="pt-8 pb-6">
+          <div className="w-32 h-32 rounded-full overflow-hidden mb-4 relative">
+            <AnimatedImage
+              src={image}
+              alt={name}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              animation="scale"
+            />
+          </div>
+          <h3 className="text-xl font-semibold">{name}</h3>
+          <p className="text-accent text-sm mb-4">{position}</p>
+          
+          <div className="flex space-x-3">
+            {socials.linkedin && (
+              <a 
+                href={socials.linkedin} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-accent"
+              >
+                <Linkedin size={16} className="text-white" />
+              </a>
+            )}
+            {socials.github && (
+              <a 
+                href={socials.github} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-accent"
+              >
+                <Github size={16} className="text-white" />
+              </a>
+            )}
+            {socials.twitter && (
+              <a 
+                href={socials.twitter} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-accent"
+              >
+                <Twitter size={16} className="text-white" />
+              </a>
+            )}
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };

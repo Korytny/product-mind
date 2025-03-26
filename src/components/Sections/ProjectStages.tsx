@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ClipboardList, Lightbulb, Rocket, CheckCircle } from 'lucide-react';
+import { Card, CardContent } from "@/components/ui/card";
 
 interface StageProps {
   title: string;
@@ -11,13 +12,19 @@ interface StageProps {
 
 const Stage: React.FC<StageProps> = ({ title, description, icon, index }) => {
   return (
-    <div className="glass-card p-6 lg:p-8 flex flex-col items-center text-center animate-on-scroll">
-      <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-6">
-        {icon}
-      </div>
-      <span className="text-accent text-sm font-medium mb-2">Этап {index + 1}</span>
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      <p className="text-gray-300">{description}</p>
+    <div className="group relative">
+      {/* Glow effect */}
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-purple-light rounded-lg blur opacity-30 group-hover:opacity-80 transition duration-500"></div>
+      <Card className="relative bg-purple/80 backdrop-blur-lg border border-white/10 rounded-2xl shadow-xl flex flex-col items-center text-center animate-on-scroll">
+        <CardContent className="pt-8 pb-6">
+          <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-6">
+            {icon}
+          </div>
+          <span className="text-accent text-sm font-medium mb-2">Этап {index + 1}</span>
+          <h3 className="text-xl font-semibold mb-3">{title}</h3>
+          <p className="text-gray-300">{description}</p>
+        </CardContent>
+      </Card>
     </div>
   );
 };
