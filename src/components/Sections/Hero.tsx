@@ -1,9 +1,8 @@
 
 import React, { useEffect, useRef } from 'react';
-import { ArrowDown, Sparkles as SparklesIcon } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import AnimatedImage from '../ui/AnimatedImage';
 import { useIsMobile } from '@/hooks/use-mobile';
-import SparklesCore from '../ui/SparklesCore';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -46,34 +45,14 @@ const Hero: React.FC = () => {
               <>
                 <span className="relative inline-block">
                   <span className="text-gradient relative z-10">Масштабирование бизнеса</span>
-                  <div className="absolute inset-0 w-full -z-10">
-                    <SparklesCore
-                      background="transparent"
-                      minSize={0.4}
-                      maxSize={1}
-                      particleDensity={120}
-                      className="w-full h-full"
-                      particleColor="#9B87F5"
-                      speed={0.5}
-                    />
-                  </div>
+                  <div className="absolute inset-0 w-full -z-10" />
                 </span> с ИИ
               </>
             ) : (
               <>
                 <div className="block relative">
                   <span className="text-gradient relative z-10">Масштабирование</span>
-                  <div className="absolute inset-0 w-full h-full -z-10">
-                    <SparklesCore
-                      background="transparent"
-                      minSize={0.4}
-                      maxSize={1}
-                      particleDensity={120}
-                      className="w-full h-full"
-                      particleColor="#9B87F5"
-                      speed={0.5}
-                    />
-                  </div>
+                  <div className="absolute inset-0 w-full h-full -z-10" />
                 </div>
                 <div className="block">бизнеса с ИИ</div>
               </>
@@ -84,7 +63,7 @@ const Hero: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a href="#contact" className="btn-primary group">
-              Начать проект <SparklesIcon className="inline-block ml-2 w-4 h-4 group-hover:animate-pulse" />
+              Начать проект
             </a>
             <a href="#projects" className="btn-secondary">
               Узнать больше

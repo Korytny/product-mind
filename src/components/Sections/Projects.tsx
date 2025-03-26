@@ -53,7 +53,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <h3 className="text-xl md:text-2xl font-semibold">{title}</h3>
           </div>
           <p className="text-accent mb-3 font-medium">{subtitle}</p>
-          <p className="text-gray-300 mb-6">{description}</p>
+          <div className="text-gray-300 mb-6">{description}</div>
           <a href="#contact" className="inline-flex items-center text-accent hover:text-accent-light transition-colors">
             Узнать подробнее <ArrowRight size={16} className="ml-2" />
           </a>
