@@ -6,13 +6,17 @@ module.exports = {
     watch: true,
     env: {
       NODE_ENV: "development",
-      PORT: 8001,  // Измените на нужный порт
-      HOST: "0.0.0.0"
+      PORT: 8001,
+      HOST: "0.0.0.0",
+      SERVER_URL: "http://103.82.249.157:8001",
+      ALLOWED_ORIGINS: "http://103.82.249.157,http://localhost:3000"
     },
     env_production: {
       NODE_ENV: "production",
-      PORT: 8001,  // Должен совпадать с development
-      HOST: "0.0.0.0"
+      PORT: 8001,
+      HOST: "0.0.0.0",
+      SERVER_URL: "http://103.82.249.157:8001",
+      ALLOWED_ORIGINS: "http://103.82.249.157"
     }
   }]
 }

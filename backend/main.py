@@ -10,7 +10,7 @@ app = FastAPI()
 # Разрешаем все источники (можешь потом ограничить под свой домен)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # или ["http://localhost:3000"] для ограничений
+    allow_origins=os.getenv("ALLOWED_ORIGINS", "*").split(","),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
