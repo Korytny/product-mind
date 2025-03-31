@@ -17,7 +17,7 @@ app.add_middleware(
 )
 
 # Настройки сервера
-SERVER_PORT = 8001  # Должен совпадать с PORT в ecosystem.config.cjs
+SERVER_PORT = 8002  # Должен совпадать с PORT в ecosystem.config.cjs
 
 @app.get("/health")
 async def health_check():
