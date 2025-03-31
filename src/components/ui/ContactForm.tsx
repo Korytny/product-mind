@@ -34,8 +34,10 @@ const ContactForm: React.FC = () => {
         body: JSON.stringify(formData)
       });
   
+      const result = await response.json();
       if (!response.ok) {
-        throw new Error('Ошибка отправки данных');
+        console.log('Server response:', result);
+        throw new Error(result.message || 'Ошибка отправки данных');
       }
   
       toast.success('Ваша заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
