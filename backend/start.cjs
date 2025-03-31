@@ -19,7 +19,8 @@ try {
     ? path.join('venv', 'Scripts', 'python')
     : path.join('venv', 'bin', 'python');
   
-  execSync(`${pythonPath} -m uvicorn main:app --reload`, { stdio: 'inherit' });
+  const port = process.env.PORT || 8001;
+  execSync(`${pythonPath} -m uvicorn main:app --host 0.0.0.0 --port ${port} --reload`, { stdio: 'inherit' });
 
 } catch (error) {
   console.error('Error:', error.message);

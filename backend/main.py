@@ -16,6 +16,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Настройки сервера
+SERVER_PORT = 8000  # Измените на нужный порт
+SERVER_HOST = "0.0.0.0"
+
 
 
 
