@@ -19,14 +19,36 @@ try {
   }
 
   console.log('Creating new Python virtual environment...');
-  execSync('python3 -m venv venv', {
-    stdio: 'inherit',
-    timeout: 60000
-  });
+  try {
+    // Пробуем стандартный способ с ensurepip
+    execSync('python3 -m venv venv', {
+      stdio: 'inherit',
+      timeout: 60000
+    });
+  } catch (err) {
+    console.log('Standard venv creation failed, trying without pip...');
+    // Пробуем создать без pip
+    execSync('python3 -m venv --without-pip venv', {
+      stdio: 'inherit',
+      timeout: 60000
+    });
+    
+    // Устанавливаем pip вручную
+    if (process.platform !== 'win32') {
+      console.log('Manually installing pip...');
+      execSync('curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py', { stdio: 'inherit' });
+      execSync('venv/bin/python get-pip.py', { stdio: 'inherit' });
+      fs.unlinkSync('get-pip.py');
+    }
+  }
 
   // Проверяем что venv создан правильно
-  if (!fs.existsSync('venv/bin/python') && !fs.existsSync('venv/Scripts/python.exe')) {
-    console.error('Virtual environment creation failed');
+  const venvPythonPath = process.platform === 'win32'
+    ? 'venv/Scripts/python.exe'
+    : 'venv/bin/python';
+    
+  if (!fs.existsSync(venvPythonPath)) {
+    console.error('Virtual environment creation completely failed');
     process.exit(1);
   }
 
