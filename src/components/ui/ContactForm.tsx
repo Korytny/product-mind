@@ -26,7 +26,7 @@ const ContactForm: React.FC = () => {
     setLoading(true);
   
     try {
-      const response = await fetch('http://103.82.249.157:8002/send-message', {
+      const response = await fetch('/api/send-message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
