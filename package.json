@@ -9,7 +9,9 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "backend": "node backend/start.js"
+    "backend": "pm2 start backend/ecosystem.config.cjs",
+    "backend:stop": "pm2 stop backend",
+    "backend:restart": "pm2 restart backend"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
