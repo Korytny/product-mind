@@ -1,5 +1,5 @@
 # backend/main.py
-
+import os
 from fastapi import FastAPI
 from pydantic import BaseModel
 import requests  # для Telegram API
