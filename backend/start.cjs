@@ -40,9 +40,19 @@ try {
     : path.join('venv', 'bin', 'python');
   
   const port = process.env.PORT || 8001;
-  execSync(`${pythonPath} -m uvicorn main:app --host 0.0.0.0 --port ${port} --reload`, {
-    stdio: 'inherit'
-  });
+  try {
+    console.log(`Starting server on port ${port}...`);
+    execSync(`${pythonPath} -m uvicorn main:app --host 0.0.0.0 --port ${port} --reload`, {
+      stdio: 'inherit',
+      timeout: 30000
+    });
+  } catch (err) {
+    console.error('Failed to start server:');
+    console.error('Python path:', pythonPath);
+    console.error('Command:', `${pythonPath} -m uvicorn main:app --host 0.0.0.0 --port ${port} --reload`);
+    console.error('Error details:', err);
+    process.exit(1);
+  }
 
 } catch (error) {
   console.error('Server startup failed:', error);
