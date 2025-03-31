@@ -4,20 +4,30 @@ const fs = require('fs');
 
 console.log('Initializing backend server...');
 try {
-  // Проверяем и создаем venv с обработкой ошибок
-  if (!fs.existsSync('venv')) {
-    console.log('Creating Python virtual environment...');
-    try {
-      execSync('python3 -m venv venv', {
-        stdio: 'inherit',
-        timeout: 60000
-      });
-    } catch (err) {
-      console.error('Virtual environment creation failed, trying without pip...');
-      execSync('python3 -m venv --without-pip venv', {
-        stdio: 'inherit'
-      });
-    }
+  // Проверка доступности Python
+  try {
+    execSync('python3 --version', { stdio: 'inherit' });
+  } catch {
+    console.error('Python 3 not found. Please install Python 3.7+ first');
+    process.exit(1);
+  }
+
+  // Создаем новое чистое venv
+  if (fs.existsSync('venv')) {
+    console.log('Removing existing virtual environment...');
+    fs.rmSync('venv', { recursive: true, force: true });
+  }
+
+  console.log('Creating new Python virtual environment...');
+  execSync('python3 -m venv venv', {
+    stdio: 'inherit',
+    timeout: 60000
+  });
+
+  // Проверяем что venv создан правильно
+  if (!fs.existsSync('venv/bin/python') && !fs.existsSync('venv/Scripts/python.exe')) {
+    console.error('Virtual environment creation failed');
+    process.exit(1);
   }
 
   // Установка зависимостей
