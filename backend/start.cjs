@@ -25,12 +25,24 @@ try {
     ? path.join('venv', 'Scripts', 'pip')
     : path.join('venv', 'bin', 'pip');
 
+  // Проверка и установка зависимостей
   if (fs.existsSync(pipPath)) {
-    console.log('Installing Python dependencies...');
-    execSync(`${pipPath} install fastapi uvicorn requests pydantic`, {
-      stdio: 'inherit',
-      timeout: 120000
-    });
+    console.log('Checking Python dependencies...');
+    try {
+      execSync(`${pythonPath} -m pip show uvicorn`, { stdio: 'ignore' });
+      console.log('Dependencies already installed');
+    } catch {
+      console.log('Installing required packages...');
+      execSync(`${pipPath} install --upgrade pip wheel`, { stdio: 'inherit' });
+      execSync(`${pipPath} install fastapi uvicorn requests pydantic`, {
+        stdio: 'inherit',
+        timeout: 300000
+      });
+    }
+  } else {
+    console.error('pip not found in virtual environment');
+    console.log('Try recreating venv with: python3 -m venv venv');
+    process.exit(1);
   }
 
   // Запуск сервера
