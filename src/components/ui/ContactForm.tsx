@@ -57,8 +57,7 @@ const ContactForm: React.FC = () => {
   
 
   return (
-    <form onSubmit={handleSubmit} className="glass-card p-6 md:p-8 lg:p-10">
-      <h3 className="text-2xl font-semibold mb-6 text-white">Свяжитесь с нами</h3>
+    <form onSubmit={handleSubmit} className="glass-card bg-white/5 backdrop-blur-sm p-6 md:p-8 lg:p-10">
       
       <div className="mb-6">
         <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">

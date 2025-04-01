@@ -4,34 +4,28 @@ import { AnimatedTestimonials } from '../ui/AnimatedTestimonials';
 
 const testimonialData = [
   {
-    quote: "Спасибо за автоматизацию нашего бизнеса! Теперь мы экономим 20 часов в неделю на обработке запросов клиентов. Чат-бот работает безупречно и постоянно обучается.",
-    name: "Екатерина Николаева",
-    designation: "CEO, E-commerce Store",
-    src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop",
+    quote: "Спасибо за приложения по управлению МедиаКубом! Ваша админка помогает эффективно управлять контентом, а чат бот собирать аудиторию для наших медиа проектов.",
+    name: "Артур Литвинов",
+    designation: "Директор компании \"VideoMap.ru\"",
+    src: "/public/images/o1.jpg",
   },
   {
-    quote: "Мобильное приложение, разработанное командой AI Business, помогло нам увеличить средний чек на 15%. Персонализированные рекомендации работают отлично!",
-    name: "Дмитрий Морозов",
-    designation: "Marketing Director, Retail Chain",
-    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop",
+    quote: "Ребята, спасибо за классный сайт! Мы вывели на рынок новый продукт Metapol. Отдельное благодарность за чатбот с ИИ, клиенты очень удивляются его знаниям о продуктах. Заказов стало в разу больше!",
+    name: "Денис Мельник",
+    designation: "Директор компании \"РусИнтелКом\"",
+    src: "/public/images/o2.jpg",
   },
   {
-    quote: "Внедрение админки с ИИ-алгоритмами изменило наш подход к управлению складом. Точные прогнозы и автоматизация рутинных задач сэкономили нам миллионы.",
-    name: "Ольга Семенова",
-    designation: "Operations Manager, Logistics Company",
-    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop",
+    quote: "Сделали сайт и админку упраления для продкутов и заказов, добавили чат и теперь готовимся к захату мира! Выйдем на мировой рынок и про вас не забудем, господа",
+    name: "Максим Газетов",
+    designation: "Директор компании \"KinoKupol.ru\"",
+    src: "/public/images/o3.jpg",
   },
   {
-    quote: "Разработанный ИИ-помощник для службы поддержки справляется с 78% запросов без участия человека. Наши клиенты даже не догадываются, что общаются с ботом.",
-    name: "Алексей Петров",
-    designation: "CTO, Tech Solutions",
-    src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=1887&auto=format&fit=crop",
-  },
-  {
-    quote: "Благодаря системе автоматического анализа продаж, мы смогли увеличить оборот на 30% за квартал. Аналитическая панель интуитивно понятна даже неопытным пользователям.",
-    name: "Марина Иванова",
-    designation: "Sales Director, Distribution Network",
-    src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=1887&auto=format&fit=crop",
+    quote: "Классно сделали админку для приложения HolySpots и систему управления нашими проектми VedaVerse. В планах раскручивать Digital маховик на полную мощность",
+    name: "Георгий Аистов",
+    designation: "Директор компании \"FullDome.pro\"",
+    src: "/public/images/o4.jpg",
   }
 ];
 
@@ -49,10 +43,10 @@ const Testimonials: React.FC = () => {
           <h2 className="section-title inline-block pb-3">Что говорят наши клиенты</h2>
         </div>
 
-        <AnimatedTestimonials 
-          testimonials={testimonialData} 
+        <AnimatedTestimonials
+          testimonials={testimonialData}
           autoplay={true}
-          className="py-8" 
+          className="py-8"
         />
       </div>
     </section>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const navItems = [
   { label: "Главная", href: "/", isHash: false },
-  { label: "Проекты", href: "/projects", isHash: false },
+  { label: "Проекты", href: "#projects", isHash: true },
   { label: "Примеры", href: "#business-cases", isHash: true },
   { label: "Этапы проекта", href: "#project-stages", isHash: true },
   { label: "Команда", href: "#team", isHash: true },

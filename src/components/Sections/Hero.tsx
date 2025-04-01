@@ -61,14 +61,6 @@ const Hero: React.FC = () => {
           <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
             Автоматизируйте процессы, увеличивайте прибыль и масштабируйте бизнес с помощью современных решений на базе искусственного интеллекта
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a href="#contact" className="btn-primary group">
-              Начать проект
-            </a>
-            <a href="#projects" className="btn-secondary">
-              Узнать больше
-            </a>
-          </div>
         </div>
 
         <div className="flex items-center justify-center lg:justify-end relative z-[100]">

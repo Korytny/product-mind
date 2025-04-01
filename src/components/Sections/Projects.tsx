@@ -10,15 +10,17 @@ interface ProjectCardProps {
   title: string;
   subtitle: string;
   description: string | React.ReactNode;
+  technologies: string[];
   icon: React.ReactNode;
   index: number;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ 
-  images, 
-  title, 
-  subtitle, 
-  description, 
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  images,
+  title,
+  subtitle,
+  description,
+  technologies,
   icon,
   index
 }) => {
@@ -53,10 +55,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <h3 className="text-xl md:text-2xl font-semibold">{title}</h3>
           </div>
           <p className="text-accent mb-3 font-medium">{subtitle}</p>
-          <div className="text-gray-300 mb-6">{description}</div>
-          <a href="#contact" className="inline-flex items-center text-accent hover:text-accent-light transition-colors">
-            Узнать подробнее <ArrowRight size={16} className="ml-2" />
-          </a>
+          <div className="text-gray-300 mb-4">{description}</div>
+          <div className="flex flex-wrap gap-2">
+            {technologies.map((tech, idx) => (
+              <span key={idx} className="px-2 py-1 bg-accent/10 rounded-full text-accent text-xs">
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -81,6 +87,7 @@ const projectsData = [
         <li>Помнит историю общения</li>
       </ul>
     ),
+    technologies: ["NLP", "Machine Learning", "Python", "React", "Node.js", "MongoDB"],
     icon: <MessageSquare className="text-accent h-6 w-6" />
   },
   {
@@ -100,6 +107,7 @@ const projectsData = [
         <li>Имеет доступ к данным телефона</li>
       </ul>
     ),
+    technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "Redux"],
     icon: <Smartphone className="text-accent h-6 w-6" />
   },
   {
@@ -119,6 +127,7 @@ const projectsData = [
         <li>Обучение и работа с ИИ инструментами</li>
       </ul>
     ),
+    technologies: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Chart.js"],
     icon: <LayoutDashboard className="text-accent h-6 w-6" />
   }
 ];
@@ -162,17 +171,13 @@ const Projects: React.FC = () => {
               title={project.title}
               subtitle={project.subtitle}
               description={project.description}
+              technologies={project.technologies}
               icon={project.icon}
               index={index}
             />
           ))}
         </div>
 
-        <div className="mt-16 text-center animate-on-scroll">
-          <Link to="/projects" className="btn-primary inline-flex items-center">
-            Все проекты <ArrowRight size={16} className="ml-2" />
-          </Link>
-        </div>
       </div>
     </section>
   );

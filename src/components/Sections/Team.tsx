@@ -22,49 +22,16 @@ const TeamMember: React.FC<TeamMemberProps> = ({ image, name, position, socials 
       <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-light to-accent rounded-lg blur opacity-30 group-hover:opacity-80 transition duration-500"></div>
       <Card className="relative bg-purple/80 backdrop-blur-lg border border-white/10 rounded-2xl shadow-xl flex flex-col items-center text-center animate-on-scroll group">
         <CardContent className="pt-8 pb-6">
-          <div className="w-32 h-32 rounded-full overflow-hidden mb-4 relative">
+          <div className="w-32 h-32 rounded-full overflow-hidden mb-4 relative mx-auto">
             <AnimatedImage
               src={image}
               alt={name}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
               animation="scale"
             />
           </div>
           <h3 className="text-xl font-semibold">{name}</h3>
-          <p className="text-accent text-sm mb-4">{position}</p>
-          
-          <div className="flex space-x-3">
-            {socials.linkedin && (
-              <a 
-                href={socials.linkedin} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-accent"
-              >
-                <Linkedin size={16} className="text-white" />
-              </a>
-            )}
-            {socials.github && (
-              <a 
-                href={socials.github} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-accent"
-              >
-                <Github size={16} className="text-white" />
-              </a>
-            )}
-            {socials.twitter && (
-              <a 
-                href={socials.twitter} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-accent"
-              >
-                <Twitter size={16} className="text-white" />
-              </a>
-            )}
-          </div>
+          <p className="text-accent text-sm">{position}</p>
         </CardContent>
       </Card>
     </div>
@@ -73,9 +40,9 @@ const TeamMember: React.FC<TeamMemberProps> = ({ image, name, position, socials 
 
 const teamData = [
   {
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1887&auto=format&fit=crop",
-    name: "Иван Иванов",
-    position: "CEO",
+    image: "/images/t1.jpg",
+    name: "Евгений Кортыный",
+    position: "Основатель проекта",
     socials: {
       linkedin: "#",
       github: "#",
@@ -83,18 +50,9 @@ const teamData = [
     }
   },
   {
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop",
-    name: "Анна Петрова",
-    position: "Data Scientist",
-    socials: {
-      linkedin: "#",
-      github: "#"
-    }
-  },
-  {
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop",
-    name: "Алексей Смирнов",
-    position: "CTO",
+    image: "/images/t2.jpg",
+    name: "Иван Мякишев",
+    position: "Разработчик Бекенд",
     socials: {
       linkedin: "#",
       github: "#",
@@ -102,8 +60,18 @@ const teamData = [
     }
   },
   {
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop",
-    name: "Мария Сидорова",
+    image: "/images/t3.jpg",
+    name: "Курников Андрей",
+    position: "Разработка Фронтенд",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    image: "/images/t4.jpg",
+    name: "Алина Брилина",
     position: "UI/UX Designer",
     socials: {
       linkedin: "#",
