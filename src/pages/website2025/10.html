@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js"></script>
+    <style>
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow: hidden;
+            position: relative;
+        }
+        .phase-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .phase-card:hover {
+            transform: translateY(-5px);
+        }
+        .timeline-container {
+            height: 400px;
+            overflow: hidden;
+        }
+        .milestone {
+            background: rgba(79, 70, 229, 0.1);
+            border-left: 4px solid #4f46e5;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide p-10">
+        <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">
+            План разработки корпоративного сайта
+        </h1>
+
+        <div class="timeline-container mb-8">
+            <div class="mermaid">
+                gantt
+                    title План реализации проекта
+                    dateFormat  YYYY-MM-DD
+                    section Планирование
+                    Анализ требований           :2025-01-01, 14d
+                    Прототипирование           :2025-01-15, 10d
+                    section Дизайн
+                    UI/UX дизайн               :2025-01-25, 21d
+                    section Разработка
+                    Frontend                    :2025-02-15, 30d
+                    Backend                     :2025-02-15, 30d
+                    section Тестирование
+                    QA тестирование            :2025-03-15, 14d
+                    Оптимизация                :2025-03-29, 7d
+                    section Запуск
+                    Развертывание              :2025-04-05, 5d
+                    Мониторинг                 :2025-04-10, 10d
+            </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6">
+            <div class="phase-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-users text-indigo-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Команда проекта</h3>
+                </div>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-user-tie text-indigo-400 mr-2"></i>
+                        <span>Проект-менеджер (1)</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-paint-brush text-indigo-400 mr-2"></i>
+                        <span>UI/UX дизайнеры (2)</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-code text-indigo-400 mr-2"></i>
+                        <span>Frontend разработчики (3)</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-database text-indigo-400 mr-2"></i>
+                        <span>Backend разработчики (2)</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-bug text-indigo-400 mr-2"></i>
+                        <span>QA инженеры (2)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="phase-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-coins text-indigo-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Бюджет проекта</h3>
+                </div>
+                <div class="space-y-3">
+                    <div class="milestone p-2">
+                        <p class="font-semibold">Планирование и дизайн</p>
+                        <p class="text-indigo-600">25% бюджета</p>
+                    </div>
+                    <div class="milestone p-2">
+                        <p class="font-semibold">Разработка</p>
+                        <p class="text-indigo-600">45% бюджета</p>
+                    </div>
+                    <div class="milestone p-2">
+                        <p class="font-semibold">Тестирование и запуск</p>
+                        <p class="text-indigo-600">30% бюджета</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phase-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-tasks text-indigo-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Ключевые этапы</h3>
+                </div>
+                <div class="space-y-2">
+                    <div class="p-2 bg-indigo-50 rounded">
+                        <p class="font-semibold">Sprint 0 (2 недели)</p>
+                        <p class="text-sm">Настройка инфраструктуры</p>
+                    </div>
+                    <div class="p-2 bg-indigo-50 rounded">
+                        <p class="font-semibold">Sprint 1-4 (8 недель)</p>
+                        <p class="text-sm">Основной функционал</p>
+                    </div>
+                    <div class="p-2 bg-indigo-50 rounded">
+                        <p class="font-semibold">Sprint 5-6 (4 недели)</p>
+                        <p class="text-sm">Тестирование и оптимизация</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 p-4 bg-indigo-50 rounded-lg text-center">
+            <p class="text-indigo-800 font-semibold">
+                💡 Успешная реализация проекта зависит от четкого планирования и контроля каждого этапа
+            </p>
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            theme: 'neutral',
+            gantt: {
+                titleTopMargin: 25,
+                barHeight: 20,
+                barGap: 4,
+                topPadding: 50,
+                sidePadding: 50
+            }
+        });
+    </script>
+</body>
+</html>

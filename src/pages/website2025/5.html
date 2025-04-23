@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow: hidden;
+            position: relative;
+        }
+        .seo-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .seo-card:hover {
+            transform: translateY(-5px);
+        }
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .priority-high { background-color: #ef4444; }
+        .priority-medium { background-color: #f59e0b; }
+        .priority-low { background-color: #10b981; }
+        .gradient-border {
+            position: relative;
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #3b82f6, #8b5cf6) border-box;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide p-10">
+        <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">
+            SEO и видимость в поисковых системах
+        </h1>
+
+        <div class="grid grid-cols-3 gap-6">
+            <div class="seo-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-chart-line text-blue-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Факторы ранжирования 2025</h3>
+                </div>
+                <ul class="space-y-3">
+                    <li class="flex items-center">
+                        <span class="indicator priority-high"></span>
+                        <span>Core Web Vitals</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="indicator priority-high"></span>
+                        <span>AI-Generated Content Quality</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="indicator priority-medium"></span>
+                        <span>E-E-A-T Signals</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="indicator priority-medium"></span>
+                        <span>Mobile UX</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="gradient-border p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-code text-purple-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Schema.org разметка</h3>
+                </div>
+                <div class="space-y-3 text-sm">
+                    <code class="block bg-gray-50 p-2 rounded">
+                        {
+                            "@type": "Organization",
+                            "name": "Company",
+                            "url": "https://..."
+                        }
+                    </code>
+                    <p class="text-gray-600">↑ Основная разметка для бизнеса</p>
+                </div>
+            </div>
+
+            <div class="seo-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-microphone-alt text-blue-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Голосовой поиск</h3>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-sm">Оптимизация для запросов:</p>
+                    <div class="bg-blue-50 p-2 rounded text-sm">
+                        "Где находится..?"<br>
+                        "Как добраться..?"<br>
+                        "Какие услуги..?"
+                    </div>
+                </div>
+            </div>
+
+            <div class="seo-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-image text-blue-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Оптимизация медиа</h3>
+                </div>
+                <div class="grid grid-cols-2 gap-3 text-sm">
+                    <div class="p-2 bg-gray-50 rounded">
+                        <p class="font-semibold">Изображения</p>
+                        <ul class="list-disc list-inside">
+                            <li>WebP формат</li>
+                            <li>Lazy loading</li>
+                            <li>Alt-текст</li>
+                        </ul>
+                    </div>
+                    <div class="p-2 bg-gray-50 rounded">
+                        <p class="font-semibold">Видео</p>
+                        <ul class="list-disc list-inside">
+                            <li>Транскрипты</li>
+                            <li>Субтитры</li>
+                            <li>Схема разметки</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seo-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-map-marker-alt text-blue-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Локальное SEO</h3>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex items-center text-sm">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span>Google Business Profile</span>
+                    </div>
+                    <div class="flex items-center text-sm">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span>Локальные отзывы</span>
+                    </div>
+                    <div class="flex items-center text-sm">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        <span>Гео-таргетинг</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seo-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-tools text-blue-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">SEO-инструменты</h3>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="p-2 bg-gray-50 rounded text-sm text-center">
+                        <i class="fab fa-google text-blue-500"></i>
+                        <p>Search Console</p>
+                    </div>
+                    <div class="p-2 bg-gray-50 rounded text-sm text-center">
+                        <i class="fas fa-analytics text-blue-500"></i>
+                        <p>GA4</p>
+                    </div>
+                    <div class="p-2 bg-gray-50 rounded text-sm text-center">
+                        <i class="fas fa-spider text-blue-500"></i>
+                        <p>Screaming Frog</p>
+                    </div>
+                    <div class="p-2 bg-gray-50 rounded text-sm text-center">
+                        <i class="fas fa-search text-blue-500"></i>
+                        <p>Ahrefs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 p-4 bg-blue-50 rounded-lg text-center">
+            <p class="text-blue-800 font-semibold">
+                💡 SEO 2025: фокус на пользовательском опыте, технической оптимизации и качестве контента
+            </p>
+        </div>
+    </div>
+</body>
+</html>

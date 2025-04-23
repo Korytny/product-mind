@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow: hidden;
+            position: relative;
+        }
+        .security-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .security-card:hover {
+            transform: translateY(-5px);
+        }
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 0.875rem;
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+        .security-level {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .level-critical { background-color: #ef4444; }
+        .level-high { background-color: #f59e0b; }
+        .level-medium { background-color: #10b981; }
+    </style>
+</head>
+<body>
+    <div class="slide p-10">
+        <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">
+            Безопасность и соответствие нормам
+        </h1>
+
+        <div class="grid grid-cols-3 gap-6">
+            <div class="security-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-shield-alt text-red-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Протоколы безопасности</h3>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center">
+                        <span class="security-level level-critical"></span>
+                        <span>HTTPS/TLS 1.3</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="security-level level-critical"></span>
+                        <span>XSS Protection</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="security-level level-high"></span>
+                        <span>CSRF Guards</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="security-level level-high"></span>
+                        <span>SQL Injection Prevention</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="security-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-compliance text-red-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Нормативы</h3>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="p-3 bg-red-50 rounded-lg">
+                        <p class="font-semibold text-red-700">GDPR</p>
+                        <p class="text-sm text-red-600">Защита данных ЕС</p>
+                    </div>
+                    <div class="p-3 bg-red-50 rounded-lg">
+                        <p class="font-semibold text-red-700">CCPA</p>
+                        <p class="text-sm text-red-600">Защита данных США</p>
+                    </div>
+                    <div class="p-3 bg-red-50 rounded-lg">
+                        <p class="font-semibold text-red-700">152-ФЗ</p>
+                        <p class="text-sm text-red-600">Защита ПД РФ</p>
+                    </div>
+                    <div class="p-3 bg-red-50 rounded-lg">
+                        <p class="font-semibold text-red-700">PCI DSS</p>
+                        <p class="text-sm text-red-600">Платежи</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="security-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-fingerprint text-red-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Аутентификация</h3>
+                </div>
+                <div class="space-y-3">
+                    <div class="security-badge">
+                        <i class="fas fa-key mr-2"></i>
+                        Passwordless
+                    </div>
+                    <div class="security-badge">
+                        <i class="fas fa-fingerprint mr-2"></i>
+                        Биометрия
+                    </div>
+                    <div class="security-badge">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        2FA/MFA
+                    </div>
+                </div>
+            </div>
+
+            <div class="security-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-database text-red-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Защита данных</h3>
+                </div>
+                <ul class="space-y-2 text-sm">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        Шифрование в покое
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        Шифрование при передаче
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        Регулярное резервирование
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-green-500 mr-2"></i>
+                        Мониторинг доступа
+                    </li>
+                </ul>
+            </div>
+
+            <div class="security-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-user-shield text-red-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Доступ и права</h3>
+                </div>
+                <div class="space-y-2">
+                    <div class="p-2 bg-gray-50 rounded">
+                        <p class="font-semibold">Роли пользователей</p>
+                        <div class="text-sm text-gray-600">
+                            Админ → Модератор → Редактор → Пользователь
+                        </div>
+                    </div>
+                    <div class="p-2 bg-gray-50 rounded">
+                        <p class="font-semibold">Управление сессиями</p>
+                        <div class="text-sm text-gray-600">
+                            Тайм-ауты и принудительные выходы
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="security-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-tasks text-red-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Аудит безопасности</h3>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span>Пентест</span>
+                        <span class="text-green-500">Каждые 6 мес</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span>Сканирование уязвимостей</span>
+                        <span class="text-green-500">Ежемесячно</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span>Обновление ПО</span>
+                        <span class="text-green-500">Автоматически</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 p-4 bg-red-50 rounded-lg text-center">
+            <p class="text-red-800 font-semibold">
+                💡 Безопасность - это процесс, а не результат. Регулярный аудит и обновление мер защиты - ключ к безопасности сайта
+            </p>
+        </div>
+    </div>
+</body>
+</html>

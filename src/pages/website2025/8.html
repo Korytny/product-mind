@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .slide {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow: hidden;
+            position: relative;
+        }
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+        }
+        .strategy-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 0.875rem;
+            background: rgba(99, 102, 241, 0.1);
+            color: #6366f1;
+        }
+        .content-type {
+            border-left: 4px solid #6366f1;
+            padding-left: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide p-10">
+        <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">
+            Стратегия контента
+        </h1>
+
+        <div class="grid grid-cols-3 gap-6">
+            <div class="content-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-robot text-indigo-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">AI-персонализация</h3>
+                </div>
+                <div class="space-y-3">
+                    <div class="content-type">
+                        <p class="font-semibold">Динамический контент</p>
+                        <p class="text-sm text-gray-600">Адаптация под интересы пользователя</p>
+                    </div>
+                    <div class="content-type">
+                        <p class="font-semibold">Умные рекомендации</p>
+                        <p class="text-sm text-gray-600">AI-подбор релевантного контента</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-pen-fancy text-indigo-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Типы контента</h3>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="p-3 bg-indigo-50 rounded-lg text-center">
+                        <i class="fas fa-file-alt text-indigo-500 mb-2"></i>
+                        <p class="text-sm">Статьи</p>
+                    </div>
+                    <div class="p-3 bg-indigo-50 rounded-lg text-center">
+                        <i class="fas fa-video text-indigo-500 mb-2"></i>
+                        <p class="text-sm">Видео</p>
+                    </div>
+                    <div class="p-3 bg-indigo-50 rounded-lg text-center">
+                        <i class="fas fa-podcast text-indigo-500 mb-2"></i>
+                        <p class="text-sm">Подкасты</p>
+                    </div>
+                    <div class="p-3 bg-indigo-50 rounded-lg text-center">
+                        <i class="fas fa-images text-indigo-500 mb-2"></i>
+                        <p class="text-sm">Инфографика</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-comments text-indigo-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Интерактивность</h3>
+                </div>
+                <div class="space-y-3">
+                    <div class="strategy-badge">
+                        <i class="fas fa-question-circle mr-2"></i>
+                        Опросы и квизы
+                    </div>
+                    <div class="strategy-badge">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Калькуляторы
+                    </div>
+                    <div class="strategy-badge">
+                        <i class="fas fa-vr-cardboard mr-2"></i>
+                        AR/VR элементы
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-globe text-indigo-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Локализация</h3>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span>Мультиязычность</span>
+                        <i class="fas fa-check text-green-500"></i>
+                    </div>
+                    <div class="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span>Культурная адаптация</span>
+                        <i class="fas fa-check text-green-500"></i>
+                    </div>
+                    <div class="flex items-center justify-between p-2 bg-gray-50 rounded">
+                        <span>Региональный SEO</span>
+                        <i class="fas fa-check text-green-500"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-calendar-alt text-indigo-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Планирование</h3>
+                </div>
+                <div class="space-y-2">
+                    <div class="p-2 bg-indigo-50 rounded">
+                        <p class="font-semibold">Контент-календарь</p>
+                        <p class="text-sm text-gray-600">Регулярные публикации</p>
+                    </div>
+                    <div class="p-2 bg-indigo-50 rounded">
+                        <p class="font-semibold">Сезонный контент</p>
+                        <p class="text-sm text-gray-600">Привязка к событиям</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-chart-line text-indigo-600 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-semibold">Аналитика</h3>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="p-2 bg-gray-50 rounded text-center">
+                        <p class="font-bold text-2xl text-indigo-600">85%</p>
+                        <p class="text-sm">Вовлеченность</p>
+                    </div>
+                    <div class="p-2 bg-gray-50 rounded text-center">
+                        <p class="font-bold text-2xl text-indigo-600">4.8</p>
+                        <p class="text-sm">Рейтинг</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 p-4 bg-indigo-50 rounded-lg text-center">
+            <p class="text-indigo-800 font-semibold">
+                💡 Качественный контент - основа успешного сайта. Комбинируйте разные форматы для максимального эффекта
+            </p>
+        </div>
+    </div>
+</body>
+</html>
