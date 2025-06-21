@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корпоративный сайт 2025</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .section-nav {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            padding-right: 10px;
+            pointer-events: none;
+        }
+        .nav-item {
+            pointer-events: auto;
+        }
+        .nav-item {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .nav-item.active {
+            background: #3b82f6;
+            transform: scale(1.2);
+        }
+        iframe {
+            width: 100%;
+            max-width: 1280px;
+            border: none;
+            display: block;
+            margin: 0 auto;
+        }
+        .section {
+            scroll-snap-align: start;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .section-container {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body class="font-sans" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+    <div class="section-container">
+        <!-- Section 1 -->
+        <div class="section" id="section1">
+            <iframe src="website2025/1.html" loading="lazy"></iframe>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section" id="section2">
+            <iframe src="website2025/2.html" loading="lazy"></iframe>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section" id="section3">
+            <iframe src="website2025/3.html" loading="lazy"></iframe>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section" id="section4">
+            <iframe src="website2025/4.html" loading="lazy"></iframe>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="section" id="section5">
+            <iframe src="website2025/5.html" loading="lazy"></iframe>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="section" id="section6">
+            <iframe src="website2025/6.html" loading="lazy"></iframe>
+        </div>
+
+        <!-- Section 7 -->
+        <div class="section" id="section7">
+            <iframe src="website2025/7.html" loading="lazy"></iframe>
+        </div>
+
+        <!-- Section 8 -->
+        <div class="section" id="section8">
+            <iframe src="website2025/8.html" loading="lazy"></iframe>
+        </div>
+
+        <!-- Section 9 -->
+        <div class="section" id="section9">
+            <iframe src="website2025/9.html" loading="lazy"></iframe>
+        </div>
+
+        <!-- Section 10 -->
+        <div class="section" id="section10">
+            <iframe src="website2025/10.html" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div class="section-nav">
+        <div class="nav-item active" data-section="section1"></div>
+        <div class="nav-item" data-section="section2"></div>
+        <div class="nav-item" data-section="section3"></div>
+        <div class="nav-item" data-section="section4"></div>
+        <div class="nav-item" data-section="section5"></div>
+        <div class="nav-item" data-section="section6"></div>
+        <div class="nav-item" data-section="section7"></div>
+        <div class="nav-item" data-section="section8"></div>
+        <div class="nav-item" data-section="section9"></div>
+        <div class="nav-item" data-section="section10"></div>
+    </div>
+
+    <script>
+        // Navigation between sections
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const sectionId = item.getAttribute('data-section');
+                document.getElementById(sectionId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Cross-origin iframe height communication
+        function setupIframeResizing() {
+            window.addEventListener('message', (event) => {
+                if (event.data.type === 'iframeHeight') {
+                    const iframe = document.querySelector(`iframe[src="${event.data.src}"]`);
+                    if (iframe) {
+                        const height = Math.max(event.data.height, window.innerHeight);
+                        iframe.style.height = height + 'px';
+                        iframe.parentElement.style.height = height + 'px';
+                    }
+                }
+            });
+
+            document.querySelectorAll('iframe').forEach(iframe => {
+                // Set initial height
+                iframe.style.height = window.innerHeight + 'px';
+                iframe.parentElement.style.height = window.innerHeight + 'px';
+                
+                // Request height update after load
+                iframe.onload = function() {
+                    iframe.contentWindow.postMessage({
+                        type: 'requestHeight'
+                    }, '*');
+                };
+            });
+        }
+
+        // Update active nav item on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    document.querySelectorAll('.nav-item').forEach(item => {
+                        item.classList.toggle('active', 
+                            item.getAttribute('data-section') === sectionId);
+                    });
+                }
+            });
+        }, {threshold: 0.5});
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Initial setup
+        window.addEventListener('load', setupIframeResizing);
+        window.addEventListener('resize', setupIframeResizing);
+    </script>
+</body>
+</html>

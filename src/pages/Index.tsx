@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Navbar from '../components/Layout/Navbar';
 import Footer from '../components/Layout/Footer';
 import Hero from '../components/Sections/Hero';
+import WebsiteSection from '../components/Sections/WebsiteSection';
 import ProjectsSection from '../components/Sections/Projects';
 import BusinessCases from '../components/Sections/BusinessCases';
 import ProjectStages from '../components/Sections/ProjectStages';
@@ -57,6 +58,7 @@ const Index: React.FC = () => {
       <main>
         <Hero />
         <ProjectsSection />
+        <WebsiteSection />
         <BusinessCases />
         <ProjectStages />
         <Team />

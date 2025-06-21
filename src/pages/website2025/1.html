@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script>
+        window.addEventListener('message', (event) => {
+            if (event.data.type === 'requestHeight') {
+                window.parent.postMessage({
+                    type: 'iframeHeight',
+                    src: window.location.pathname.split('/').pop(),
+                    height: document.body.scrollHeight
+                }, '*');
+            }
+        });
+    </script>
     <style>
         .slide {
             width: 1280px;
@@ -32,11 +43,11 @@
 <body>
     <div class="slide p-12 flex flex-col items-center justify-center">
         <h1 class="text-5xl font-bold text-gray-800 mb-4 text-center">
-            Как создать супер-сайт для вашей компании в 2025 году
+            Наше исследование: как создать супер-сайт <br> для вашей компании в 2025 году
         </h1>
         <div class="accent-line"></div>
         <h2 class="text-2xl text-gray-600 mb-12 text-center">
-            Полное экспертное руководство по современной веб-разработке
+            После просмотра у вас будет полное понимание возможностей современной веб-разработки 
         </h2>
         
         <div class="grid grid-cols-3 gap-8 mt-8">
@@ -48,8 +59,8 @@
             
             <div class="trend-card p-6">
                 <i class="fas fa-mobile-alt text-4xl text-blue-600 mb-4"></i>
-                <h3 class="text-xl font-semibold mb-2">Web 3.0</h3>
-                <p class="text-gray-600">Децентрализованные технологии и блокчейн-интеграция</p>
+                <h3 class="text-xl font-semibold mb-2">Mobile first</h3>
+                <p class="text-gray-600">Весь функционал в первую очередь работает с телефона</p>
             </div>
             
             <div class="trend-card p-6">

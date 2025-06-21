@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script>
+        window.addEventListener('message', (event) => {
+            if (event.data.type === 'requestHeight') {
+                window.parent.postMessage({
+                    type: 'iframeHeight',
+                    src: window.location.pathname.split('/').pop(),
+                    height: document.body.scrollHeight
+                }, '*');
+            }
+        });
+    </script>
     <style>
         .slide {
             width: 1280px;
