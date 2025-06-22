@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
 import { toast } from 'sonner';
@@ -25,22 +24,29 @@ const ContactForm: React.FC = () => {
     e.preventDefault();
     setLoading(true);
   
+    // --- ИЗМЕНЕНИЯ ЗДЕСЬ ---
+    // 1. Определите ваш URL вебхука n8n
+    const N8N_WEBHOOK_URL = 'https://n8n.vedareader.online/webhook/8d6ae7cd-5c4f-4888-98e8-b302ea031dc3';
+  
     try {
-      const response = await fetch('/api/send-message', {
+      const response = await fetch(N8N_WEBHOOK_URL, { // <--- ИЗМЕНЕНО: теперь отправляем на n8n вебхук
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData) // FormData уже имеет правильные ключи (name, email, phone, message)
       });
   
-      const result = await response.json();
+      // Webhook n8n обычно возвращает пустой ответ с статусом 200 OK на успешный POST.
+      // Не пытаемся парсить response.json() без проверки, т.к. может быть пустой ответ.
       if (!response.ok) {
-        console.log('Server response:', result);
-        throw new Error(result.message || 'Ошибка отправки данных');
+        // Если n8n вебхук возвращает ошибку (например, 400 Bad Request), это будет здесь
+        const errorText = await response.text(); // Читаем текст ошибки
+        console.log('N8N Webhook response:', errorText);
+        throw new Error(`Ошибка отправки на n8n: ${response.status} ${response.statusText} - ${errorText}`);
       }
   
-      toast.success('Ваша заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
+      toast.success('Ваша заявка успешно отправлена через n8n! Мы свяжемся с вами в ближайшее время.');
       setFormData({
         name: '',
         email: '',
@@ -48,8 +54,8 @@ const ContactForm: React.FC = () => {
         message: '',
       });
     } catch (error) {
-      console.error('Ошибка:', error);
-      toast.error('Произошла ошибка. Попробуйте ещё раз.');
+      console.error('Ошибка при отправке формы:', error);
+      toast.error('Произошла ошибка при отправке заявки. Попробуйте ещё раз.');
     }
   
     setLoading(false);
@@ -66,7 +72,7 @@ const ContactForm: React.FC = () => {
         <input
           type="text"
           id="name"
-          name="name"
+          name="name" // Важно: name атрибут используется для ключа в formData
           value={formData.name}
           onChange={handleChange}
           className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg 
@@ -84,7 +90,7 @@ const ContactForm: React.FC = () => {
         <input
           type="email"
           id="email"
-          name="email"
+          name="email" // Важно: name атрибут используется для ключа в formData
           value={formData.email}
           onChange={handleChange}
           className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg 
@@ -102,7 +108,7 @@ const ContactForm: React.FC = () => {
         <input
           type="tel"
           id="phone"
-          name="phone"
+          name="phone" // Важно: name атрибут используется для ключа в formData
           value={formData.phone}
           onChange={handleChange}
           className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg 
@@ -118,7 +124,7 @@ const ContactForm: React.FC = () => {
         </label>
         <textarea
           id="message"
-          name="message"
+          name="message" // Важно: name атрибут используется для ключа в formData
           value={formData.message}
           onChange={handleChange}
           rows={4}
