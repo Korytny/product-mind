@@ -1,10 +1,32 @@
-
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowDown } from 'lucide-react';
 import AnimatedImage from '../ui/AnimatedImage';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { dynamicContent } from '../../dynamicContent'; // Убедитесь, что путь правильный
 
 const Hero: React.FC = () => {
+  // Определяем дефолтный контент из dynamicContent.js как начальное состояние
+  // Это убирает дублирование и делает default_default_default вашим единственным дефолтом
+  const [content, setContent] = useState(dynamicContent.default_default_default);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const utmSource = params.get('utm_source') || 'default';
+    const utmMedium = params.get('utm_medium') || 'default';
+    const utmCampaign = params.get('utm_campaign') || 'default';
+    const contentKey = `${utmSource}_${utmMedium}_${utmCampaign}`;
+    
+    // Проверяем, есть ли контент по ключу в dynamicContent
+    if (dynamicContent[contentKey]) {
+      // Если есть, устанавливаем его. Теперь imageSrc будет браться из dynamicContent[contentKey]
+      setContent(dynamicContent[contentKey]);
+    } else {
+      // Если ключа нет, убеждаемся, что установлен дефолтный контент
+      // (это уже будет сделано при инициализации useState, но можно явно указать для ясности)
+      setContent(dynamicContent.default_default_default);
+    }
+  }, []); // Пустой массив зависимостей, чтобы эффект выполнялся только один раз при монтировании
+
   const heroRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
 
@@ -12,7 +34,6 @@ const Hero: React.FC = () => {
     const handleScroll = () => {
       if (heroRef.current) {
         const scrollY = window.scrollY;
-        // Parallax effect for background elements
         const parallaxElements = heroRef.current.querySelectorAll('.parallax');
         parallaxElements.forEach((el) => {
           const speed = parseFloat((el as HTMLElement).dataset.speed || '0.1');
@@ -40,40 +61,46 @@ const Hero: React.FC = () => {
 
       <div className="container-custom grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-16 relative z-10">
         <div className="flex flex-col justify-center animate-fade-in lg:pt-16">
-          <h1 className="font-bold leading-tight mb-6">
+          <h1 className="font-bold leading-tight mb-6 text-[3.6rem]">
             {isMobile ? (
               <>
                 <span className="relative inline-block">
-                  <span className="text-gradient relative z-10">Масштабирование бизнеса</span>
+                  <span className="text-gradient relative z-10">{content.mainHeading}</span>
                   <div className="absolute inset-0 w-full -z-10" />
-                </span> с ИИ
+                </span>
               </>
             ) : (
               <>
                 <div className="block relative">
-                  <span className="text-gradient relative z-10">Масштабирование</span>
+                  <span className="text-gradient relative z-10">{content.mainHeading}</span>
                   <div className="absolute inset-0 w-full h-full -z-10" />
                 </div>
-                <div className="block">бизнеса с ИИ</div>
               </>
             )}
           </h1>
           <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
-            Автоматизируйте процессы, увеличивайте прибыль и масштабируйте бизнес с помощью современных решений на базе искусственного интеллекта
+            {content.paragraph1}
           </p>
+          {/* Добавьте кнопку CTA здесь, если она нужна */}
+           <button 
+             onClick={() => window.location.href = content.ctaButtonLink}
+             className="bg-accent text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-light transition-colors self-start"
+           >
+             {content.ctaButtonText}
+           </button>
         </div>
 
         <div className="flex items-center justify-center lg:justify-end relative z-[100]">
           <div className="relative w-full max-w-[130%] h-auto z-[100] ml-8" style={{ aspectRatio: '1.3' }}>
             {/* Main CRM image */}
             <AnimatedImage
-              src="/image.png"
-              alt="Главное изображение продукта"
+              src={content.imageSrc} // Теперь imageSrc будет браться из dynamicContent
+              alt={content.mainHeading}
               className="w-full h-full object-cover rounded-xl shadow-2xl border border-white/10 opacity-100 z-0"
               animation="scale"
             />
             
-            {/* Decorative elements with stats */}
+            {/* Decorative elements with stats - без изменений */}
             <div className="absolute -bottom-6 -left-6 glass-card p-4 animate-float z-20" style={{ animationDelay: '0.5s' }}>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
