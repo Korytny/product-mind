@@ -8,7 +8,7 @@ export const dynamicContent = {
     paragraph1: "Автоматизируйте процессы и масштабируйте свой бизнес, освобождая время для стратегического развития. Мы предлагаем современные IT-решения, созданные специально для вас.",
     ctaButtonText: "Начать автоматизацию",
     ctaButtonLink: "/contact-us",
-    imageSrc: "/ss/screenshot23.png?text=MSB+Automation"
+    imageSrc: "/images/img.png"
   },
 
   // --- Предприниматели (Собственники и Управляющие МСБ) ---
