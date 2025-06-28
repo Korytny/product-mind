@@ -72,9 +72,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 const projectsData = [
   {
     images: [
-      "/images/chat.png",
-      "https://images.unsplash.com/photo-1611926653458-09294b3142bf?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
+      "/images/mob4.png",
+      "/images/chat2.png",
+      "/images/chat3.png"
     ],
     title: "Умный чат-бот для вашего бизнеса",
     subtitle: "",
@@ -87,14 +87,14 @@ const projectsData = [
         <li>Помнит историю общения</li>
       </ul>
     ),
-    technologies: ["NLP", "Machine Learning", "Python", "React", "Node.js", "MongoDB"],
+    technologies: ["N8N", "Telegram Bot", "Python", "React", "Node.js", "Flutter"],
     icon: <MessageSquare className="text-accent h-6 w-6" />
   },
   {
     images: [
-      "/images/mob.jpg",
-      "https://images.unsplash.com/photo-1605236453806-6ff36851218e?q=80&w=2074&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070&auto=format&fit=crop"
+      "/images/mob3.png",
+      "/images/mob2.png",
+      "/images/mob.jpg"
     ],
     title: "Мобильное приложение",
     subtitle: "",
@@ -107,14 +107,14 @@ const projectsData = [
         <li>Имеет доступ к данным телефона</li>
       </ul>
     ),
-    technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "Redux"],
+    technologies: ["React Native", "FlutterFlow", "Swift", "Kotlin", "Firebase", "Redux"],
     icon: <Smartphone className="text-accent h-6 w-6" />
   },
   {
     images: [
-      "/images/admin.png",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?q=80&w=2070&auto=format&fit=crop"
+      "/images/admin1.png",
+      "/images/admin2.png",
+      "/images/admin3.png"
     ],
     title: "Управление бизнесом через админку",
     subtitle: "",
