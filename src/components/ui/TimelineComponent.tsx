@@ -37,14 +37,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       className="w-full font-sans"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10 text-center">
+      <div className="max-w-7xl mx-auto py-12 px-4 md:px-8 lg:px-10 text-center">
         <h2 className="text-3xl md:text-5xl mb-2 text-white font-bold">
           Этапы работы
         </h2>
-        <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto mb-6">
+        <p className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto mb-4">
           Наш процесс разработки от идеи до реализации
         </p>
-        <div className="w-20 h-1 bg-purple-500 mx-auto mb-12"></div>
+        <div className="w-20 h-1 bg-purple-500 mx-auto mb-8"></div>
       </div>
 
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">

@@ -42,7 +42,7 @@ const teamData = [
   {
     image: "/images/t1.jpg",
     name: "Евгений Кортыный",
-    position: "Основатель проекта",
+    position: "Маркетинг",
     socials: {
       linkedin: "#",
       github: "#",
@@ -111,7 +111,7 @@ const Team: React.FC = () => {
           <h2 className="section-title inline-block pb-3">Наша команда</h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {teamData.map((member, index) => (
             <TeamMember
               key={index}
@@ -121,6 +121,22 @@ const Team: React.FC = () => {
               socials={member.socials}
             />
           ))}
+        </div>
+
+        {/* Mobile carousel */}
+        <div className="sm:hidden relative overflow-hidden">
+          <div className="flex snap-x snap-mandatory overflow-x-auto gap-4 py-4 px-4">
+            {teamData.map((member, index) => (
+              <div key={`mobile-${index}`} className="flex-shrink-0 snap-center w-[80vw]">
+                <TeamMember
+                  image={member.image}
+                  name={member.name}
+                  position={member.position}
+                  socials={member.socials}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

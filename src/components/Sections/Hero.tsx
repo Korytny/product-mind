@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
            </button>
         </div>
 
-        <div className="flex items-center justify-center lg:justify-end relative z-[100]">
+        <div className="flex items-center justify-center lg:justify-end relative z-[100] mt-16 md:mt-0">
           <div className="relative w-full max-w-[130%] h-auto z-[100] ml-8" style={{ aspectRatio: '1.3' }}>
             {/* Main CRM image */}
             <AnimatedImage
@@ -101,9 +101,9 @@ const Hero: React.FC = () => {
             />
             
             {/* Decorative elements with stats - без изменений */}
-            <div className="absolute -bottom-6 -left-6 glass-card p-4 animate-float z-20" style={{ animationDelay: '0.5s' }}>
+            <div className={`absolute -top-10 -left-6 glass-card p-${isMobile ? '3' : '4'} animate-float z-20`} style={{ animationDelay: '0.5s' }}>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
+                <div className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} bg-accent rounded-full flex items-center justify-center`}>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
@@ -115,9 +115,9 @@ const Hero: React.FC = () => {
               </div>
             </div>
             
-            <div className="absolute -top-6 -right-6 glass-card p-4 animate-float z-20" style={{ animationDelay: '1s' }}>
+            <div className={`absolute -top-6 -right-6 glass-card p-${isMobile ? '3' : '4'} animate-float z-20`} style={{ animationDelay: '1s' }}>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-purple-light rounded-full flex items-center justify-center">
+                <div className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} bg-purple-light rounded-full flex items-center justify-center`}>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -130,9 +130,9 @@ const Hero: React.FC = () => {
             </div>
             
             {/* Animated stats card */}
-            <div className="absolute -bottom-8 right-8 glass-card p-4 animate-float z-20" style={{ animationDelay: '1.5s' }}>
+            <div className={`absolute -bottom-8 right-8 glass-card p-${isMobile ? '3' : '4'} animate-float z-20`} style={{ animationDelay: '1.5s' }}>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
+                <div className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} bg-accent rounded-full flex items-center justify-center`}>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                   </svg>
@@ -148,7 +148,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 animate-bounce md:bottom-20">
         <a href="#projects" className="text-white opacity-80 hover:opacity-100 transition-opacity">
           <ArrowDown size={32} />
         </a>

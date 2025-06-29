@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -20,16 +19,13 @@ const Navbar: React.FC = () => {
   const [isHomePage, setIsHomePage] = useState(true);
 
   useEffect(() => {
-    // Check if we're on the homepage
     setIsHomePage(window.location.pathname === '/');
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setScrolled(scrollPosition > 10);
       
-      // Only update active section on homepage
       if (isHomePage) {
-        // Update active section based on scroll position
         const sections = navItems
           .filter(item => item.isHash)
           .map(item => item.href.substring(1));
@@ -56,64 +52,66 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-purple-dark/90 backdrop-blur-lg shadow-lg' : 'bg-transparent'
-      }`}
-    >
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled ? 'bg-purple-dark/90 backdrop-blur-lg shadow-lg' : 'bg-transparent'
+    }`}>
       <div className="container-custom mx-auto flex items-center justify-between py-4">
+        {/* Логотип слева */}
         <Link to="/" className="flex items-center">
           <span className="text-xl font-bold text-white">Product Mind</span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-1">
-          {navItems.map((item) => {
-            // For non-hash links, use Link component
-            if (!item.isHash) {
+        {/* Основное меню по центру */}
+        <nav className="hidden md:flex items-center justify-center flex-1 px-8">
+          <div className="flex space-x-1">
+            {navItems.map((item) => {
+              if (!item.isHash) {
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className={`nav-link ${
+                      (isHomePage && activeSection === "hero" && item.href === "/") || 
+                      (!isHomePage && item.href === window.location.pathname)
+                        ? 'active'
+                        : ''
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+              
+              if (isHomePage) {
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className={`nav-link ${activeSection === item.href.substring(1) ? 'active' : ''}`}
+                  >
+                    {item.label}
+                  </a>
+                );
+              }
+              
               return (
                 <Link
                   key={item.label}
-                  to={item.href}
-                  className={`nav-link ${
-                    (isHomePage && activeSection === "hero" && item.href === "/") || 
-                    (!isHomePage && item.href === window.location.pathname)
-                      ? 'active'
-                      : ''
-                  }`}
+                  to={`/${item.href}`}
+                  className="nav-link"
                 >
                   {item.label}
                 </Link>
               );
-            }
-            
-            // For hash links on homepage, use normal anchor
-            if (isHomePage) {
-              return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className={`nav-link ${activeSection === item.href.substring(1) ? 'active' : ''}`}
-                >
-                  {item.label}
-                </a>
-              );
-            }
-            
-            // For hash links on other pages, link back to homepage with hash
-            return (
-              <Link
-                key={item.label}
-                to={`/${item.href}`}
-                className="nav-link"
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+            })}
+          </div>
+        </nav>
+
+        {/* Кнопка справа (скрыта на мобильных) */}
+        <div className="hidden md:block">
           <Link
             to="/#contact"
-            className="btn-primary ml-12"
+            className="btn-primary"
             onClick={(e) => {
               if (window.location.pathname === '/') {
                 e.preventDefault();
@@ -123,9 +121,9 @@ const Navbar: React.FC = () => {
           >
             Начать проект
           </Link>
-        </nav>
+        </div>
 
-        {/* Mobile Navigation Toggle */}
+        {/* Мобильное меню */}
         <button 
           className="md:hidden text-white p-2"
           onClick={toggleMobileMenu}
@@ -135,12 +133,10 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation Menu */}
       {mobileMenuOpen && (
         <nav className="md:hidden bg-purple-dark/95 backdrop-blur-lg">
           <div className="container-custom py-4 flex flex-col space-y-4">
             {navItems.map((item) => {
-              // For non-hash links, use Link component
               if (!item.isHash) {
                 return (
                   <Link
@@ -159,7 +155,6 @@ const Navbar: React.FC = () => {
                 );
               }
               
-              // For hash links on homepage, use normal anchor
               if (isHomePage) {
                 return (
                   <a
@@ -173,7 +168,6 @@ const Navbar: React.FC = () => {
                 );
               }
               
-              // For hash links on other pages, link back to homepage with hash
               return (
                 <Link
                   key={item.label}
@@ -185,19 +179,7 @@ const Navbar: React.FC = () => {
                 </Link>
               );
             })}
-            <Link
-              to="/#contact"
-              className="btn-primary inline-block text-center"
-              onClick={(e) => {
-                setMobileMenuOpen(false);
-                if (window.location.pathname === '/') {
-                  e.preventDefault();
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              Начать проект
-            </Link>
+            {/* Кнопка "Начать проект" скрыта на мобильных устройствах */}
           </div>
         </nav>
       )}

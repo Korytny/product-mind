@@ -90,7 +90,7 @@ const ProjectStages = () => {
   ];
 
   return (
-    <section className="w-full py-20" id="project-stages">
+    <section className="w-full py-12 md:py-16" id="project-stages">
       <Timeline data={data} />
     </section>
   );

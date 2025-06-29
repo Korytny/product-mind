@@ -32,7 +32,7 @@ const Contact: React.FC = () => {
           <h2 className="section-title inline-block pb-3">Свяжитесь с нами</h2>
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="animate-on-scroll">
             <ContactForm />
           </div>

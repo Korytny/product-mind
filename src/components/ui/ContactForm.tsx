@@ -30,10 +30,15 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Проверка что заполнено либо email, либо телефон
+    if (!formData.email && !formData.phone) {
+      toast.error('Пожалуйста, укажите email или телефон');
+      return;
+    }
+
     setLoading(true);
   
-    // --- ИЗМЕНЕНИЯ ЗДЕСЬ ---
-    // 1. Определите ваш URL вебхука n8n
     const N8N_WEBHOOK_URL = 'https://n8n.vedareader.online/webhook/8d6ae7cd-5c4f-4888-98e8-b302ea031dc3';
   
     try {
@@ -67,94 +72,96 @@ const ContactForm: React.FC = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="glass-card bg-white/5 backdrop-blur-sm p-6 md:p-8 lg:p-10">
-      
-      <div className="mb-6">
-        <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">
-          Ваше имя
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name" // Важно: name атрибут используется для ключа в formData
-          value={formData.name}
-          onChange={handleChange}
-          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg 
-                   focus:ring-2 focus:ring-accent focus:border-transparent 
-                   text-white placeholder-gray-400"
-          placeholder="Иван Иванов"
-          required
-        />
-      </div>
-      
-      <div className="mb-6">
-        <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">
-          Email
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email" // Важно: name атрибут используется для ключа в formData
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg 
-                   focus:ring-2 focus:ring-accent focus:border-transparent 
-                   text-white placeholder-gray-400"
-          placeholder="example@email.com"
-          required
-        />
-      </div>
-      
-      <div className="mb-6">
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-200 mb-2">
-          Телефон
-        </label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone" // Важно: name атрибут используется для ключа в formData
-          value={formData.phone}
-          onChange={handleChange}
-          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg 
-                   focus:ring-2 focus:ring-accent focus:border-transparent 
-                   text-white placeholder-gray-400"
-          placeholder="+7 (XXX) XXX-XX-XX"
-        />
-      </div>
-      
-      <div className="mb-6">
-        <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-2">
-          Сообщение
-        </label>
-        <textarea
-          id="message"
-          name="message" // Важно: name атрибут используется для ключа в formData
-          value={formData.message}
-          onChange={handleChange}
-          rows={4}
-          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg 
-                   focus:ring-2 focus:ring-accent focus:border-transparent 
-                   text-white placeholder-gray-400 resize-none"
-          placeholder="Расскажите о вашем проекте"
-          required
-        />
-      </div>
-      
-      <button
-        type="submit"
-        disabled={loading}
-        className="btn-primary w-full flex items-center justify-center"
-      >
-        {loading ? (
-          <span className="inline-block h-5 w-5 animate-spin rounded-full border-2 border-solid border-current border-r-transparent"></span>
-        ) : (
-          <>
-            <span>Отправить</span>
-            <Send className="ml-2 h-5 w-5" />
-          </>
-        )}
-      </button>
-    </form>
+      <form onSubmit={handleSubmit} className="glass-card bg-white/5 backdrop-blur-sm p-6 md:p-8 lg:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto">
+        
+        <div className="space-y-4 md:col-span-1">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">
+              Ваше имя
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg 
+                       focus:ring-2 focus:ring-accent focus:border-transparent 
+                       text-white placeholder-gray-400"
+              placeholder="Иван Иванов"
+              required
+            />
+          </div>
+          
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg 
+                       focus:ring-2 focus:ring-accent focus:border-transparent 
+                       text-white placeholder-gray-400"
+              placeholder="example@email.com"
+            />
+          </div>
+          
+          <div>
+            <label htmlFor="phone" className="block text-sm font-medium text-gray-200 mb-2">
+              Или телефон
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg 
+                       focus:ring-2 focus:ring-accent focus:border-transparent 
+                       text-white placeholder-gray-400"
+              placeholder="+7 (XXX) XXX-XX-XX"
+            />
+          </div>
+        </div>
+        
+        <div className="md:col-span-1 flex flex-col">
+          <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-2">
+            Сообщение
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            className="w-full flex-grow px-4 py-2 bg-white/10 border border-white/20 rounded-lg 
+                     focus:ring-2 focus:ring-accent focus:border-transparent 
+                     text-white placeholder-gray-400 resize-none"
+            placeholder="Расскажите коротко о проекте"
+            required
+          />
+        </div>
+        
+        <div className="md:col-span-2">
+          <button
+            type="submit"
+            disabled={loading}
+            className="btn-primary w-full flex items-center justify-center mt-4"
+          >
+            {loading ? (
+              <span className="inline-block h-5 w-5 animate-spin rounded-full border-2 border-solid border-current border-r-transparent"></span>
+            ) : (
+              <>
+                <span>Отправить</span>
+                <Send className="ml-2 h-5 w-5" />
+              </>
+            )}
+          </button>
+        </div>
+      </form>
 
     <Dialog open={isDialogOpen} onOpenChange={(open) => {
       if (!open) {
