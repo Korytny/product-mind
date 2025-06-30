@@ -87,7 +87,7 @@ const projectsData = [
         <li>Помнит историю общения</li>
       </ul>
     ),
-    technologies: ["N8N", "Telegram Bot", "Python", "React", "Node.js", "Flutter"],
+    technologies: ["N8N", "TeleTON", "Python", "React", "Node.js"],
     icon: <MessageSquare className="text-accent h-6 w-6" />
   },
   {
@@ -107,7 +107,7 @@ const projectsData = [
         <li>Имеет доступ к данным телефона</li>
       </ul>
     ),
-    technologies: ["React Native", "FlutterFlow", "Swift", "Kotlin", "Firebase", "Redux"],
+    technologies: ["React Native", "FlutterFlow", "Kotlin", "Firebase", "Redux"],
     icon: <Smartphone className="text-accent h-6 w-6" />
   },
   {
@@ -127,7 +127,7 @@ const projectsData = [
         <li>Обучение и работа с ИИ инструментами</li>
       </ul>
     ),
-    technologies: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Chart.js"],
+    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Chart.js"],
     icon: <LayoutDashboard className="text-accent h-6 w-6" />
   }
 ];

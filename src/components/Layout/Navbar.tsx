@@ -3,10 +3,10 @@ import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const navItems = [
-  { label: "Главная", href: "/", isHash: false },
+/*  { label: "Главная", href: "/", isHash: false }, */
   { label: "Проекты", href: "#projects", isHash: true },
   { label: "Примеры", href: "#business-cases", isHash: true },
-  { label: "Этапы проекта", href: "#project-stages", isHash: true },
+  { label: "Этапы", href: "#project-stages", isHash: true },
   { label: "Команда", href: "#team", isHash: true },
   { label: "Отзывы", href: "#testimonials", isHash: true },
   { label: "Контакты", href: "#contact", isHash: true },
@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
       <div className="container-custom mx-auto flex items-center justify-between py-4">
         {/* Логотип слева */}
         <Link to="/" className="flex items-center">
-          <span className="text-xl font-bold text-white">Product Mind</span>
+          <span className="text-xl font-bold text-white">Студия цифровых продуктов</span>
         </Link>
 
         {/* Основное меню по центру */}

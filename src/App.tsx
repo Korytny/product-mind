@@ -8,10 +8,10 @@ import NotFound from "./pages/NotFound";
 import DynamicLandingPage from "./components/DynamicLandingPage";
 
 // Configure document title and description
-document.title = "AI Business Automation | Масштабирование бизнеса с ИИ";
+document.title = "Product Mind | Масштабирование бизнеса с ИИ";
 const metaDescription = document.querySelector('meta[name="description"]');
 if (metaDescription) {
-  metaDescription.setAttribute('content', 'Автоматизируйте процессы, увеличивайте прибыль и масштабируйте бизнес с помощью современных решений на базе искусственного интеллекта');
+  metaDescription.setAttribute('content', 'Масштабирование бизнеса с ИИ');
 }
 
 const queryClient = new QueryClient();
