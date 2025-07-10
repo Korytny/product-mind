@@ -186,7 +186,7 @@ const ContactForm: React.FC = () => {
         <div className="flex justify-center">
           <Button asChild>
             <a 
-              href={`https://t.me/producore_bot?start=${formData.email || 'no-email'}`}
+              href={`https://t.me/media_cube_bot?start=${formData.email || 'no-email'}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2"
