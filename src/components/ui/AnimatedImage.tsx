@@ -6,13 +6,15 @@ interface AnimatedImageProps {
   alt: string;
   className?: string;
   animation?: 'float' | 'scale' | 'fade-in' | 'slide-in' | 'slide-in-right' | 'none';
+  loading?: 'eager' | 'lazy';
 }
 
 const AnimatedImage: React.FC<AnimatedImageProps> = ({ 
   src, 
   alt, 
   className = '', 
-  animation = 'fade-in'
+  animation = 'fade-in',
+  loading = 'lazy'
 }) => {
   const imgRef = useRef<HTMLImageElement>(null);
   const [error, setError] = useState(false);
@@ -80,7 +82,7 @@ const AnimatedImage: React.FC<AnimatedImageProps> = ({
       src={error ? fallbackImage : src}
       alt={alt}
       className={`relative z-20 opacity-100 ${getAnimationClass()} ${className}`}
-      loading="lazy"
+      loading={loading || 'lazy'}
       onError={handleError}
     />
   );

@@ -98,6 +98,7 @@ const Hero: React.FC = () => {
               alt={content.mainHeading}
               className="w-full h-full object-cover rounded-xl shadow-2xl border border-white/10 opacity-100 z-0"
               animation="scale"
+              loading="eager"
             />
             
             {/* Decorative elements with stats - без изменений */}
