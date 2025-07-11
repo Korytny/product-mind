@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Navbar from '../components/Layout/Navbar';
 import Footer from '../components/Layout/Footer';
 import Hero from '../components/Sections/Hero';
+import { Case } from '../components/Sections/Case';
 import WebsiteSection from '../components/Sections/WebsiteSection';
 import ProjectsSection from '../components/Sections/Projects';
 import BusinessCases from '../components/Sections/BusinessCases';
@@ -23,7 +24,7 @@ const Index: React.FC = () => {
         });
       },
       {
-        rootMargin: '0px',
+        rootMargin: '0px 0px -70% 0px',
         threshold: 0.1,
       }
     );
@@ -56,6 +57,7 @@ const Index: React.FC = () => {
         <WebsiteSection />
         <BusinessCases />
         <ProjectStages />
+        <Case />
         <Team />
         <Testimonials />
         <Contact />

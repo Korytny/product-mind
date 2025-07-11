@@ -7,6 +7,7 @@ const navItems = [
   { label: "Проекты", href: "#projects", isHash: true },
   { label: "Примеры", href: "#business-cases", isHash: true },
   { label: "Этапы", href: "#project-stages", isHash: true },
+  { label: "Кейс", href: "#case", isHash: true },
   { label: "Команда", href: "#team", isHash: true },
   { label: "Отзывы", href: "#testimonials", isHash: true },
   { label: "Контакты", href: "#contact", isHash: true },
@@ -34,7 +35,7 @@ const Navbar: React.FC = () => {
           const element = document.getElementById(section);
           if (element) {
             const rect = element.getBoundingClientRect();
-            if (rect.top <= 100) {
+            if (rect.top <= window.innerHeight * 0.7) {
               setActiveSection(section);
               break;
             }

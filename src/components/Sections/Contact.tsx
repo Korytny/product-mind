@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
     <section id="contact" className="bg-purple">
       <div className="container-custom">
         <div className="mb-8 text-center animate-on-scroll">
-          <h2 className="section-title inline-block pb-3">Свяжитесь с нами</h2>
+          <h2 className="section-title inline-block pb-3">Бесплатная консультация по вашим задумкам</h2>
         </div>
 
         <div className="max-w-4xl mx-auto">
