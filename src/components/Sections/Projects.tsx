@@ -26,7 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <div className="glass-card overflow-hidden transition-all duration-500 hover:shadow-xl animate-on-scroll">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
         <div className="overflow-visible h-64 md:h-80 relative z-50">
           <Carousel className="w-full h-full">
             <CarouselContent className="h-full">
