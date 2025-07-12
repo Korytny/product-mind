@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
     <section 
       id="hero" 
       ref={heroRef}
-      className="relative min-h-[110vh] flex items-center pt-12 pb-16 overflow-hidden"
+      className="relative min-h-[110vh] flex items-center pt-12 pb-16 overflow-hidden md:pt-12"
     >
       {/* Background animation elements - kept small and within the container */}
       <div className="absolute inset-0 overflow-hidden -z-10">
@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
 
       <div className="container-custom grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-10 relative z-10">
         <div className="flex flex-col justify-center animate-fade-in lg:pt-8">
-          <h1 className="font-bold leading-tight mb-2 text-[3.6rem]">
+          <h1 className="font-bold leading-tight mb-2 text-[3rem] md:text-[3.6rem] mt-8 md:mt-0">
             {isMobile ? (
               <>
                 <span className="relative inline-block">
@@ -148,8 +148,8 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 animate-bounce z-50">
+      {/* Scroll indicator - hidden on mobile */}
+      <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 animate-bounce z-50 hidden md:block">
         <a href="#projects" className="text-white opacity-80 hover:opacity-100 transition-opacity">
           <ArrowDown size={32} />
         </a>
