@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
     <section 
       id="hero" 
       ref={heroRef}
-      className="relative min-h-screen flex items-center pt-20 overflow-hidden"
+      className="relative min-h-[110vh] flex items-center pt-12 pb-16 overflow-hidden"
     >
       {/* Background animation elements - kept small and within the container */}
       <div className="absolute inset-0 overflow-hidden -z-10">
@@ -59,9 +59,9 @@ const Hero: React.FC = () => {
         <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-accent/20 rounded-full blur-3xl parallax" data-speed="-0.08" style={{ zIndex: -1 }}></div>
       </div>
 
-      <div className="container-custom grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-16 relative z-10">
-        <div className="flex flex-col justify-center animate-fade-in lg:pt-16">
-          <h1 className="font-bold leading-tight mb-6 text-[3.6rem]">
+      <div className="container-custom grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-10 relative z-10">
+        <div className="flex flex-col justify-center animate-fade-in lg:pt-8">
+          <h1 className="font-bold leading-tight mb-2 text-[3.6rem]">
             {isMobile ? (
               <>
                 <span className="relative inline-block">
@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
               </>
             )}
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
+          <p className="text-base md:text-lg text-gray-300 mb-8 max-w-lg">
             {content.paragraph1}
           </p>
           {/* Добавьте кнопку CTA здесь, если она нужна */}
@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
         </div>
 
         <div className="flex items-center justify-center lg:justify-end relative z-[100] mt-16 md:mt-0">
-          <div className="relative w-full max-w-[130%] h-auto z-[100] ml-8" style={{ aspectRatio: '1.3' }}>
+          <div className="relative w-full max-w-[130%] h-auto z-[100] ml-4" style={{ aspectRatio: '1.3' }}>
             {/* Main CRM image */}
             <AnimatedImage
               src={content.imageSrc} // Теперь imageSrc будет браться из dynamicContent
@@ -149,7 +149,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 animate-bounce md:bottom-20">
+      <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 animate-bounce z-50">
         <a href="#projects" className="text-white opacity-80 hover:opacity-100 transition-opacity">
           <ArrowDown size={32} />
         </a>
