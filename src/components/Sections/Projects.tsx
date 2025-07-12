@@ -4,6 +4,7 @@ import { MessageSquare, Smartphone, LayoutDashboard, ArrowRight } from 'lucide-r
 import AnimatedImage from '../ui/AnimatedImage';
 import { Link } from 'react-router-dom';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ProjectCardProps {
   images: string[];
@@ -13,6 +14,7 @@ interface ProjectCardProps {
   technologies: string[];
   icon: React.ReactNode;
   index: number;
+  isMobile?: boolean;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -22,7 +24,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   technologies,
   icon,
-  index
+  index,
+  isMobile = false
 }) => {
   return (
     <div className="glass-card overflow-hidden transition-all duration-500 hover:shadow-xl animate-on-scroll">
@@ -47,7 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <CarouselNext className="right-2 bg-accent text-white hover:bg-accent-light border-none" />
           </Carousel>
         </div>
-        <div className="p-6 flex flex-col justify-center">
+        <div className={`p-6 flex flex-col ${isMobile ? 'mt-[-80px]' : 'justify-center'}`}>
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
               {icon}
@@ -133,6 +136,8 @@ const projectsData = [
 ];
 
 const Projects: React.FC = () => {
+  const isMobile = useIsMobile();
+  
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -174,6 +179,7 @@ const Projects: React.FC = () => {
               technologies={project.technologies}
               icon={project.icon}
               index={index}
+              isMobile={isMobile}
             />
           ))}
         </div>
