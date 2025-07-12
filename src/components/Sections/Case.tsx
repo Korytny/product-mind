@@ -61,19 +61,19 @@ const directions = [
 const projects = [
   {
     name: "RusIntelCom.ru",
-    description: "Основной сайт компании - супердзайн, резиновая верстка, услуги, проекты ",
+    description: "Основной брендовый сайт компании - здесь все услуги и проекты, общая деятельность компании",
     url: "https://rusintelcom.ru",
     image: "/images/case1.jpg"
   },
   {
     name: "iCOND.ru",
-    description: "Сайт бизнес-единицы для холодильного оборудования - каталог, поставки",
+    description: "Сайт бизнес-единицы поставок холодильного оборудования - каталог, референсы, сертификаты",
     url: "https://icond.ru",
     image: "/images/case2.jpg"
   },
   {
     name: "MetaPol.pro",
-    description: "Сайт с направлением для поставки фальшполов - создавался исключительно под direct",
+    description: "Поставки фальшпола - новое бизнес направление, обширный каталог, статейный маркетинг",
     url: "https://metapol.pro",
     image: "/images/case3.jpg"
   }
@@ -82,17 +82,17 @@ const projects = [
 const secondPhaseItems = [
   {
     name: "Проектное управление",
-    description: "Шаблоны проектов в существующей Bitrix24",
+    description: "Систематизация проектов, разработка шаблонов планов и документов, в существующей Bitrix24",
     image: "/images/case-project.jpg"
   },
   {
-    name: "CRM-система", 
-    description: "База данных Supabase + FrontEnd Directus",
+    name: "Умная CRM-система", 
+    description: "Собирает контакты с сайтов, проводит первоначальную классификацию лидов",
     image: "/images/case-crm.jpg"
   },
   {
-    name: "Проактивный маркетинг",
-    description: "Автоматизация создания контента, рассылки",
+    name: "Проактивный ИИ маркетинг",
+    description: "Разработка стратегии по каналам, автоматизация создания контента, персональные рассылки",
     image: "/images/case-content.jpg"
   }
 ];
@@ -122,14 +122,15 @@ export const Case = ({ id }: CaseProps) => {
             Кейс: цифровизация РусИнтелКом
           </h2>
           
-          <p className="max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+          <p className="max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400 mb-12">
             Компания поставщиком целого спектра инженерных решений.<br />
-            В ходе аудита были выявлены 5 ключевых направлений <br />
+            В первую очередь были выделены 5 ключевых направлений <br />
             для цифровой трансформации бизнеса.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+        {/* Desktop grid */}
+        <div className="hidden sm:grid gap-6 md:grid-cols-2 lg:grid-cols-5 mt-12">
           {directions.map((item, index) => (
             <AnimatedContainer key={index} delay={index * 0.1}>
               <div className="p-4 flex flex-col items-center text-center hover:shadow-lg transition-all bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:bg-white/10">
@@ -141,8 +142,23 @@ export const Case = ({ id }: CaseProps) => {
           ))}
         </div>
 
+        {/* Mobile carousel */}
+        <div className="sm:hidden relative overflow-hidden mt-8">
+          <div className="flex snap-x snap-mandatory overflow-x-auto gap-4 py-4 px-4">
+            {directions.map((item, index) => (
+              <div key={`mobile-${index}`} className="flex-shrink-0 snap-center w-[80vw]">
+                <div className="p-4 h-full flex flex-col items-center text-center hover:shadow-lg transition-all bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:bg-white/10">
+                  <div className="text-4xl mb-4">{item.icon}</div>
+                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                  <p className="text-sm text-gray-500 mt-2">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="mt-16">
-          <h3 className="text-2xl font-bold text-center mb-8">Первая очередь - разработка сайтов</h3>
+          <h3 className="text-2xl font-bold text-center mb-8">Вторая очередь - разработка сайтов по направениям</h3>
           <div className="grid gap-8 md:grid-cols-3">
             {projects.map((project, index) => (
               <AnimatedContainer key={index} delay={index * 0.2}>
@@ -174,7 +190,7 @@ export const Case = ({ id }: CaseProps) => {
         </div>
 
         <div className="mt-16">
-          <h3 className="text-2xl font-bold text-center mb-8">Вторая очередь - системные решения</h3>
+          <h3 className="text-2xl font-bold text-center mb-8">Теретий этап - системные внутренние решения </h3>
           <div className="grid gap-8 md:grid-cols-3">
             {secondPhaseItems.map((item, index) => (
               <AnimatedContainer key={index} delay={index * 0.2}>

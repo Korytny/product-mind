@@ -72,9 +72,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 const projectsData = [
   {
     images: [
-      "/images/mob4.png",
-      "/images/chat2.png",
-      "/images/chat3.png"
+      "/images/mob4.jpg",
+      "/images/chat2.jpg",
+      "/images/chat3.jpg"
     ],
     title: "Умный чат-бот для вашего бизнеса",
     subtitle: "",
@@ -92,8 +92,8 @@ const projectsData = [
   },
   {
     images: [
-      "/images/mob3.png",
-      "/images/mob2.png",
+      "/images/mob3.jpg",
+      "/images/mob2.jpg",
       "/images/mob.jpg"
     ],
     title: "Мобильное приложение",
@@ -112,9 +112,9 @@ const projectsData = [
   },
   {
     images: [
-      "/images/admin1.png",
-      "/images/admin2.png",
-      "/images/admin3.png"
+      "/images/admin1.jpg",
+      "/images/admin2.jpg",
+      "/images/admin3.jpg"
     ],
     title: "Управление бизнесом через админку",
     subtitle: "",
@@ -160,7 +160,7 @@ const Projects: React.FC = () => {
     <section id="projects" className="bg-gradient-to-b from-purple-dark to-purple">
       <div className="container-custom">
         <div className="mb-16 text-center animate-on-scroll">
-          <h2 className="section-title inline-block pb-3">Наши проекты</h2>
+          <h2 className="section-title inline-block pb-3">Направления разработки</h2>
         </div>
 
         <div className="space-y-16">

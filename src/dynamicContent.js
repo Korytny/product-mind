@@ -8,7 +8,7 @@ export const dynamicContent = {
     paragraph1: "Автоматизируйте процессы и масштабируйте бизнес, освобождая время для стратегического развития. Мы предлагаем современные IT-решения, созданные специально для вас.",
     ctaButtonText: "Свяжитесь с нами",
     ctaButtonLink: "/#contact",
-    imageSrc: "/images/img.png"
+    imageSrc: "/images/img.jpg"
   },
 
   // --- Предприниматели (Собственники и Управляющие МСБ) ---
@@ -19,7 +19,7 @@ export const dynamicContent = {
     paragraph1: "Мы создаем умные IT-решения, которые превратят ваши повторяющиеся задачи в автоматизированные процессы, экономя время и ресурсы. Сосредоточьтесь на стратегии, мы позаботимся о рутине.",
     ctaButtonText: "Освободить Бизнес от Рутины",
     ctaButtonLink: "/solutions/business-automation",
-    imageSrc: "/image.png?text=MSB+Automation"
+    imageSrc: "/image.jpg"
   },
   // 2. Оптимизация/Экономия (поиск выгоды)
   google_cpc_biz_economy: {

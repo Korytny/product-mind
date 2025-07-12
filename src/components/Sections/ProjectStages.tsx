@@ -17,7 +17,7 @@ const ProjectStages = () => {
               <li>Зафиксируем бизнес-процесс</li>
             </ul>
             <img
-              src="/images/bp.png"
+              src="/images/bp.jpg"
               alt="Interview process"
               className="rounded-lg object-cover w-full h-40 md:h-60 mt-4"
             />
@@ -73,7 +73,7 @@ const ProjectStages = () => {
               <li>Настройка рекламы, создание воронок для клиентов</li>
             </ul>
             <img
-              src="/images/prod.png"
+              src="/images/prod.jpg"
               alt="Solution implementation"
               className="rounded-lg object-cover w-full h-40 md:h-60 mt-4"
             />
