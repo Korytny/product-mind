@@ -59,9 +59,19 @@ const Footer: React.FC = () => {
 
         <div className="mt-12 pt-8 border-t border-white/10 w-full text-center md:text-left">
           <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Product Mind. All rights reserved.
-            </p>
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <p className="text-gray-400 text-sm">
+                © {new Date().getFullYear()} Product Mind. All rights reserved.
+              </p>
+              <div className="flex gap-4">
+                <a href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  Privacy Policy
+                </a>
+                <a href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
+                  Terms of Service
+                </a>
+              </div>
+            </div>
             <a
               href="#hero"
               className="flex items-center justify-center w-10 h-10 bg-accent rounded-full transition-transform hover:-translate-y-1"
