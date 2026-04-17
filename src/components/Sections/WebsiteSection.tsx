@@ -9,7 +9,7 @@ const WebsiteSection: React.FC = () => {
       <LampDemo />
       <Button asChild className="btn-primary -mt-60 px-6 py-3">
         <a href="/website2025-landing.html" target="_blank" rel="noopener noreferrer">
-          Посмотреть исследование
+          View the Research
         </a>
       </Button>
     </section>

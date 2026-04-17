@@ -16,7 +16,7 @@ export function LampDemo() {
         }}
         className="mt-8 py-4 text-center text-4xl font-medium tracking-tight text-white md:text-7xl"
       >
-        Как сделать вебсайт <br /> в 2025 году
+        How to make a website <br /> in 2026
       </motion.h1>
     </LampContainer>
   );

@@ -4,17 +4,17 @@ import { Timeline } from "../ui/TimelineComponent";
 const ProjectStages = () => {
   const data = [
     {
-      title: "Интервью",
+      title: "Interview",
       content: (
         <div className="space-y-6">
           <h4 className="text-white text-xl md:text-2xl font-medium">
-            Сбор требований и фиксация потребностей
+            Requirements gathering and needs identification
           </h4>
           <div className="space-y-4">
             <ul className="text-white/80 text-base md:text-lg space-y-3 list-disc pl-5">
-              <li>Проведем несколько встреч</li>
-              <li>Обсудим ваши пожелания</li>
-              <li>Зафиксируем бизнес-процесс</li>
+              <li>We'll conduct several meetings</li>
+              <li>We'll discuss your wishes</li>
+              <li>We'll document business processes</li>
             </ul>
             <img
               src="/images/bp.jpg"
@@ -22,9 +22,9 @@ const ProjectStages = () => {
               className="rounded-lg object-cover w-full h-40 md:h-60 mt-4"
             />
             <div className="bg-white/5 p-6 rounded-lg border border-white/10">
-              <h5 className="text-purple-400 text-lg font-medium mb-3">Результат:</h5>
+              <h5 className="text-purple-400 text-lg font-medium mb-3">Result:</h5>
               <p className="text-white text-base">
-                Детализированное техническое задание с полным описанием системы
+                Detailed technical specification with full system description
               </p>
             </div>
           </div>
@@ -32,17 +32,17 @@ const ProjectStages = () => {
       ),
     },
     {
-      title: "Прототип",
+      title: "Prototype",
       content: (
         <div className="space-y-6">
           <h4 className="text-white text-xl md:text-2xl font-medium">
-            Визуализация идей, создание MVP
+            Idea visualization, MVP creation
           </h4>
           <div className="space-y-4">
             <ul className="text-white/80 text-base md:text-lg space-y-3 list-disc pl-5">
-              <li>Создание кликабельного прототипа в Figma</li>
-              <li>Разработка первой версии приложения</li>
-              <li>Тестирование на фокус группе</li>
+              <li>Creating clickable prototype in Figma</li>
+              <li>Developing first version of the application</li>
+              <li>Testing on focus group</li>
             </ul>
             <img
               src="/images/mob.jpg"
@@ -50,9 +50,9 @@ const ProjectStages = () => {
               className="rounded-lg object-cover w-full h-40 md:h-60 mt-4"
             />
             <div className="bg-white/5 p-6 rounded-lg border border-white/10">
-              <h5 className="text-purple-400 text-lg font-medium mb-3">Результат:</h5>
+              <h5 className="text-purple-400 text-lg font-medium mb-3">Result:</h5>
               <p className="text-white text-base">
-                Макет прототипа и работающий MVP
+                Prototype mockup and working MVP
               </p>
             </div>
           </div>
@@ -60,17 +60,17 @@ const ProjectStages = () => {
       ),
     },
     {
-      title: "Решение",
+      title: "Solution",
       content: (
         <div className="space-y-6">
           <h4 className="text-white text-xl md:text-2xl font-medium">
-            Реализация продукта, соответствующего требованиям
+            Product implementation meeting requirements
           </h4>
           <div className="space-y-4">
             <ul className="text-white/80 text-base md:text-lg space-y-3 list-disc pl-5">
-              <li>Доработка функций и интерфейсов</li>
-              <li>Публикация сайта или приложения на маркетплейсах</li>
-              <li>Настройка рекламы, создание воронок для клиентов</li>
+              <li>Refining functions and interfaces</li>
+              <li>Publishing website or application on marketplaces</li>
+              <li>Setting up advertising, creating funnels for clients</li>
             </ul>
             <img
               src="/images/prod.jpg"
@@ -78,9 +78,9 @@ const ProjectStages = () => {
               className="rounded-lg object-cover w-full h-40 md:h-60 mt-4"
             />
             <div className="bg-white/5 p-6 rounded-lg border border-white/10">
-              <h5 className="text-purple-400 text-lg font-medium mb-3">Результат:</h5>
+              <h5 className="text-purple-400 text-lg font-medium mb-3">Result:</h5>
               <p className="text-white text-base">
-                Работающее решение, достигающее цели
+                Working solution achieving the goal
               </p>
             </div>
           </div>

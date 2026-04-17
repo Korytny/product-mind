@@ -49,60 +49,60 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
 const casesData = [
   {
     image: "/images/funel.jpg",
-    title: "Контекстная реклама, таргетинг и SEO",
-    subtitle: "Проекты: Metapol, RosIntelCom",
+    title: "Contextual Advertising, Targeting and SEO",
+    subtitle: "Projects: Metapol, RosIntelCom",
     description: (
       <>
-        <p className="mb-4">Привлечение крупных проектов требует стратегической видимости. Ваши клиенты ищут решения и ваше предложение должно быть на виду. Контекстная реклама мгновенно охватывает "горячую" аудиторию, а SMM-таргетинг точно достучится до ЦА в соцсетях.</p>
-        <p>SEO обеспечивает долгосрочную видимость, снижая зависимость от платного трафика. Это комплексный подход, гарантирующий, что ваша студия будет постоянно в поле зрения целевой аудитории, привлекая стабильный поток квалифицированных лидов.</p>
+        <p className="mb-4">Attracting large projects requires strategic visibility. Your clients are searching for solutions and your offer should be visible. Contextual advertising instantly reaches a "hot" audience, and SMM targeting precisely reaches the target audience on social media.</p>
+        <p>SEO ensures long-term visibility, reducing dependence on paid traffic. This is a comprehensive approach that guarantees your studio will constantly be in the field of view of the target audience, attracting a steady stream of qualified leads.</p>
       </>
     ),
     icon: <Megaphone className="text-accent h-6 w-6" />
   },
   {
     image: "/images/project1.jpg",
-    title: "Вебсайт расширяет воронку продаж",
-    subtitle: "Проекты: rustelcom.ru, kinokupol.ru, holyspots.vedareader.ru",
+    title: "Website Expands the Sales Funnel",
+    subtitle: "Projects: rustelcom.ru, kinokupol.ru, holyspots.vedareader.ru",
     description: (
       <>
-        <p className="mb-4">Конверсионный веб-сайт — это не просто красивый фасад, а фундоментальная потребность. Ваш бизнес не может эффективно привлекать и удерживать клиентов без сайта, который активно работает на расширение воронки продаж. Без него вы рискете потерять потенциальных клиентов уже на старте.</p>
-        <p>Продуманный веб-ресурс становится неотъемлемой частью коммерческого процесса. Он автоматизирует первый контакт, направляя клиентов дальше по воронке, обеспечивая постоянный приток новых возможностей для вашего бизнеса.</p>
+        <p className="mb-4">A conversion-focused website is not just a beautiful facade, but a fundamental need. Your business cannot effectively attract and retain clients without a website that actively works on expanding the sales funnel. Without it, you risk losing potential clients right from the start.</p>
+        <p>A well-thought-out web resource becomes an integral part of the commercial process. It automates the first contact, guiding clients further down the funnel, ensuring a constant flow of new opportunities for your business.</p>
       </>
     ),
     icon: <Globe className="text-accent h-6 w-6" />
   },
   {
     image: "/images/crm.jpg",
-    title: "CRM - принимает и удерживает клиентов",
-    subtitle: "Проекты: Metapol, RosIntelCom, FullDome Russia",
+    title: "CRM - Accepts and Retains Clients",
+    subtitle: "Projects: Metapol, RosIntelCom, FullDome Russia",
     description: (
       <>
-        <p className="mb-4">CRM-система жизненно необходимы инструмент для масштабирования Вашего бизнеса. Она позволяет эффективно принимать новые запросы, систематизировать информацию и отслеживать каждый этап воронки продаж.</p>
-        <p>Наши системы гарантировано эффективно удерживают клиентов, за счет персонализированного подход и внедрения ИИ. Позвольте вашей CRM работать на вас, превращая каждый лид в ценного, долгосрочного партнера.</p>
+        <p className="mb-4">A CRM system is a vital tool for scaling your business. It allows you to effectively accept new requests, systematize information and track every stage of the sales funnel.</p>
+        <p>Our systems guarantee effective client retention through a personalized approach and AI integration. Let your CRM work for you, turning each lead into a valuable, long-term partner.</p>
       </>
     ),
     icon: <BarChartHorizontal className="text-accent h-6 w-6" />
   },
   {
     image: "/images/mob5.jpg",
-    title: "Мобильное приложение - работа с базой",
-    subtitle: "Проекты: HolySpots, GetCRM",
+    title: "Mobile Application - Working with the Database",
+    subtitle: "Projects: HolySpots, GetCRM",
     description: (
       <>
-        <p className="mb-4">Это прямой путь к лояльности и повторным продажам. Когда ваш сервис всегда под рукой в смартфоне клиента, это обеспечивает максимальное удобство и делает его незаменимым инструментом для любого бизнеса, нацеленного на долгосрочные отношения.</p>
-        <p>Понимая потребности ваших клиентов, мы создадим интуитивно понятное и функциональное приложение, которое станет "золотым дном" повторных продаж, превращая существующих клиентов в постоянных и преданных покупателей.</p>
+        <p className="mb-4">This is a direct path to loyalty and repeat sales. When your service is always at hand on the client's smartphone, it provides maximum convenience and makes it an indispensable tool for any business focused on long-term relationships.</p>
+        <p>Understanding your clients' needs, we will create an intuitive and functional application that will become a "gold mine" of repeat sales, turning existing clients into regular and loyal customers.</p>
       </>
     ),
     icon: <ShoppingBag className="text-accent h-6 w-6" />
   },
   {
     image: "/images/adm4.jpg",
-    title: "Система управления данными",
-    subtitle: "Проекты: JivoSite, Трудовик, Печи.ком",
+    title: "Data Management System",
+    subtitle: "Projects: JivoSite, Trudovik, Pechi.com",
     description: (
       <>
-        <p className="mb-4">В основе эффективного бизнеса – единое информационное пространство. Управление складом, магазином, файлами или проектами по отдельности создаёт хаос. Современные облачные решения дают возможности, но их интеграция требует экспертизы.</p>
-        <p>Мы создаём комплексные системы управления данными, объединяя склад, магазин, проекты и рекламу в одно решение. Эти системы мы собираем за считанные недели, с полным обучением персонала. Получите контроль над данными для бесперебойной работы и масштабирования вашего бизнеса.</p>
+        <p className="mb-4">At the heart of effective business is a unified information space. Managing a warehouse, store, files or projects separately creates chaos. Modern cloud solutions offer possibilities, but their integration requires expertise.</p>
+        <p>We create comprehensive data management systems, combining warehouse, store, projects and advertising into one solution. We assemble these systems in a matter of weeks, with full staff training. Get control over your data for uninterrupted operation and scaling of your business.</p>
       </>
     ),
     icon: <PackageCheck className="text-accent h-6 w-6" />
@@ -137,7 +137,7 @@ const BusinessCases: React.FC = () => {
     <section id="business-cases" className="bg-purple-dark">
       <div className="container-custom">
         <div className="mb-16 text-center animate-on-scroll">
-          <h2 className="section-title inline-block pb-3">Примеры использования</h2>
+          <h2 className="section-title inline-block pb-3">Use Cases</h2>
         </div>
 
         <div className="space-y-16">

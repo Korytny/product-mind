@@ -31,39 +31,37 @@ const ContactForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Проверка что заполнено либо email, либо телефон
+    // Check if either email or phone is filled
     if (!formData.email && !formData.phone) {
-      toast.error('Пожалуйста, укажите email или телефон');
+      toast.error('Please provide an email or phone number');
       return;
     }
 
     setLoading(true);
   
-    const N8N_WEBHOOK_URL = 'https://n8n.vedareader.online/webhook/8d6ae7cd-5c4f-4888-98e8-b302ea031dc3';
+    const CONTACT_WEBHOOK_URL = '/api/send-message';
   
     try {
-      const response = await fetch(N8N_WEBHOOK_URL, { // <--- ИЗМЕНЕНО: теперь отправляем на n8n вебхук
+      const response = await fetch(CONTACT_WEBHOOK_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData) // FormData уже имеет правильные ключи (name, email, phone, message)
+        body: JSON.stringify(formData)
       });
   
-      // Webhook n8n обычно возвращает пустой ответ с статусом 200 OK на успешный POST.
-      // Не пытаемся парсить response.json() без проверки, т.к. может быть пустой ответ.
+      // Backend returns 200 OK on successful POST.
       if (!response.ok) {
-        // Если n8n вебхук возвращает ошибку (например, 400 Bad Request), это будет здесь
-        const errorText = await response.text(); // Читаем текст ошибки
-        console.log('N8N Webhook response:', errorText);
-        throw new Error(`Ошибка отправки на n8n: ${response.status} ${response.statusText} - ${errorText}`);
+        const errorText = await response.text();
+        console.log('Backend response:', errorText);
+        throw new Error(`Backend error: ${response.status} ${response.statusText} - ${errorText}`);
       }
   
       setIsDialogOpen(true);
-      // Очищаем форму только после закрытия модального окна
+      // Clear form only after closing the dialog
     } catch (error) {
-      console.error('Ошибка при отправке формы:', error);
-      toast.error('Произошла ошибка при отправке заявки. Попробуйте ещё раз.');
+      console.error('Error submitting form:', error);
+      toast.error('An error occurred while submitting the form. Please try again.');
     }
   
     setLoading(false);
@@ -77,7 +75,7 @@ const ContactForm: React.FC = () => {
         <div className="space-y-4 md:col-span-1">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">
-              Ваше имя
+              Your Name
             </label>
             <input
               type="text"
@@ -88,7 +86,7 @@ const ContactForm: React.FC = () => {
               className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg 
                        focus:ring-2 focus:ring-accent focus:border-transparent 
                        text-white placeholder-gray-400"
-              placeholder="Иван Иванов"
+              placeholder="John Doe"
               required
             />
           </div>
@@ -112,7 +110,7 @@ const ContactForm: React.FC = () => {
           
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-gray-200 mb-2">
-              Или телефон
+              Or Phone
             </label>
             <input
               type="tel"
@@ -130,7 +128,7 @@ const ContactForm: React.FC = () => {
         
         <div className="md:col-span-1 flex flex-col">
           <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-2">
-            Сообщение
+            Message
           </label>
           <textarea
             id="message"
@@ -140,7 +138,7 @@ const ContactForm: React.FC = () => {
             className="w-full flex-grow px-4 py-2 bg-white/10 border border-white/20 rounded-lg 
                      focus:ring-2 focus:ring-accent focus:border-transparent 
                      text-white placeholder-gray-400 resize-none"
-            placeholder="Расскажите коротко о проекте"
+            placeholder="Briefly describe your project"
             required
           />
         </div>
@@ -155,7 +153,7 @@ const ContactForm: React.FC = () => {
               <span className="inline-block h-5 w-5 animate-spin rounded-full border-2 border-solid border-current border-r-transparent"></span>
             ) : (
               <>
-                <span>Отправить</span>
+                <span>Submit</span>
                 <Send className="ml-2 h-5 w-5" />
               </>
             )}
@@ -177,11 +175,11 @@ const ContactForm: React.FC = () => {
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="text-center mb-4">
-            Ваша заявка успешно отправлена.
+            Your request has been successfully submitted.
           </DialogTitle>
         </DialogHeader>
         <div className="text-center mb-6">
-          Если хотите связаться сейчас - нажмите на кнопку.
+          If you'd like to contact us now - click the button.
         </div>
         <div className="flex justify-center">
           <Button asChild>
@@ -194,7 +192,7 @@ const ContactForm: React.FC = () => {
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.534.26l.213-3.053 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.87 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
               </svg>
-              Перейти в телеграм
+              Go to Telegram
             </a>
           </Button>
         </div>

@@ -38,7 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                   <div className="h-full w-full">
                     <AnimatedImage
                       src={image}
-                      alt={`${title} - изображение ${i+1}`}
+                      alt={`${title} - image ${i+1}`}
                       className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                       animation={index % 2 === 0 ? 'slide-in' : 'slide-in-right'}
                     />
@@ -79,15 +79,15 @@ const projectsData = [
       "/images/chat2.jpg",
       "/images/chat3.jpg"
     ],
-    title: "Умный чат-бот для вашего бизнеса",
+    title: "Smart Chatbot for Your Business",
     subtitle: "",
     description: (
       <ul className="list-disc list-inside space-y-2">
-        <li>Автоматизирует рутинные процессы</li>
-        <li>Решает задачи клиентов 24/7</li>
-        <li>Увеличивает конверсию</li>
-        <li>Интегрируется с вашей CRM</li>
-        <li>Помнит историю общения</li>
+        <li>Automates routine processes</li>
+        <li>Solves customer tasks 24/7</li>
+        <li>Increases conversion rates</li>
+        <li>Integrates with your CRM</li>
+        <li>Remembers interaction history</li>
       </ul>
     ),
     technologies: ["N8N", "TeleTON", "Python", "React", "Node.js"],
@@ -99,15 +99,15 @@ const projectsData = [
       "/images/mob2.jpg",
       "/images/mob.jpg"
     ],
-    title: "Мобильное приложение",
+    title: "Mobile Application",
     subtitle: "",
     description: (
       <ul className="list-disc list-inside space-y-2">
-        <li>Улучшает клиентский опыт</li>
-        <li>Бесплатное тестирование продуктов</li>
-        <li>Разнообразный функционал</li>
-        <li>Может работать в офлайне</li>
-        <li>Имеет доступ к данным телефона</li>
+        <li>Improves customer experience</li>
+        <li>Free product testing</li>
+        <li>Diverse functionality</li>
+        <li>Can work offline</li>
+        <li>Has access to phone data</li>
       </ul>
     ),
     technologies: ["React Native", "FlutterFlow", "Kotlin", "Firebase", "Redux"],
@@ -119,15 +119,15 @@ const projectsData = [
       "/images/admin2.jpg",
       "/images/admin3.jpg"
     ],
-    title: "Управление бизнесом через админку",
+    title: "Business Management via Admin Panel",
     subtitle: "",
     description: (
       <ul className="list-disc list-inside space-y-2">
-        <li>Удобное управление данными и процессами</li>
-        <li>Ролевой доступ для сотрудников</li>
-        <li>Разнообразная аналитика - графики, таблицы</li>
-        <li>Интеграции с другими сервисами</li>
-        <li>Обучение и работа с ИИ инструментами</li>
+        <li>Convenient data and process management</li>
+        <li>Role-based access for employees</li>
+        <li>Diverse analytics - charts, tables</li>
+        <li>Integrations with other services</li>
+        <li>Training and AI tools support</li>
       </ul>
     ),
     technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Chart.js"],
@@ -165,7 +165,7 @@ const Projects: React.FC = () => {
     <section id="projects" className="bg-gradient-to-b from-purple-dark to-purple">
       <div className="container-custom">
         <div className="mb-16 text-center animate-on-scroll">
-          <h2 className="section-title inline-block pb-3">Направления разработки</h2>
+          <h2 className="section-title inline-block pb-3">Development Directions</h2>
         </div>
 
         <div className="space-y-16">

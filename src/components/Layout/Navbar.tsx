@@ -3,14 +3,14 @@ import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const navItems = [
-/*  { label: "Главная", href: "/", isHash: false }, */
-  { label: "Проекты", href: "#projects", isHash: true },
-  { label: "Примеры", href: "#business-cases", isHash: true },
-  { label: "Этапы", href: "#project-stages", isHash: true },
-  { label: "Кейс", href: "#case", isHash: true },
-  { label: "Команда", href: "#team", isHash: true },
-  { label: "Отзывы", href: "#testimonials", isHash: true },
-  { label: "Контакты", href: "#contact", isHash: true },
+/*  { label: "Home", href: "/", isHash: false }, */
+  { label: "Projects", href: "#projects", isHash: true },
+  { label: "Examples", href: "#business-cases", isHash: true },
+  { label: "Stages", href: "#project-stages", isHash: true },
+  { label: "Case", href: "#case", isHash: true },
+  { label: "Team", href: "#team", isHash: true },
+  { label: "Testimonials", href: "#testimonials", isHash: true },
+  { label: "Contact", href: "#contact", isHash: true },
 ];
 
 const Navbar: React.FC = () => {
@@ -57,12 +57,12 @@ const Navbar: React.FC = () => {
       scrolled ? 'bg-purple-dark/90 backdrop-blur-lg shadow-lg' : 'bg-transparent'
     }`}>
       <div className="container-custom mx-auto flex items-center justify-between py-4">
-        {/* Логотип слева */}
+        {/* Logo on the left */}
         <Link to="/" className="flex items-center">
-          <span className="text-xl font-bold text-white">Студия цифровых продуктов</span>
+          <span className="text-xl font-bold text-white">Digital Product Studio</span>
         </Link>
 
-        {/* Основное меню по центру */}
+        {/* Main menu centered */}
         <nav className="hidden md:flex items-center justify-center flex-1 px-8">
           <div className="flex space-x-1">
             {navItems.map((item) => {
@@ -120,11 +120,11 @@ const Navbar: React.FC = () => {
               }
             }}
           >
-            Начать проект
+            Start a Project
           </Link>
         </div>
 
-        {/* Мобильное меню */}
+        {/* Mobile menu */}
         <button 
           className="md:hidden text-white p-2"
           onClick={toggleMobileMenu}
@@ -180,7 +180,7 @@ const Navbar: React.FC = () => {
                 </Link>
               );
             })}
-            {/* Кнопка "Начать проект" скрыта на мобильных устройствах */}
+            {/* "Start a Project" button hidden on mobile devices */}
           </div>
         </nav>
       )}

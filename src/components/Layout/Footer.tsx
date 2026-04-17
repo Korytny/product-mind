@@ -2,13 +2,13 @@ import React from 'react';
 import { ArrowUp } from 'lucide-react';
 
 const navItems = [
-  { label: "Главная", href: "#hero" },
-  { label: "Проекты", href: "#projects" },
-  { label: "Бизнес Примеры", href: "#business-cases" },
-  { label: "Этапы проекта", href: "#project-stages" },
-  { label: "Команда", href: "#team" },
-  { label: "Отзывы", href: "#testimonials" },
-  { label: "Контакты", href: "#contact" },
+  { label: "Home", href: "#hero" },
+  { label: "Projects", href: "#projects" },
+  { label: "Business Examples", href: "#business-cases" },
+  { label: "Project Stages", href: "#project-stages" },
+  { label: "Team", href: "#team" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Footer: React.FC = () => {
@@ -21,20 +21,20 @@ const Footer: React.FC = () => {
               <span className="text-xl font-bold text-white">Product Mind</span>
             </a>
             <p className="text-gray-300">
-              Разработка цифровых продуктов<br />
-              и автоматизация бизнес-процессов
+              Development of digital products<br />
+              and business process automation
             </p>
           </div>
 
           <div className="md:text-right">
-            <h4 className="text-lg font-semibold mb-6">Контакты</h4>
+            <h4 className="text-lg font-semibold mb-6">Contact</h4>
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:korytny@gmail.com"
+                  href="mailto:info@productmind.ru"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  korytny@gmail.com
+                  info@productmind.ru
                 </a>
               </li>
               <li>
@@ -60,12 +60,12 @@ const Footer: React.FC = () => {
         <div className="mt-12 pt-8 border-t border-white/10 w-full text-center md:text-left">
           <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Product Mind. Все права защищены.
+              © {new Date().getFullYear()} Product Mind. All rights reserved.
             </p>
-            <a 
-              href="#hero" 
+            <a
+              href="#hero"
               className="flex items-center justify-center w-10 h-10 bg-accent rounded-full transition-transform hover:-translate-y-1"
-              aria-label="Вернуться наверх"
+              aria-label="Back to top"
             >
               <ArrowUp size={20} className="text-white" />
             </a>

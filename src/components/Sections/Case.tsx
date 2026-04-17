@@ -32,28 +32,28 @@ const animationStyles = `
 
 const directions = [
   {
-    title: "Передовой инжиниринг",
-    description: "Инновационные инженерные решения",
+    title: "Advanced Engineering",
+    description: "Innovative engineering solutions",
     icon: "🔧"
   },
   {
-    title: "Техническое обслуживание",
-    description: "Комплексный инфраструктурные работы", 
+    title: "Maintenance",
+    description: "Comprehensive infrastructure works",
     icon: "🛠️"
   },
   {
-    title: "Эксплуатация зданий",
-    description: "Полный цикл работ по обслуживанию зданий",
+    title: "Building Operation",
+    description: "Full cycle of building maintenance",
     icon: "🏢"
   },
   {
-    title: "Холодильное оборудование",
-    description: "Поставки и монтаж кондеев и чиллеров",
+    title: "Refrigeration Equipment",
+    description: "Supply and installation of ACs and chillers",
     icon: "❄️"
   },
   {
-    title: "Системы фальшпола",
-    description: "Собственные решения для компонентного пола",
+    title: "Raised Floor Systems",
+    description: "Proprietary solutions for raised floors",
     icon: "🧱"
   }
 ];
@@ -61,19 +61,19 @@ const directions = [
 const projects = [
   {
     name: "RusIntelCom.ru",
-    description: "Основной брендовый сайт компании - здесь все услуги и проекты, общая деятельность компании",
+    description: "Main corporate website - all services and projects, general company activities",
     url: "https://rusintelcom.ru",
     image: "/images/case1.jpg"
   },
   {
     name: "iCOND.ru",
-    description: "Сайт бизнес-единицы поставок холодильного оборудования - каталог, референсы, сертификаты",
+    description: "Business unit website for refrigeration equipment supply - catalog, references, certificates",
     url: "https://icond.ru",
     image: "/images/case2.jpg"
   },
   {
     name: "MetaPol.pro",
-    description: "Поставки фальшпола - новое бизнес направление, обширный каталог, статейный маркетинг",
+    description: "Raised floor supply - new business direction, extensive catalog, content marketing",
     url: "https://metapol.pro",
     image: "/images/case3.jpg"
   }
@@ -81,18 +81,18 @@ const projects = [
 
 const secondPhaseItems = [
   {
-    name: "Проектное управление",
-    description: "Систематизация проектов, разработка шаблонов планов и документов, в существующей Bitrix24",
+    name: "Project Management",
+    description: "Systematization of projects, development of plan and document templates in existing Bitrix24",
     image: "/images/case-project.jpg"
   },
   {
-    name: "Умная CRM-система", 
-    description: "Собирает контакты с сайтов, проводит первоначальную классификацию лидов",
+    name: "Smart CRM System",
+    description: "Collects contacts from websites, performs initial lead classification",
     image: "/images/case-crm.jpg"
   },
   {
-    name: "Проактивный ИИ маркетинг",
-    description: "Разработка стратегии по каналам, автоматизация создания контента, персональные рассылки",
+    name: "Proactive AI Marketing",
+    description: "Strategy development by channels, content creation automation, personalized mailings",
     image: "/images/case-content.jpg"
   }
 ];
@@ -119,13 +119,13 @@ export const Case = ({ id }: CaseProps) => {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Кейс: цифровизация РусИнтелКом
+            Case Study: RusIntelCom Digitalization
           </h2>
-          
+
           <p className="max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400 mb-12">
-            Компания поставщиком целого спектра инженерных решений.<br />
-            В первую очередь были выделены 5 ключевых направлений <br />
-            для цифровой трансформации бизнеса.
+            A supplier of a wide range of engineering solutions.<br />
+            First, 5 key areas were identified <br />
+            for business digital transformation.
           </p>
         </div>
 
@@ -158,7 +158,7 @@ export const Case = ({ id }: CaseProps) => {
         </div>
 
         <div className="mt-16">
-          <h3 className="text-2xl font-bold text-center mb-8">Вторая очередь - разработка сайтов по направениям</h3>
+          <h3 className="text-2xl font-bold text-center mb-8">Second Phase - Website Development by Direction</h3>
           <div className="grid gap-8 md:grid-cols-3">
             {projects.map((project, index) => (
               <AnimatedContainer key={index} delay={index * 0.2}>
@@ -179,7 +179,7 @@ export const Case = ({ id }: CaseProps) => {
                   <div className="p-4">
                     <Button asChild variant="outline" className="w-full">
                       <a href={project.url} target="_blank" rel="noopener noreferrer">
-                        Посетить сайт
+                        Visit Website
                       </a>
                     </Button>
                   </div>
@@ -190,7 +190,7 @@ export const Case = ({ id }: CaseProps) => {
         </div>
 
         <div className="mt-16">
-          <h3 className="text-2xl font-bold text-center mb-8">Теретий этап - системные внутренние решения </h3>
+          <h3 className="text-2xl font-bold text-center mb-8">Third Phase - Internal System Solutions</h3>
           <div className="grid gap-8 md:grid-cols-3">
             {secondPhaseItems.map((item, index) => (
               <AnimatedContainer key={index} delay={index * 0.2}>

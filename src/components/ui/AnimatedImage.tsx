@@ -18,7 +18,7 @@ const AnimatedImage: React.FC<AnimatedImageProps> = ({
 }) => {
   const imgRef = useRef<HTMLImageElement>(null);
   const [error, setError] = useState(false);
-  const fallbackImage = 'https://via.placeholder.com/800x600?text=Изображение+не+найдено';
+  const fallbackImage = 'https://via.placeholder.com/800x600?text=Image+Not+Found';
 
   useEffect(() => {
     const observer = new IntersectionObserver(

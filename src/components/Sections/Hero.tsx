@@ -110,7 +110,7 @@ const Hero: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-white">Скорость</p>
+                  <p className="text-sm text-white">Speed</p>
                   <p className="text-lg font-semibold text-white">+300%</p>
                 </div>
               </div>
@@ -124,7 +124,7 @@ const Hero: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-white">Качество</p>
+                  <p className="text-sm text-white">Quality</p>
                   <p className="text-lg font-semibold text-white">+500%</p>
                 </div>
               </div>
@@ -139,7 +139,7 @@ const Hero: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-300">Эффективность</p>
+                  <p className="text-sm text-gray-300">Efficiency</p>
                   <p className="text-lg font-semibold text-white">+200%</p>
                 </div>
               </div>

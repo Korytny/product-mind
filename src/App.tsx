@@ -8,10 +8,10 @@ import NotFound from "./pages/NotFound";
 import DynamicLandingPage from "./components/DynamicLandingPage";
 
 // Configure document title and description
-document.title = "Product Mind | Масштабирование бизнеса с ИИ";
+document.title = "Product Mind | Business Scaling with AI";
 const metaDescription = document.querySelector('meta[name="description"]');
 if (metaDescription) {
-  metaDescription.setAttribute('content', 'Масштабирование бизнеса с ИИ');
+  metaDescription.setAttribute('content', 'Business Scaling with AI');
 }
 
 const queryClient = new QueryClient();

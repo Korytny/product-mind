@@ -33,7 +33,7 @@ class ContactForm(BaseModel):
     phone: str
     message: str
 
-TELEGRAM_TOKEN = '7163739772:AAHB8FXXp_IStmyy8pmMd8Tz20nJNr6DhSc'
+TELEGRAM_TOKEN = '7429219563:AAFCSlt_PRSJ7EV8tBQfiIgJl_gDMtLIcTc'
 CHAT_ID = '410301582'
 
 @app.post("/send-message")

@@ -41,8 +41,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({ image, name, position, socials 
 const teamData = [
   {
     image: "/images/t1.jpg",
-    name: "Евгений Кортыный",
-    position: "Маркетинг",
+    name: "Evgeny Kortny",
+    position: "Marketing",
     socials: {
       linkedin: "#",
       github: "#",
@@ -51,8 +51,8 @@ const teamData = [
   },
   {
     image: "/images/t2.jpg",
-    name: "Иван Мякишев",
-    position: "Разработчик Бекенд",
+    name: "Ivan Myakishev",
+    position: "Backend Developer",
     socials: {
       linkedin: "#",
       github: "#",
@@ -61,8 +61,8 @@ const teamData = [
   },
   {
     image: "/images/t3.jpg",
-    name: "Курников Андрей",
-    position: "Разработка Фронтенд",
+    name: "Andrey Kurnikov",
+    position: "Frontend Development",
     socials: {
       linkedin: "#",
       github: "#",
@@ -71,7 +71,7 @@ const teamData = [
   },
   {
     image: "/images/t4.jpg",
-    name: "Алина Брилина",
+    name: "Alina Brilina",
     position: "UI/UX Designer",
     socials: {
       linkedin: "#",
@@ -108,7 +108,7 @@ const Team: React.FC = () => {
     <section id="team" className="bg-purple-dark">
       <div className="container-custom">
         <div className="mb-16 text-center animate-on-scroll">
-          <h2 className="section-title inline-block pb-3">Наша команда</h2>
+          <h2 className="section-title inline-block pb-3">Our Team</h2>
         </div>
 
         <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

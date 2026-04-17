@@ -7,12 +7,12 @@ const contactInfo = [
   {
     icon: <Mail className="h-6 w-6 text-accent" />,
     title: "Email",
-    details: "korytny@gmail.com",
-    link: "mailto:korytny@gmail.com"
+    details: "info@productmind.ru",
+    link: "mailto:info@productmind.ru"
   },
   {
     icon: <Phone className="h-6 w-6 text-accent" />,
-    title: "Телеграм",
+    title: "Telegram",
     details: "@korytny",
     link: "https://t.me/korytny"
   },
@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
     <section id="contact" className="bg-purple">
       <div className="container-custom">
         <div className="mb-8 text-center animate-on-scroll">
-          <h2 className="section-title inline-block pb-3">Бесплатная консультация по вашим идеям</h2>
+          <h2 className="section-title inline-block pb-3">Free consultation for your ideas</h2>
         </div>
 
         <div className="max-w-4xl mx-auto">

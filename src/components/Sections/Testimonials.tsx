@@ -4,27 +4,27 @@ import { AnimatedTestimonials } from '../ui/AnimatedTestimonials';
 
 const testimonialData = [
   {
-    quote: "Спасибо за приложения по управлению МедиаКубом! Ваша админка помогает эффективно управлять контентом, а чат бот собирать аудиторию для наших медиа проектов.",
-    name: "Артур Литвинов",
-    designation: "Директор компании \"VideoMap.ru\"",
+    quote: "Thank you for the MediaCube management application! Your admin panel helps manage content efficiently, and the chatbot helps gather an audience for our media projects.",
+    name: "Arthur Litvinov",
+    designation: "Director of \"VideoMap.ru\"",
     src: "/images/o1.jpg",
   },
   {
-    quote: "Ребята, спасибо за классный сайт! Мы вывели на рынок новый продукт Metapol. Отдельное благодарность за чатбот с ИИ, клиенты очень удивляются его знаниям о продуктах. Заказов стало в разы больше!",
-    name: "Денис Мельник",
-    designation: "Директор компании \"РусИнтелКом\"",
+    quote: "Guys, thank you for the great website! We've launched a new product Metapol. Special thanks for the AI chatbot, clients are very impressed with its knowledge about products. Orders have increased significantly!",
+    name: "Denis Melnik",
+    designation: "Director of \"RusIntelCom\"",
     src: "/images/o2.jpg",
   },
   {
-    quote: "Сделали сайт и админку упраления заказами, добавили чат и теперь готовимся к захату мира!",
-    name: "Максим Газетов",
-    designation: "Директор компании \"KinoKupol.ru\"",
+    quote: "They made a website and order management admin, added chat and now we're preparing to take over the world!",
+    name: "Maxim Gazetov",
+    designation: "Director of \"KinoKupol.ru\"",
     src: "/images/o3.jpg",
   },
   {
-    quote: "Классно сделали админку для приложения HolySpots и систему управления нашими проектми VedaVerse. В планах раскручивать Digital маховик на полную мощность",
-    name: "Георгий Аистов",
-    designation: "Директор компании \"FullDome.pro\"",
+    quote: "They made a great admin panel for the HolySpots app and a system to manage our VedaVerse projects. We plan to spin the Digital wheel at full power",
+    name: "Georgy Aistov",
+    designation: "Director of \"FullDome.pro\"",
     src: "/images/o4.jpg",
   }
 ];
@@ -40,7 +40,7 @@ const Testimonials: React.FC = () => {
       
       <div className="container-custom relative z-10">
         <div className="mb-8 text-center animate-on-scroll">
-          <h2 className="section-title inline-block pb-3">Что говорят наши клиенты</h2>
+          <h2 className="section-title inline-block pb-3">What Our Clients Say</h2>
         </div>
 
         <AnimatedTestimonials
