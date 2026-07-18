@@ -37,13 +37,13 @@ const directions = [
     icon: "🔧"
   },
   {
-    title: "Maintenance",
+    title: "Maintenance Support",
     description: "Comprehensive infrastructure works",
     icon: "🛠️"
   },
   {
-    title: "Building Operation",
-    description: "Full cycle of building maintenance",
+    title: "Infrastructure Operation",
+    description: "Full cycle of infrastructure maintenance",
     icon: "🏢"
   },
   {

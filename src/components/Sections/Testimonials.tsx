@@ -10,12 +10,6 @@ const testimonialData = [
     src: "/images/o1.jpg",
   },
   {
-    quote: "Guys, thank you for the great website! We've launched a new product Metapol. Special thanks for the AI chatbot, clients are very impressed with its knowledge about products. Orders have increased significantly!",
-    name: "Denis Melnik",
-    designation: "Director of \"RusIntelCom\"",
-    src: "/images/o2.jpg",
-  },
-  {
     quote: "They made a website and order management admin, added chat and now we're preparing to take over the world!",
     name: "Maxim Gazetov",
     designation: "Director of \"KinoKupol.ru\"",

@@ -41,8 +41,18 @@ const TeamMember: React.FC<TeamMemberProps> = ({ image, name, position, socials 
 const teamData = [
   {
     image: "/images/t1.jpg",
-    name: "Evgeny Kortny",
-    position: "Marketing",
+    name: "Evgeny Korytny",
+    position: "PMO",
+    socials: {
+      linkedin: "#",
+      github: "#",
+      twitter: "#"
+    }
+  },
+  {
+    image: "/images/t5.jpg",
+    name: "Anton Dodonov",
+    position: "CTO",
     socials: {
       linkedin: "#",
       github: "#",
@@ -53,16 +63,6 @@ const teamData = [
     image: "/images/t2.jpg",
     name: "Ivan Myakishev",
     position: "Backend Developer",
-    socials: {
-      linkedin: "#",
-      github: "#",
-      twitter: "#"
-    }
-  },
-  {
-    image: "/images/t3.jpg",
-    name: "Andrey Kurnikov",
-    position: "Frontend Development",
     socials: {
       linkedin: "#",
       github: "#",
