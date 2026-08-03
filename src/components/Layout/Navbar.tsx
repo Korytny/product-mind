@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-const navItems = [
-/*  { label: "Home", href: "/", isHash: false }, */
-  { label: "Projects", href: "#projects", isHash: true },
-  { label: "Examples", href: "#business-cases", isHash: true },
-  { label: "Stages", href: "#project-stages", isHash: true },
-  { label: "Case", href: "#case", isHash: true },
-  { label: "Team", href: "#team", isHash: true },
-  { label: "Testimonials", href: "#testimonials", isHash: true },
-  { label: "Contact", href: "#contact", isHash: true },
-];
+import { useTranslation } from '../../i18n/language';
 
 const Navbar: React.FC = () => {
+  const { lang, t, switchLang } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const [isHomePage, setIsHomePage] = useState(true);
 
+  const navItems = [
+    { label: t("navProjects"), href: "#projects", isHash: true },
+    { label: t("navExamples"), href: "#business-cases", isHash: true },
+    { label: t("navStages"), href: "#project-stages", isHash: true },
+    { label: t("navCase"), href: "#case", isHash: true },
+    { label: t("navTeam"), href: "#team", isHash: true },
+    { label: t("navTestimonials"), href: "#testimonials", isHash: true },
+    { label: t("navContact"), href: "#contact", isHash: true },
+  ];
+
   useEffect(() => {
-    setIsHomePage(window.location.pathname === '/');
+    setIsHomePage(window.location.pathname === '/' + lang);
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -46,7 +47,7 @@ const Navbar: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isHomePage]);
+  }, [isHomePage, lang]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -58,30 +59,15 @@ const Navbar: React.FC = () => {
     }`}>
       <div className="container-custom mx-auto flex items-center justify-between py-4">
         {/* Logo on the left */}
-        <Link to="/" className="flex items-center">
-          <span className="text-xl font-bold text-white">Digital Product Studio</span>
+        <Link to={`/${lang}`} className="flex items-center">
+          <span className="text-xl font-bold text-white">{t("brandTitle")}</span>
         </Link>
 
         {/* Main menu centered */}
         <nav className="hidden md:flex items-center justify-center flex-1 px-8">
           <div className="flex space-x-1">
             {navItems.map((item) => {
-              if (!item.isHash) {
-                return (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    className={`nav-link ${
-                      (isHomePage && activeSection === "hero" && item.href === "/") || 
-                      (!isHomePage && item.href === window.location.pathname)
-                        ? 'active'
-                        : ''
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              }
+              const homeUrl = '/' + lang;
               
               if (isHomePage) {
                 return (
@@ -98,7 +84,7 @@ const Navbar: React.FC = () => {
               return (
                 <Link
                   key={item.label}
-                  to={`/${item.href}`}
+                  to={homeUrl + item.href}
                   className="nav-link"
                 >
                   {item.label}
@@ -108,53 +94,52 @@ const Navbar: React.FC = () => {
           </div>
         </nav>
 
-        {/* Кнопка справа (скрыта на мобильных) */}
-        <div className="hidden md:block">
+        {/* Right side: language switcher + CTA */}
+        <div className="hidden md:flex items-center gap-3">
+          <button
+            onClick={() => switchLang(lang === "ru" ? "en" : "ru")}
+            className="text-white/70 hover:text-white text-sm font-medium transition-colors border border-white/20 rounded px-2 py-1"
+          >
+            {lang === "ru" ? "EN" : "RU"}
+          </button>
+
           <Link
-            to="/#contact"
+            to={`/${lang}/#contact`}
             className="btn-primary"
             onClick={(e) => {
-              if (window.location.pathname === '/') {
+              if (isHomePage) {
                 e.preventDefault();
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }
             }}
           >
-            Start a Project
+            {t("navStartProject")}
           </Link>
         </div>
 
         {/* Mobile menu */}
-        <button 
-          className="md:hidden text-white p-2"
-          onClick={toggleMobileMenu}
-          aria-label="Toggle mobile menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={() => switchLang(lang === "ru" ? "en" : "ru")}
+            className="text-white/70 hover:text-white text-sm font-medium transition-colors border border-white/20 rounded px-2 py-1"
+          >
+            {lang === "ru" ? "EN" : "RU"}
+          </button>
+          <button 
+            className="text-white p-2"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {mobileMenuOpen && (
         <nav className="md:hidden bg-purple-dark/95 backdrop-blur-lg">
           <div className="container-custom py-4 flex flex-col space-y-4">
             {navItems.map((item) => {
-              if (!item.isHash) {
-                return (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    className={`nav-link ${
-                      (isHomePage && activeSection === "hero" && item.href === "/") || 
-                      (!isHomePage && item.href === window.location.pathname)
-                        ? 'active'
-                        : ''
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              }
+              const homeUrl = '/' + lang;
               
               if (isHomePage) {
                 return (
@@ -172,7 +157,7 @@ const Navbar: React.FC = () => {
               return (
                 <Link
                   key={item.label}
-                  to={`/${item.href}`}
+                  to={homeUrl + item.href}
                   className="nav-link"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -180,7 +165,6 @@ const Navbar: React.FC = () => {
                 </Link>
               );
             })}
-            {/* "Start a Project" button hidden on mobile devices */}
           </div>
         </nav>
       )}

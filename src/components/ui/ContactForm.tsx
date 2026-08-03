@@ -8,8 +8,10 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from '../../i18n/language';
 
 const ContactForm: React.FC = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,7 +35,7 @@ const ContactForm: React.FC = () => {
     
     // Check if either email or phone is filled
     if (!formData.email && !formData.phone) {
-      toast.error('Please provide an email or phone number');
+      toast.error(t("formNoContact"));
       return;
     }
 
@@ -61,7 +63,7 @@ const ContactForm: React.FC = () => {
       // Clear form only after closing the dialog
     } catch (error) {
       console.error('Error submitting form:', error);
-      toast.error('An error occurred while submitting the form. Please try again.');
+      toast.error(t("formError"));
     }
   
     setLoading(false);
@@ -75,7 +77,7 @@ const ContactForm: React.FC = () => {
         <div className="space-y-4 md:col-span-1">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-2">
-              Your Name
+              {t("formName")}
             </label>
             <input
               type="text"
@@ -86,7 +88,7 @@ const ContactForm: React.FC = () => {
               className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg 
                        focus:ring-2 focus:ring-accent focus:border-transparent 
                        text-white placeholder-gray-400"
-              placeholder="John Doe"
+              placeholder={t("formNamePlaceholder")}
               required
             />
           </div>
@@ -110,7 +112,7 @@ const ContactForm: React.FC = () => {
           
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-gray-200 mb-2">
-              Or Phone
+              {t("formOrPhone")}
             </label>
             <input
               type="tel"
@@ -128,7 +130,7 @@ const ContactForm: React.FC = () => {
         
         <div className="md:col-span-1 flex flex-col">
           <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-2">
-            Message
+            {t("formMessage")}
           </label>
           <textarea
             id="message"
@@ -138,7 +140,7 @@ const ContactForm: React.FC = () => {
             className="w-full flex-grow px-4 py-2 bg-white/10 border border-white/20 rounded-lg 
                      focus:ring-2 focus:ring-accent focus:border-transparent 
                      text-white placeholder-gray-400 resize-none"
-            placeholder="Briefly describe your project"
+            placeholder={t("formMessagePlaceholder")}
             required
           />
         </div>
@@ -153,7 +155,7 @@ const ContactForm: React.FC = () => {
               <span className="inline-block h-5 w-5 animate-spin rounded-full border-2 border-solid border-current border-r-transparent"></span>
             ) : (
               <>
-                <span>Submit</span>
+                <span>{t("formSubmit")}</span>
                 <Send className="ml-2 h-5 w-5" />
               </>
             )}
@@ -175,11 +177,11 @@ const ContactForm: React.FC = () => {
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="text-center mb-4">
-            Your request has been successfully submitted.
+            {t("formSuccess")}
           </DialogTitle>
         </DialogHeader>
         <div className="text-center mb-6">
-          If you'd like to contact us now - click the button.
+          {t("formSuccessHint")}
         </div>
         <div className="flex justify-center">
           <Button asChild>
@@ -192,7 +194,7 @@ const ContactForm: React.FC = () => {
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.534.26l.213-3.053 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.87 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
               </svg>
-              Go to Telegram
+              {t("formTelegram")}
             </a>
           </Button>
         </div>

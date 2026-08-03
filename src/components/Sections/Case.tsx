@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Sparkles } from '@/components/ui/Sparkles';
 import AnimatedImage from '@/components/ui/AnimatedImage';
+import { useTranslation } from '../../i18n/language';
 
 const AnimatedContainer = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => {
   return (
@@ -19,7 +20,6 @@ const AnimatedContainer = ({ children, delay = 0 }: { children: React.ReactNode,
   );
 };
 
-// Добавим глобальные стили анимации в компонент
 const animationStyles = `
   @keyframes fadeIn {
     from { opacity: 0; }
@@ -30,78 +30,33 @@ const animationStyles = `
   }
 `;
 
-const directions = [
-  {
-    title: "Advanced Engineering",
-    description: "Innovative engineering solutions",
-    icon: "🔧"
-  },
-  {
-    title: "Maintenance Support",
-    description: "Comprehensive infrastructure works",
-    icon: "🛠️"
-  },
-  {
-    title: "Infrastructure Operation",
-    description: "Full cycle of infrastructure maintenance",
-    icon: "🏢"
-  },
-  {
-    title: "Refrigeration Equipment",
-    description: "Supply and installation of ACs and chillers",
-    icon: "❄️"
-  },
-  {
-    title: "Raised Floor Systems",
-    description: "Proprietary solutions for raised floors",
-    icon: "🧱"
-  }
-];
-
-const projects = [
-  {
-    name: "RusIntelCom.ru",
-    description: "Main corporate website - all services and projects, general company activities",
-    url: "https://rusintelcom.ru",
-    image: "/images/case1.jpg"
-  },
-  {
-    name: "iCOND.ru",
-    description: "Business unit website for refrigeration equipment supply - catalog, references, certificates",
-    url: "https://icond.ru",
-    image: "/images/case2.jpg"
-  },
-  {
-    name: "MetaPol.pro",
-    description: "Raised floor supply - new business direction, extensive catalog, content marketing",
-    url: "https://metapol.pro",
-    image: "/images/case3.jpg"
-  }
-];
-
-const secondPhaseItems = [
-  {
-    name: "Project Management",
-    description: "Systematization of projects, development of plan and document templates in existing Bitrix24",
-    image: "/images/case-project.jpg"
-  },
-  {
-    name: "Smart CRM System",
-    description: "Collects contacts from websites, performs initial lead classification",
-    image: "/images/case-crm.jpg"
-  },
-  {
-    name: "Proactive AI Marketing",
-    description: "Strategy development by channels, content creation automation, personalized mailings",
-    image: "/images/case-content.jpg"
-  }
-];
-
 interface CaseProps {
   id?: string;
 }
 
 export const Case = ({ id }: CaseProps) => {
+  const { t } = useTranslation();
+
+  const directions = [
+    { title: t("caseDir1Title"), description: t("caseDir1Desc"), icon: "🔧" },
+    { title: t("caseDir2Title"), description: t("caseDir2Desc"), icon: "🛠️" },
+    { title: t("caseDir3Title"), description: t("caseDir3Desc"), icon: "🏢" },
+    { title: t("caseDir4Title"), description: t("caseDir4Desc"), icon: "❄️" },
+    { title: t("caseDir5Title"), description: t("caseDir5Desc"), icon: "🧱" },
+  ];
+
+  const projects = [
+    { name: "RusIntelCom.ru", description: t("caseProj1Desc"), url: "https://rusintelcom.ru", image: "/images/case1.jpg" },
+    { name: "iCOND.ru", description: t("caseProj2Desc"), url: "https://icond.ru", image: "/images/case2.jpg" },
+    { name: "MetaPol.pro", description: t("caseProj3Desc"), url: "https://metapol.pro", image: "/images/case3.jpg" },
+  ];
+
+  const secondPhaseItems = [
+    { name: t("casePMName"), description: t("casePMDesc"), image: "/images/case-project.jpg" },
+    { name: t("caseCRMName"), description: t("caseCRMDesc"), image: "/images/case-crm.jpg" },
+    { name: t("caseAIName"), description: t("caseAIDesc"), image: "/images/case-content.jpg" },
+  ];
+
   React.useEffect(() => {
     const styleElement = document.createElement('style');
     styleElement.innerHTML = animationStyles;
@@ -119,14 +74,10 @@ export const Case = ({ id }: CaseProps) => {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Case Study: RusIntelCom Digitalization
+            {t("caseSectionTitle")}
           </h2>
 
-          <p className="max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400 mb-12">
-            A supplier of a wide range of engineering solutions.<br />
-            First, 5 key areas were identified <br />
-            for business digital transformation.
-          </p>
+          <p className="max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400 mb-12" dangerouslySetInnerHTML={{ __html: t("caseSectionSubtitle") }} />
         </div>
 
         {/* Desktop grid */}
@@ -158,7 +109,7 @@ export const Case = ({ id }: CaseProps) => {
         </div>
 
         <div className="mt-16">
-          <h3 className="text-2xl font-bold text-center mb-8">Second Phase - Website Development by Direction</h3>
+          <h3 className="text-2xl font-bold text-center mb-8">{t("casePhase2Title")}</h3>
           <div className="grid gap-8 md:grid-cols-3">
             {projects.map((project, index) => (
               <AnimatedContainer key={index} delay={index * 0.2}>
@@ -179,7 +130,7 @@ export const Case = ({ id }: CaseProps) => {
                   <div className="p-4">
                     <Button asChild variant="outline" className="w-full">
                       <a href={project.url} target="_blank" rel="noopener noreferrer">
-                        Visit Website
+                        {t("caseVisitWebsite")}
                       </a>
                     </Button>
                   </div>
@@ -190,7 +141,7 @@ export const Case = ({ id }: CaseProps) => {
         </div>
 
         <div className="mt-16">
-          <h3 className="text-2xl font-bold text-center mb-8">Third Phase - Internal System Solutions</h3>
+          <h3 className="text-2xl font-bold text-center mb-8">{t("casePhase3Title")}</h3>
           <div className="grid gap-8 md:grid-cols-3">
             {secondPhaseItems.map((item, index) => (
               <AnimatedContainer key={index} delay={index * 0.2}>

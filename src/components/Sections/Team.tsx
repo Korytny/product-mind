@@ -1,24 +1,17 @@
-
 import React from 'react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
 import AnimatedImage from '../ui/AnimatedImage';
 import { Card, CardContent } from "@/components/ui/card";
+import { useTranslation } from '../../i18n/language';
 
 interface TeamMemberProps {
   image: string;
   name: string;
   position: string;
-  socials: {
-    linkedin?: string;
-    github?: string;
-    twitter?: string;
-  };
 }
 
-const TeamMember: React.FC<TeamMemberProps> = ({ image, name, position, socials }) => {
+const TeamMember: React.FC<TeamMemberProps> = ({ image, name, position }) => {
   return (
     <div className="group relative">
-      {/* Glow effect */}
       <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-light to-accent rounded-lg blur opacity-30 group-hover:opacity-80 transition duration-500"></div>
       <Card className="relative bg-purple/80 backdrop-blur-lg border border-white/10 rounded-2xl shadow-xl flex flex-col items-center text-center animate-on-scroll group">
         <CardContent className="pt-8 pb-6">
@@ -38,49 +31,32 @@ const TeamMember: React.FC<TeamMemberProps> = ({ image, name, position, socials 
   );
 };
 
-const teamData = [
-  {
-    image: "/images/t1.jpg",
-    name: "Evgeny Korytny",
-    position: "PMO",
-    socials: {
-      linkedin: "#",
-      github: "#",
-      twitter: "#"
-    }
-  },
-  {
-    image: "/images/t5.jpg",
-    name: "Anton Dodonov",
-    position: "CTO",
-    socials: {
-      linkedin: "#",
-      github: "#",
-      twitter: "#"
-    }
-  },
-  {
-    image: "/images/t2.jpg",
-    name: "Ivan Myakishev",
-    position: "Backend Developer",
-    socials: {
-      linkedin: "#",
-      github: "#",
-      twitter: "#"
-    }
-  },
-  {
-    image: "/images/t4.jpg",
-    name: "Alina Brilina",
-    position: "UI/UX Designer",
-    socials: {
-      linkedin: "#",
-      twitter: "#"
-    }
-  }
-];
-
 const Team: React.FC = () => {
+  const { t } = useTranslation();
+
+  const teamData = [
+    {
+      image: "/images/t1.jpg",
+      name: t("teamName1"),
+      position: t("teamPosPMO"),
+    },
+    {
+      image: "/images/t5.jpg",
+      name: t("teamName2"),
+      position: t("teamPosCTO"),
+    },
+    {
+      image: "/images/t2.jpg",
+      name: t("teamName3"),
+      position: t("teamPosBackend"),
+    },
+    {
+      image: "/images/t4.jpg",
+      name: t("teamName4"),
+      position: t("teamPosDesigner"),
+    }
+  ];
+
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -90,10 +66,7 @@ const Team: React.FC = () => {
           }
         });
       },
-      {
-        rootMargin: '0px',
-        threshold: 0.1,
-      }
+      { rootMargin: '0px', threshold: 0.1 }
     );
 
     const elements = document.querySelectorAll('.animate-on-scroll');
@@ -108,7 +81,7 @@ const Team: React.FC = () => {
     <section id="team" className="bg-purple-dark">
       <div className="container-custom">
         <div className="mb-16 text-center animate-on-scroll">
-          <h2 className="section-title inline-block pb-3">Our Team</h2>
+          <h2 className="section-title inline-block pb-3">{t("teamTitle")}</h2>
         </div>
 
         <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -118,12 +91,10 @@ const Team: React.FC = () => {
               image={member.image}
               name={member.name}
               position={member.position}
-              socials={member.socials}
             />
           ))}
         </div>
 
-        {/* Mobile carousel */}
         <div className="sm:hidden relative overflow-hidden">
           <div className="flex snap-x snap-mandatory overflow-x-auto gap-4 py-4 px-4">
             {teamData.map((member, index) => (
@@ -132,7 +103,6 @@ const Team: React.FC = () => {
                   image={member.image}
                   name={member.name}
                   position={member.position}
-                  socials={member.socials}
                 />
               </div>
             ))}

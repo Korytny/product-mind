@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from '../../i18n/language';
 
 interface AnimatedImageProps {
   src: string;
@@ -16,9 +17,10 @@ const AnimatedImage: React.FC<AnimatedImageProps> = ({
   animation = 'fade-in',
   loading = 'lazy'
 }) => {
+  const { t } = useTranslation();
   const imgRef = useRef<HTMLImageElement>(null);
   const [error, setError] = useState(false);
-  const fallbackImage = 'https://via.placeholder.com/800x600?text=Image+Not+Found';
+  const fallbackImage = `https://via.placeholder.com/800x600?text=${t("imageNotFound")}`;
 
   useEffect(() => {
     const observer = new IntersectionObserver(

@@ -2,8 +2,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "../../i18n/language";
 
 export function LampDemo() {
+  const { t } = useTranslation();
   return (
     <LampContainer>
       <motion.h1
@@ -15,9 +17,8 @@ export function LampDemo() {
           ease: "easeInOut",
         }}
         className="mt-8 py-4 text-center text-4xl font-medium tracking-tight text-white md:text-7xl"
-      >
-        How to make a website <br /> in 2026
-      </motion.h1>
+        dangerouslySetInnerHTML={{ __html: t("lampHeading") }}
+      ></motion.h1>
     </LampContainer>
   );
 }

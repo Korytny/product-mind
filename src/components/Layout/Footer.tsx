@@ -1,17 +1,20 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
-
-const navItems = [
-  { label: "Home", href: "#hero" },
-  { label: "Projects", href: "#projects" },
-  { label: "Business Examples", href: "#business-cases" },
-  { label: "Project Stages", href: "#project-stages" },
-  { label: "Team", href: "#team" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
-];
+import { useTranslation } from '../../i18n/language';
 
 const Footer: React.FC = () => {
+  const { lang, t } = useTranslation();
+
+  const navItems = [
+    { label: t("footerHome"), href: "#hero" },
+    { label: t("navProjects"), href: "#projects" },
+    { label: t("navExamples"), href: "#business-cases" },
+    { label: t("navStages"), href: "#project-stages" },
+    { label: t("navTeam"), href: "#team" },
+    { label: t("navTestimonials"), href: "#testimonials" },
+    { label: t("navContact"), href: "#contact" },
+  ];
+
   return (
     <footer className="bg-purple-dark py-12 border-t border-white/10">
       <div className="max-w-[1282px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,13 +24,12 @@ const Footer: React.FC = () => {
               <span className="text-xl font-bold text-white">Product Mind</span>
             </a>
             <p className="text-gray-300">
-              Development of digital products<br />
-              and business process automation
+              {t("footerDescription")}
             </p>
           </div>
 
           <div className="md:text-right">
-            <h4 className="text-lg font-semibold mb-6">Contact</h4>
+            <h4 className="text-lg font-semibold mb-6">{t("footerContact")}</h4>
             <ul className="space-y-3">
               <li>
                 <a
@@ -61,13 +63,13 @@ const Footer: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4">
             <div className="flex flex-col md:flex-row items-center gap-4">
               <p className="text-gray-400 text-sm">
-                © {new Date().getFullYear()} Product Mind. All rights reserved.
+                © {new Date().getFullYear()} Product Mind. {t("footerCopyright")}
               </p>
               <div className="flex gap-4">
-                <a href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
+                <a href={`/${lang}/privacy`} className="text-gray-400 hover:text-white text-sm transition-colors">
                   Privacy Policy
                 </a>
-                <a href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
+                <a href={`/${lang}/terms`} className="text-gray-400 hover:text-white text-sm transition-colors">
                   Terms of Service
                 </a>
               </div>
@@ -75,7 +77,7 @@ const Footer: React.FC = () => {
             <a
               href="#hero"
               className="flex items-center justify-center w-10 h-10 bg-accent rounded-full transition-transform hover:-translate-y-1"
-              aria-label="Back to top"
+              aria-label={t("footerBackToTop")}
             >
               <ArrowUp size={20} className="text-white" />
             </a>

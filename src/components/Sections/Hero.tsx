@@ -2,30 +2,45 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ArrowDown } from 'lucide-react';
 import AnimatedImage from '../ui/AnimatedImage';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { dynamicContent } from '../../dynamicContent'; // Убедитесь, что путь правильный
+import { dynamicContent } from '../../dynamicContent';
+import { useTranslation } from '../../i18n/language';
+import type { TranslationKey } from '../../i18n/translations';
+
+type UTMKey = keyof typeof dynamicContent;
+
+const utmTranslationMap: Record<UTMKey, {
+  heading: TranslationKey;
+  sub: TranslationKey;
+  p1: TranslationKey;
+  cta: TranslationKey;
+}> = {
+  default_default_default:       { heading: "dynDefaultHeading",  sub: "dynDefaultSub",  p1: "dynDefaultP1",  cta: "heroCtaContact" },
+  yandex_cpc_biz_auto_gen:      { heading: "dynBizAutoHeading",  sub: "dynBizAutoSub",  p1: "dynBizAutoP1",  cta: "dynBizAutoCta" },
+  google_cpc_biz_economy:       { heading: "dynEconomyHeading",  sub: "dynEconomySub",  p1: "dynEconomyP1",  cta: "dynEconomyCta" },
+  facebook_social_biz_scale:    { heading: "dynScaleHeading",    sub: "dynScaleSub",    p1: "dynScaleP1",    cta: "dynScaleCta" },
+  google_cpc_sales_dept_automation: { heading: "dynSalesHeading", sub: "dynSalesSub", p1: "dynSalesP1", cta: "dynSalesCta" },
+  yandex_cpc_support_automation: { heading: "dynSupportHeading", sub: "dynSupportSub", p1: "dynSupportP1", cta: "dynSupportCta" },
+  vk_social_team_efficiency:    { heading: "dynTeamHeading",     sub: "dynTeamSub",     p1: "dynTeamP1",     cta: "dynTeamCta" },
+  linkedin_cpc_custom_software: { heading: "dynITProductHeading", sub: "dynITProductSub", p1: "dynITProductP1", cta: "dynITProductCta" },
+  google_cpc_api_integration:   { heading: "dynApiHeading",      sub: "dynApiSub",      p1: "dynApiP1",      cta: "dynApiCta" },
+  yandex_search_it_overload:    { heading: "dynOverloadHeading", sub: "dynOverloadSub", p1: "dynOverloadP1", cta: "dynOverloadCta" },
+};
 
 const Hero: React.FC = () => {
-  // Определяем дефолтный контент из dynamicContent.js как начальное состояние
-  // Это убирает дублирование и делает default_default_default вашим единственным дефолтом
-  const [content, setContent] = useState(dynamicContent.default_default_default);
+  const { t } = useTranslation();
+  const [utmKey, setUtmKey] = useState<UTMKey>("default_default_default");
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const utmSource = params.get('utm_source') || 'default';
     const utmMedium = params.get('utm_medium') || 'default';
     const utmCampaign = params.get('utm_campaign') || 'default';
-    const contentKey = `${utmSource}_${utmMedium}_${utmCampaign}`;
-    
-    // Проверяем, есть ли контент по ключу в dynamicContent
-    if (dynamicContent[contentKey]) {
-      // Если есть, устанавливаем его. Теперь imageSrc будет браться из dynamicContent[contentKey]
-      setContent(dynamicContent[contentKey]);
-    } else {
-      // Если ключа нет, убеждаемся, что установлен дефолтный контент
-      // (это уже будет сделано при инициализации useState, но можно явно указать для ясности)
-      setContent(dynamicContent.default_default_default);
-    }
-  }, []); // Пустой массив зависимостей, чтобы эффект выполнялся только один раз при монтировании
+    const key = `${utmSource}_${utmMedium}_${utmCampaign}`;
+    setUtmKey(dynamicContent[key] ? key as UTMKey : "default_default_default");
+  }, []);
+
+  const content = dynamicContent[utmKey];
+  const maps = utmTranslationMap[utmKey];
 
   const heroRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
@@ -52,7 +67,6 @@ const Hero: React.FC = () => {
       ref={heroRef}
       className="relative min-h-[110vh] flex items-center pt-12 pb-16 overflow-hidden md:pt-12"
     >
-      {/* Background animation elements - kept small and within the container */}
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-20 left-10 w-40 h-40 bg-purple-light/10 rounded-full blur-3xl parallax" data-speed="-0.03" style={{ zIndex: -1 }}></div>
         <div className="absolute bottom-40 right-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl parallax" data-speed="0.05" style={{ zIndex: -1 }}></div>
@@ -65,43 +79,40 @@ const Hero: React.FC = () => {
             {isMobile ? (
               <>
                 <span className="relative inline-block">
-                  <span className="text-gradient relative z-10">{content.mainHeading}</span>
+                  <span className="text-gradient relative z-10">{t(maps.heading)}</span>
                   <div className="absolute inset-0 w-full -z-10" />
                 </span>
               </>
             ) : (
               <>
                 <div className="block relative">
-                  <span className="text-gradient relative z-10">{content.mainHeading}</span>
+                  <span className="text-gradient relative z-10">{t(maps.heading)}</span>
                   <div className="absolute inset-0 w-full h-full -z-10" />
                 </div>
               </>
             )}
           </h1>
           <p className="text-base md:text-lg text-gray-300 mb-8 max-w-lg">
-            {content.paragraph1}
+            {t(maps.p1)}
           </p>
-          {/* Добавьте кнопку CTA здесь, если она нужна */}
            <button 
              onClick={() => window.location.href = content.ctaButtonLink}
              className="bg-accent text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-light transition-colors self-start"
            >
-             {content.ctaButtonText}
+             {t(maps.cta)}
            </button>
         </div>
 
         <div className="flex items-center justify-center lg:justify-end relative z-[100] mt-16 md:mt-0">
           <div className="relative w-full max-w-[130%] h-auto z-[100] ml-4" style={{ aspectRatio: '1.3' }}>
-            {/* Main CRM image */}
             <AnimatedImage
-              src={content.imageSrc} // Теперь imageSrc будет браться из dynamicContent
-              alt={content.mainHeading}
+              src={content.imageSrc}
+              alt={t(maps.heading)}
               className="w-full h-full object-cover rounded-xl shadow-2xl border border-white/10 opacity-100 z-0"
               animation="scale"
               loading="eager"
             />
             
-            {/* Decorative elements with stats - без изменений */}
             <div className={`absolute -top-10 -left-6 glass-card p-${isMobile ? '3' : '4'} animate-float z-20`} style={{ animationDelay: '0.5s' }}>
               <div className="flex items-center gap-4">
                 <div className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} bg-accent rounded-full flex items-center justify-center`}>
@@ -110,7 +121,7 @@ const Hero: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-white">Speed</p>
+                  <p className="text-sm text-white">{t("heroBadgeSpeed")}</p>
                   <p className="text-lg font-semibold text-white">+300%</p>
                 </div>
               </div>
@@ -124,13 +135,12 @@ const Hero: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-white">Quality</p>
+                  <p className="text-sm text-white">{t("heroBadgeQuality")}</p>
                   <p className="text-lg font-semibold text-white">+500%</p>
                 </div>
               </div>
             </div>
             
-            {/* Animated stats card */}
             <div className={`absolute -bottom-8 right-8 glass-card p-${isMobile ? '3' : '4'} animate-float z-20`} style={{ animationDelay: '1.5s' }}>
               <div className="flex items-center gap-4">
                 <div className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} bg-accent rounded-full flex items-center justify-center`}>
@@ -139,7 +149,7 @@ const Hero: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm text-gray-300">Efficiency</p>
+                  <p className="text-sm text-gray-300">{t("heroBadgeEfficiency")}</p>
                   <p className="text-lg font-semibold text-white">+200%</p>
                 </div>
               </div>
@@ -148,7 +158,6 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll indicator - hidden on mobile */}
       <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 animate-bounce z-50 hidden md:block">
         <a href="#projects" className="text-white opacity-80 hover:opacity-100 transition-opacity">
           <ArrowDown size={32} />

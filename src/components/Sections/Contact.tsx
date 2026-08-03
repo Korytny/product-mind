@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import ContactForm from '../ui/ContactForm';
+import { useTranslation } from '../../i18n/language';
 
 const contactInfo = [
   {
@@ -25,11 +25,13 @@ const contactInfo = [
 ];
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="contact" className="bg-purple">
       <div className="container-custom">
         <div className="mb-8 text-center animate-on-scroll">
-          <h2 className="section-title inline-block pb-3">Free consultation for your ideas</h2>
+          <h2 className="section-title inline-block pb-3">{t("contactHeading")}</h2>
         </div>
 
         <div className="max-w-4xl mx-auto">

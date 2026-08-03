@@ -1,32 +1,33 @@
-
 import React from 'react';
 import { AnimatedTestimonials } from '../ui/AnimatedTestimonials';
-
-const testimonialData = [
-  {
-    quote: "Thank you for the MediaCube management application! Your admin panel helps manage content efficiently, and the chatbot helps gather an audience for our media projects.",
-    name: "Arthur Litvinov",
-    designation: "Director of \"VideoMap.ru\"",
-    src: "/images/o1.jpg",
-  },
-  {
-    quote: "They made a website and order management admin, added chat and now we're preparing to take over the world!",
-    name: "Maxim Gazetov",
-    designation: "Director of \"KinoKupol.ru\"",
-    src: "/images/o3.jpg",
-  },
-  {
-    quote: "They made a great admin panel for the HolySpots app and a system to manage our VedaVerse projects. We plan to spin the Digital wheel at full power",
-    name: "Georgy Aistov",
-    designation: "Director of \"FullDome.pro\"",
-    src: "/images/o4.jpg",
-  }
-];
+import { useTranslation } from '../../i18n/language';
 
 const Testimonials: React.FC = () => {
+  const { t } = useTranslation();
+
+  const testimonialData = [
+    {
+      quote: t("testimonial1Quote"),
+      name: t("testimonial1Name"),
+      designation: t("testimonial1Role"),
+      src: "/images/o1.jpg",
+    },
+    {
+      quote: t("testimonial2Quote"),
+      name: t("testimonial2Name"),
+      designation: t("testimonial2Role"),
+      src: "/images/o3.jpg",
+    },
+    {
+      quote: t("testimonial3Quote"),
+      name: t("testimonial3Name"),
+      designation: t("testimonial3Role"),
+      src: "/images/o4.jpg",
+    }
+  ];
+
   return (
     <section id="testimonials" className="bg-gradient-to-b from-purple-dark to-purple relative overflow-hidden">
-      {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-20 w-80 h-80 bg-purple-light/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-20 w-80 h-80 bg-accent/5 rounded-full blur-3xl"></div>
@@ -34,7 +35,7 @@ const Testimonials: React.FC = () => {
       
       <div className="container-custom relative z-10">
         <div className="mb-8 text-center animate-on-scroll">
-          <h2 className="section-title inline-block pb-3">What Our Clients Say</h2>
+          <h2 className="section-title inline-block pb-3">{t("testimonialsTitle")}</h2>
         </div>
 
         <AnimatedTestimonials

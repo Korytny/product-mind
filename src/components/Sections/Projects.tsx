@@ -5,6 +5,7 @@ import AnimatedImage from '../ui/AnimatedImage';
 import { Link } from 'react-router-dom';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useTranslation } from '../../i18n/language';
 
 interface ProjectCardProps {
   images: string[];
@@ -72,71 +73,72 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   );
 };
 
-const projectsData = [
-  {
-    images: [
-      "/images/mob4.jpg",
-      "/images/chat2.jpg",
-      "/images/chat3.jpg"
-    ],
-    title: "Smart Chatbot for Your Business",
-    subtitle: "",
-    description: (
-      <ul className="list-disc list-inside space-y-2">
-        <li>Automates routine processes</li>
-        <li>Solves customer tasks 24/7</li>
-        <li>Increases conversion rates</li>
-        <li>Integrates with your CRM</li>
-        <li>Remembers interaction history</li>
-      </ul>
-    ),
-    technologies: ["N8N", "TeleTON", "Python", "React", "Node.js"],
-    icon: <MessageSquare className="text-accent h-6 w-6" />
-  },
-  {
-    images: [
-      "/images/mob3.jpg",
-      "/images/mob2.jpg",
-      "/images/mob.jpg"
-    ],
-    title: "Mobile Application",
-    subtitle: "",
-    description: (
-      <ul className="list-disc list-inside space-y-2">
-        <li>Improves customer experience</li>
-        <li>Free product testing</li>
-        <li>Diverse functionality</li>
-        <li>Can work offline</li>
-        <li>Has access to phone data</li>
-      </ul>
-    ),
-    technologies: ["React Native", "FlutterFlow", "Kotlin", "Firebase", "Redux"],
-    icon: <Smartphone className="text-accent h-6 w-6" />
-  },
-  {
-    images: [
-      "/images/admin1.jpg",
-      "/images/admin2.jpg",
-      "/images/admin3.jpg"
-    ],
-    title: "Business Management via Admin Panel",
-    subtitle: "",
-    description: (
-      <ul className="list-disc list-inside space-y-2">
-        <li>Convenient data and process management</li>
-        <li>Role-based access for employees</li>
-        <li>Diverse analytics - charts, tables</li>
-        <li>Integrations with other services</li>
-        <li>Training and AI tools support</li>
-      </ul>
-    ),
-    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Chart.js"],
-    icon: <LayoutDashboard className="text-accent h-6 w-6" />
-  }
-];
-
 const Projects: React.FC = () => {
   const isMobile = useIsMobile();
+  const { t } = useTranslation();
+
+  const projectsData = [
+    {
+      images: [
+        "/images/mob4.jpg",
+        "/images/chat2.jpg",
+        "/images/chat3.jpg"
+      ],
+      title: t("proj1Title"),
+      subtitle: "",
+      description: (
+        <ul className="list-disc list-inside space-y-2">
+          <li>{t("proj1Li1")}</li>
+          <li>{t("proj1Li2")}</li>
+          <li>{t("proj1Li3")}</li>
+          <li>{t("proj1Li4")}</li>
+          <li>{t("proj1Li5")}</li>
+        </ul>
+      ),
+      technologies: ["N8N", "TeleTON", "Python", "React", "Node.js"],
+      icon: <MessageSquare className="text-accent h-6 w-6" />
+    },
+    {
+      images: [
+        "/images/mob3.jpg",
+        "/images/mob2.jpg",
+        "/images/mob.jpg"
+      ],
+      title: t("proj2Title"),
+      subtitle: "",
+      description: (
+        <ul className="list-disc list-inside space-y-2">
+          <li>{t("proj2Li1")}</li>
+          <li>{t("proj2Li2")}</li>
+          <li>{t("proj2Li3")}</li>
+          <li>{t("proj2Li4")}</li>
+          <li>{t("proj2Li5")}</li>
+        </ul>
+      ),
+      technologies: ["React Native", "FlutterFlow", "Kotlin", "Firebase", "Redux"],
+      icon: <Smartphone className="text-accent h-6 w-6" />
+    },
+    {
+      images: [
+        "/images/admin1.jpg",
+        "/images/admin2.jpg",
+        "/images/admin3.jpg"
+      ],
+      title: t("proj3Title"),
+      subtitle: "",
+      description: (
+        <ul className="list-disc list-inside space-y-2">
+          <li>{t("proj3Li1")}</li>
+          <li>{t("proj3Li2")}</li>
+          <li>{t("proj3Li3")}</li>
+          <li>{t("proj3Li4")}</li>
+          <li>{t("proj3Li5")}</li>
+        </ul>
+      ),
+      technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "Chart.js"],
+      icon: <LayoutDashboard className="text-accent h-6 w-6" />
+    }
+  ];
   
   React.useEffect(() => {
     const observer = new IntersectionObserver(
@@ -165,7 +167,7 @@ const Projects: React.FC = () => {
     <section id="projects" className="bg-gradient-to-b from-purple-dark to-purple">
       <div className="container-custom">
         <div className="mb-16 text-center animate-on-scroll">
-          <h2 className="section-title inline-block pb-3">Development Directions</h2>
+          <h2 className="section-title inline-block pb-3">{t('projectsTitle')}</h2>
         </div>
 
         <div className="space-y-16">
