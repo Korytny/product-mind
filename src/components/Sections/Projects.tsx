@@ -4,7 +4,6 @@ import { MessageSquare, Smartphone, LayoutDashboard, ArrowRight } from 'lucide-r
 import AnimatedImage from '../ui/AnimatedImage';
 import { Link } from 'react-router-dom';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
-import { useIsMobile } from '@/hooks/use-mobile';
 import { useTranslation } from '../../i18n/language';
 
 interface ProjectCardProps {
@@ -15,7 +14,6 @@ interface ProjectCardProps {
   technologies: string[];
   icon: React.ReactNode;
   index: number;
-  isMobile?: boolean;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -26,24 +24,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   technologies,
   icon,
   index,
-  isMobile = false
 }) => {
   return (
     <div className="glass-card overflow-hidden transition-all duration-500 hover:shadow-xl animate-on-scroll">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-        <div className="overflow-visible h-64 md:h-80 relative z-50">
-          <Carousel className="w-full h-full">
+        <div className="relative overflow-hidden z-50 aspect-[4/3] md:aspect-auto md:h-full">
+          <Carousel className="absolute inset-0 [&>div]:h-full">
             <CarouselContent className="h-full">
               {images.map((image, i) => (
                 <CarouselItem key={i} className="h-full">
-                  <div className="h-full w-full">
-                    <AnimatedImage
-                      src={image}
-                      alt={`${title} - image ${i+1}`}
-                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                      animation={index % 2 === 0 ? 'slide-in' : 'slide-in-right'}
-                    />
-                  </div>
+                  <AnimatedImage
+                    src={image}
+                    alt={`${title} - image ${i+1}`}
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    animation={index % 2 === 0 ? 'slide-in' : 'slide-in-right'}
+                  />
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -51,7 +46,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <CarouselNext className="right-2 bg-accent text-white hover:bg-accent-light border-none" />
           </Carousel>
         </div>
-        <div className={`p-6 flex flex-col ${isMobile ? 'mt-[-80px]' : 'justify-center'}`}>
+        <div className="p-6 flex flex-col justify-center">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
               {icon}
@@ -74,7 +69,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 };
 
 const Projects: React.FC = () => {
-  const isMobile = useIsMobile();
   const { t } = useTranslation();
 
   const projectsData = [
@@ -181,7 +175,6 @@ const Projects: React.FC = () => {
               technologies={project.technologies}
               icon={project.icon}
               index={index}
-              isMobile={isMobile}
             />
           ))}
         </div>

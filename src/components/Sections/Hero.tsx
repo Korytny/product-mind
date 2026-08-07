@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
     <section 
       id="hero" 
       ref={heroRef}
-      className="relative min-h-[110vh] flex items-center pt-12 pb-16 overflow-hidden md:pt-12"
+      className="relative min-h-[110vh] flex items-center pt-20 pb-16 overflow-hidden md:pt-32 lg:pt-12"
     >
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-20 left-10 w-40 h-40 bg-purple-light/10 rounded-full blur-3xl parallax" data-speed="-0.03" style={{ zIndex: -1 }}></div>
@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="container-custom grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-10 relative z-10">
-        <div className="flex flex-col justify-center animate-fade-in lg:pt-8">
+        <div className="flex flex-col justify-center text-center lg:text-left animate-fade-in lg:pt-8">
           <h1 className="font-bold leading-tight mb-2 text-[3rem] md:text-[3.6rem] mt-8 md:mt-0">
             {isMobile ? (
               <>
@@ -92,19 +92,19 @@ const Hero: React.FC = () => {
               </>
             )}
           </h1>
-          <p className="text-base md:text-lg text-gray-300 mb-8 max-w-lg">
+          <p className="text-base md:text-lg text-gray-300 mb-8 max-w-lg mx-auto lg:mx-0">
             {t(maps.p1)}
           </p>
            <button 
              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-             className="bg-accent text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-light transition-colors self-start"
+             className="bg-accent text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-light transition-colors self-center lg:self-start"
            >
              {t(maps.cta)}
            </button>
         </div>
 
-        <div className="flex items-center justify-center lg:justify-end relative z-[100] mt-16 md:mt-0">
-          <div className="relative w-full max-w-[130%] h-auto z-[100] ml-4" style={{ aspectRatio: '1.3' }}>
+        <div className="flex items-center justify-center lg:justify-end relative z-[100] mt-16 lg:mt-0">
+          <div className="relative w-full max-w-[95%] md:max-w-[85%] lg:max-w-[130%] h-auto z-[100] ml-4" style={{ aspectRatio: '1.3' }}>
             <AnimatedImage
               src={content.imageSrc}
               alt={t(maps.heading)}

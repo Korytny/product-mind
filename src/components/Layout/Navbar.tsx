@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
         </Link>
 
         {/* Main menu centered */}
-        <nav className="hidden md:flex items-center justify-center flex-1 px-8">
+        <nav className="hidden lg:flex items-center justify-center flex-1 px-8">
           <div className="flex space-x-1">
             {navItems.map((item) => {
               const homeUrl = '/' + lang;
@@ -95,7 +95,7 @@ const Navbar: React.FC = () => {
         </nav>
 
         {/* Right side: language switcher + CTA */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={() => switchLang(lang === "ru" ? "en" : "ru")}
             className="text-white/70 hover:text-white text-sm font-medium transition-colors border border-white/20 rounded px-2 py-1"
@@ -118,7 +118,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile menu */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-2">
           <button
             onClick={() => switchLang(lang === "ru" ? "en" : "ru")}
             className="text-white/70 hover:text-white text-sm font-medium transition-colors border border-white/20 rounded px-2 py-1"
@@ -136,7 +136,7 @@ const Navbar: React.FC = () => {
       </div>
 
       {mobileMenuOpen && (
-        <nav className="md:hidden bg-purple-dark/95 backdrop-blur-lg">
+        <nav className="lg:hidden bg-purple-dark/95 backdrop-blur-lg">
           <div className="container-custom py-4 flex flex-col space-y-4">
             {navItems.map((item) => {
               const homeUrl = '/' + lang;
