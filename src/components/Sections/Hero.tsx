@@ -96,7 +96,7 @@ const Hero: React.FC = () => {
             {t(maps.p1)}
           </p>
            <button 
-             onClick={() => window.location.href = content.ctaButtonLink}
+             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
              className="bg-accent text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-light transition-colors self-start"
            >
              {t(maps.cta)}

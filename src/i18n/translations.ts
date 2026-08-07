@@ -28,6 +28,7 @@ export const translations = {
   heroBadgeSpeed: { ru: "Скорость", en: "Speed" },
   heroBadgeQuality: { ru: "Качество", en: "Quality" },
   heroBadgeEfficiency: { ru: "Эффективность", en: "Efficiency" },
+  heroCtaContact: { ru: "Контакты", en: "Contacts" },
 
   // Dynamic content (UTM-based)
   dynDefaultHeading: { ru: "Ваш бизнес достоин большего", en: "Your Business Deserves More" },
